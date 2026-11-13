@@ -1,0 +1,1 @@
+export default function ContactForm(){return <div className="contact-form"><p>Mientras preparamos el formulario, puedes escribir a Bikesunrise a través de Instagram.</p><a href="https://www.instagram.com/bikesunrise/" target="_blank" rel="noopener noreferrer">Abrir Instagram ↗</a></div>}
