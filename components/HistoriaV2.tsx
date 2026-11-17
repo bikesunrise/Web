@@ -24,8 +24,11 @@ const CONT = (slug: string) => (ORDEN.indexOf(slug) <= 9 ? 'Europa' : ORDEN.inde
 
 // cabecera por capas: foto de fondo, título y, encima, el paisaje recortado (bocetos/historias-v2/recorte_hero.py).
 // fx/fy: punto de la foto que se mantiene a la vista al recortar en pantallas estrechas
-// fx/fy van de 0 a 1; base: altura de la línea base del título en la foto (0 arriba, 1 abajo)
-const CAPAS: Record<string, { fx: number; fy: number; base: number }> = { mexico: { fx: 0.3, fy: 0.4, base: 0.455 } };
+// Medidas en fracciones de la foto (0 a 1). fx/fy: punto que se mantiene a la vista al recortar (fxm en móvil).
+// ix: dónde empieza el título; fin/finm: dónde tiene que acabar como mucho (finm en móvil) (para no quedar tapado); base: línea base; tam: tamaño máximo
+// México: el cardón gigante de la Baja California con la bici (EP.12, 2:28)
+const CAPAS: Record<string, { fx: number; fxm: number; fy: number; ix: number; fin: number; finm: number; base: number; tam: number; alt: string }> = {
+  mexico: { fx: 0.55, fxm: 0.38, fy: 0.62, ix: 0, fin: 0.5, finm: 0.43, base: 0.55, tam: 0.14, alt: 'Un cardón gigante junto a la bici en el desierto de la Baja California' } };
 
 type Trazo = { w: number; h: number; puntos: { x: number; y: number; modo: string }[]; inicio: { lugar: string; ep: number | null }; fin: { lugar: string; ep: number | null } };
 // trazo del recorrido por el país (bocetos/historias-v2/trazos.py): línea continua en bici, discontinua en bus, ferry o avión
@@ -154,11 +157,11 @@ export default function HistoriaV2({ entry }: { entry: Entry }) {
     <div className="hv2 hv3">
       <div dangerouslySetInnerHTML={{ __html: filtroTinta }} />
       <header className={'b-hero' + (capa ? ' b-hero--capas' : '')}
-        style={{ '--fx': capa?.fx ?? 0.5, '--fy': capa?.fy ?? 0.5, '--base': capa?.base ?? 0.62, '--letras': Math.max(6, ...pais.split(' ').map((w) => w.length)) } as React.CSSProperties}>
+        style={{ '--fxd': capa?.fx ?? 0.5, '--fxm': capa?.fxm ?? capa?.fx ?? 0.5, '--fy': capa?.fy ?? 0.5, '--ix': capa?.ix ?? 0, '--find': capa?.fin ?? 1, '--finm': capa?.finm ?? capa?.fin ?? 1, '--base': capa?.base ?? 0.62, '--tam': capa?.tam ?? 0.145, '--letras': Math.max(6, ...pais.split(' ').map((w) => w.length)) } as React.CSSProperties}>
         {/* la escena tiene la proporción de la foto y la cubre entera: el título se ancla a ella y no se descuadra */}
         <div className="b-escena">
           <img className="b-hero-fondo" src={capa ? `/historias/${slug}/hero-fondo.webp` : hero.src} alt={capa ? '' : hero.alt} fetchPriority="high" />
-          {capa ? <img className="b-hero-frente" src={`/historias/${slug}/hero-frente.webp`} alt={hero.alt} /> : null}
+          {capa ? <img className="b-hero-frente" src={`/historias/${slug}/hero-frente.webp`} alt={capa.alt} /> : null}
         </div>
         <div className="b-hero-txt">
           <p className="b-hero-pre">Viajar en bicicleta por</p>
@@ -168,7 +171,6 @@ export default function HistoriaV2({ entry }: { entry: Entry }) {
         <div className="b-hero-pie">
           <p className="b-ruta"><Link href="/portfolio/viajes/">Historias</Link> <span aria-hidden="true">›</span> {CONT(slug)}</p>
           <a className="b-hero-leer" href="#b-leer">Empezar a leer <span aria-hidden="true">↓</span></a>
-          <span />
         </div>
       </header>
 
