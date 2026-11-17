@@ -170,8 +170,7 @@
 .hv3 .b-hero--ilu .b-trazo .parada{fill:var(--tinta)}
 .hv3 .b-hero--ilu .b-trazo .extremo{fill:var(--cielo);stroke:var(--tinta)}
 .hv3 .b-hero--ilu .b-trazo text{fill:var(--tinta)}
-.hv3 .b-hero--ilu .b-hero-pie{color:var(--tinta)}
-.hv3 .b-hero--ilu .b-ruta{color:var(--tinta);opacity:.8}
-.hv3 .b-hero--ilu .b-hero-leer{color:var(--tinta);border-color:var(--tinta);background:var(--cielo)}
-.hv3 .b-hero--ilu .b-hero-leer:hover{background:var(--tinta);color:var(--cielo)}
+/* el pie va sobre la capa más oscura del dibujo */
+.hv3 .b-hero--ilu .b-hero-pie{color:#fff}
+.hv3 .b-hero--ilu .b-ruta{color:rgba(255,255,255,.85)}
 @media (max-width:600px){.hv3 .b-hero--ilu .b-trazo{display:none}}
