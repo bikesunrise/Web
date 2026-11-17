@@ -8,6 +8,7 @@ import type React from 'react';
 import type { Entry, Block } from '@/lib/content';
 import { imageFor, byPath } from '@/lib/content';
 import fotosAmerica from './historia-v2/fotos.json';
+import trazos from './historia-v2/trazos.json';
 import HistoriaCliente from './historia-v2/HistoriaCliente';
 import { pie, filtroTinta } from './portada-v2/pie';
 
@@ -23,7 +24,32 @@ const CONT = (slug: string) => (ORDEN.indexOf(slug) <= 9 ? 'Europa' : ORDEN.inde
 
 // cabecera por capas: foto de fondo, título y, encima, el paisaje recortado (bocetos/historias-v2/recorte_hero.py).
 // fx/fy: punto de la foto que se mantiene a la vista al recortar en pantallas estrechas
-const CAPAS: Record<string, { fx: string; fy: string }> = { mexico: { fx: '30%', fy: '40%' } };
+// fx/fy van de 0 a 1; base: altura de la línea base del título en la foto (0 arriba, 1 abajo)
+const CAPAS: Record<string, { fx: number; fy: number; base: number }> = { mexico: { fx: 0.3, fy: 0.4, base: 0.455 } };
+
+type Trazo = { w: number; h: number; puntos: { x: number; y: number; modo: string }[]; inicio: { lugar: string; ep: number | null }; fin: { lugar: string; ep: number | null } };
+// trazo del recorrido por el país (bocetos/historias-v2/trazos.py): línea continua en bici, discontinua en bus, ferry o avión
+function TrazoRuta({ t, pais }: { t: Trazo; pais: string }) {
+  const P = t.puntos, a = P[0], z = P[P.length - 1];
+  const tramos = P.slice(1).map((q, n) => ({ d: `M${P[n].x},${P[n].y} L${q.x},${q.y}`, salto: q.modo !== 'pedal' }));
+  // la etiqueta del inicio va encima del punto y la del final debajo, así no pisan la línea
+  const ancla = (q: { x: number }) => (q.x < t.w * 0.3 ? 'start' : q.x > t.w * 0.7 ? 'end' : 'middle');
+  const dx = (q: { x: number }) => (ancla(q) === 'start' ? -4 : ancla(q) === 'end' ? 4 : 0);
+  return (
+    <svg className="b-trazo" viewBox={`-50 -34 ${t.w + 100} ${t.h + 80}`} role="img" aria-label={`Recorrido en bicicleta por ${pais}, de ${t.inicio.lugar} a ${t.fin.lugar}`}>
+      {tramos.map((s2, n) => <path key={n} d={s2.d} className={s2.salto ? 'salto' : undefined} />)}
+      {P.map((q, n) => (n === 0 || n === P.length - 1 ? null : <circle key={n} cx={q.x} cy={q.y} r="1.6" className="parada" />))}
+      {[a, z].map((q, n) => <circle key={'e' + n} cx={q.x} cy={q.y} r="4.2" className="extremo" />)}
+      {([[a, t.inicio, -1], [z, t.fin, 1]] as const).map(([q, e, v], n) => (
+        <text key={'t' + n} textAnchor={ancla(q)}>
+          {e.ep ? <tspan className="ep" x={q.x + dx(q)} y={v < 0 ? q.y - 25 : q.y + 22}>EP.{e.ep}</tspan> : null}
+          <tspan className="lugar" x={q.x + dx(q)} y={v < 0 ? q.y - 11 : q.y + (e.ep ? 37 : 24)}>{e.lugar}</tspan>
+        </text>
+      ))}
+    </svg>
+  );
+}
+
 
 const mmss = (s = 0) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
 
@@ -127,13 +153,18 @@ export default function HistoriaV2({ entry }: { entry: Entry }) {
   return (
     <div className="hv2 hv3">
       <div dangerouslySetInnerHTML={{ __html: filtroTinta }} />
-      <header className={'b-hero' + (capa ? ' b-hero--capas' : '')} style={capa ? ({ '--fx': capa.fx, '--fy': capa.fy } as React.CSSProperties) : undefined}>
-        <img className="b-hero-fondo" src={capa ? `/historias/${slug}/hero-fondo.webp` : hero.src} alt={capa ? '' : hero.alt} fetchPriority="high" />
+      <header className={'b-hero' + (capa ? ' b-hero--capas' : '')}
+        style={{ '--fx': capa?.fx ?? 0.5, '--fy': capa?.fy ?? 0.5, '--base': capa?.base ?? 0.62, '--letras': Math.max(6, ...pais.split(' ').map((w) => w.length)) } as React.CSSProperties}>
+        {/* la escena tiene la proporción de la foto y la cubre entera: el título se ancla a ella y no se descuadra */}
+        <div className="b-escena">
+          <img className="b-hero-fondo" src={capa ? `/historias/${slug}/hero-fondo.webp` : hero.src} alt={capa ? '' : hero.alt} fetchPriority="high" />
+          {capa ? <img className="b-hero-frente" src={`/historias/${slug}/hero-frente.webp`} alt={hero.alt} /> : null}
+        </div>
         <div className="b-hero-txt">
           <p className="b-hero-pre">Viajar en bicicleta por</p>
           <h1><span className="sr-only">Viajar en bicicleta por </span>{pais}</h1>
         </div>
-        {capa ? <img className="b-hero-frente" src={`/historias/${slug}/hero-frente.webp`} alt={hero.alt} /> : null}
+        {(trazos as Record<string, Trazo>)[slug] ? <TrazoRuta t={(trazos as Record<string, Trazo>)[slug]} pais={pais} /> : null}
         <div className="b-hero-pie">
           <p className="b-ruta"><Link href="/portfolio/viajes/">Historias</Link> <span aria-hidden="true">›</span> {CONT(slug)}</p>
           <a className="b-hero-leer" href="#b-leer">Empezar a leer <span aria-hidden="true">↓</span></a>

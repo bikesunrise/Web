@@ -1,0 +1,736 @@
+{
+ "canada": {
+  "w": 200,
+  "h": 146.3,
+  "puntos": [
+   {
+    "x": 107.3,
+    "y": 27.1,
+    "modo": "pedal"
+   },
+   {
+    "x": 54.8,
+    "y": 19.7,
+    "modo": "pedal"
+   },
+   {
+    "x": 33.5,
+    "y": 6.0,
+    "modo": "pedal"
+   },
+   {
+    "x": 6.0,
+    "y": 13.2,
+    "modo": "pedal"
+   },
+   {
+    "x": 37.3,
+    "y": 50.6,
+    "modo": "pedal"
+   },
+   {
+    "x": 73.0,
+    "y": 140.3,
+    "modo": "pedal"
+   }
+  ],
+  "inicio": {
+   "lugar": "Calgary",
+   "ep": 1
+  },
+  "fin": {
+   "lugar": "Frontera Canadá–EE. UU.",
+   "ep": 4
+  }
+ },
+ "estados-unidos": {
+  "w": 200,
+  "h": 146.3,
+  "puntos": [
+   {
+    "x": 21.5,
+    "y": 6.0,
+    "modo": "pedal"
+   },
+   {
+    "x": 23.1,
+    "y": 7.2,
+    "modo": "pedal"
+   },
+   {
+    "x": 28.4,
+    "y": 22.6,
+    "modo": "pedal"
+   },
+   {
+    "x": 30.7,
+    "y": 24.4,
+    "modo": "pedal"
+   },
+   {
+    "x": 38.6,
+    "y": 37.5,
+    "modo": "pedal"
+   },
+   {
+    "x": 46.9,
+    "y": 37.9,
+    "modo": "pedal"
+   },
+   {
+    "x": 45.8,
+    "y": 45.5,
+    "modo": "pedal"
+   },
+   {
+    "x": 45.5,
+    "y": 47.9,
+    "modo": "pedal"
+   },
+   {
+    "x": 49.9,
+    "y": 56.1,
+    "modo": "pedal"
+   },
+   {
+    "x": 54.6,
+    "y": 70.7,
+    "modo": "pedal"
+   },
+   {
+    "x": 59.3,
+    "y": 83.9,
+    "modo": "pedal"
+   },
+   {
+    "x": 55.3,
+    "y": 88.0,
+    "modo": "pedal"
+   },
+   {
+    "x": 53.7,
+    "y": 91.5,
+    "modo": "autostop"
+   },
+   {
+    "x": 55.1,
+    "y": 97.7,
+    "modo": "pedal"
+   },
+   {
+    "x": 49.3,
+    "y": 105.6,
+    "modo": "pedal"
+   },
+   {
+    "x": 40.8,
+    "y": 106.2,
+    "modo": "autostop"
+   },
+   {
+    "x": 39.5,
+    "y": 121.5,
+    "modo": "pedal"
+   },
+   {
+    "x": 38.7,
+    "y": 124.4,
+    "modo": "pedal"
+   },
+   {
+    "x": 37.0,
+    "y": 125.5,
+    "modo": "pedal"
+   },
+   {
+    "x": 26.6,
+    "y": 133.7,
+    "modo": "pedal"
+   },
+   {
+    "x": 6.0,
+    "y": 140.3,
+    "modo": "autostop"
+   }
+  ],
+  "inicio": {
+   "lugar": "Kalispell",
+   "ep": 4
+  },
+  "fin": {
+   "lugar": "Julian",
+   "ep": 10
+  }
+ },
+ "mexico": {
+  "w": 200,
+  "h": 146.3,
+  "puntos": [
+   {
+    "x": 6.0,
+    "y": 6.0,
+    "modo": "pedal"
+   },
+   {
+    "x": 6.2,
+    "y": 11.8,
+    "modo": "pedal"
+   },
+   {
+    "x": 11.2,
+    "y": 22.6,
+    "modo": "pedal"
+   },
+   {
+    "x": 12.1,
+    "y": 24.5,
+    "modo": "pedal"
+   },
+   {
+    "x": 20.5,
+    "y": 29.4,
+    "modo": "pedal"
+   },
+   {
+    "x": 25.6,
+    "y": 43.9,
+    "modo": "pedal"
+   },
+   {
+    "x": 53.9,
+    "y": 75.4,
+    "modo": "bus"
+   },
+   {
+    "x": 83.6,
+    "y": 82.7,
+    "modo": "ferry"
+   },
+   {
+    "x": 95.1,
+    "y": 97.1,
+    "modo": "pedal"
+   },
+   {
+    "x": 103.1,
+    "y": 102.2,
+    "modo": "pedal"
+   },
+   {
+    "x": 106.8,
+    "y": 104.0,
+    "modo": "pedal"
+   },
+   {
+    "x": 122.7,
+    "y": 101.1,
+    "modo": "pedal"
+   },
+   {
+    "x": 131.2,
+    "y": 116.1,
+    "modo": "pedal"
+   },
+   {
+    "x": 134.1,
+    "y": 116.8,
+    "modo": "pedal"
+   },
+   {
+    "x": 138.8,
+    "y": 114.1,
+    "modo": "pedal"
+   },
+   {
+    "x": 142.6,
+    "y": 117.1,
+    "modo": "pedal"
+   },
+   {
+    "x": 150.7,
+    "y": 128.6,
+    "modo": "pedal"
+   },
+   {
+    "x": 157.1,
+    "y": 133.5,
+    "modo": "pedal"
+   },
+   {
+    "x": 160.5,
+    "y": 135.2,
+    "modo": "pedal"
+   },
+   {
+    "x": 188.1,
+    "y": 136.3,
+    "modo": "pedal"
+   },
+   {
+    "x": 191.9,
+    "y": 140.3,
+    "modo": "pedal"
+   }
+  ],
+  "inicio": {
+   "lugar": "Tecate",
+   "ep": 10
+  },
+  "fin": {
+   "lugar": "Comitán",
+   "ep": 20
+  }
+ },
+ "guatemala": {
+  "w": 200,
+  "h": 146.3,
+  "puntos": [
+   {
+    "x": 6.0,
+    "y": 6.0,
+    "modo": "pedal"
+   },
+   {
+    "x": 44.2,
+    "y": 29.9,
+    "modo": "pedal"
+   },
+   {
+    "x": 61.9,
+    "y": 82.0,
+    "modo": "barca / lancha"
+   },
+   {
+    "x": 98.8,
+    "y": 87.9,
+    "modo": "pedal"
+   },
+   {
+    "x": 108.2,
+    "y": 101.4,
+    "modo": "pedal"
+   },
+   {
+    "x": 124.3,
+    "y": 123.9,
+    "modo": "pedal"
+   },
+   {
+    "x": 145.2,
+    "y": 140.3,
+    "modo": "pedal"
+   }
+  ],
+  "inicio": {
+   "lugar": "La Mesilla",
+   "ep": 20
+  },
+  "fin": {
+   "lugar": "Frontera Guatemala–El Salvador",
+   "ep": 22
+  }
+ },
+ "el-salvador": {
+  "w": 200,
+  "h": 86.1,
+  "puntos": [
+   {
+    "x": 6.0,
+    "y": 6.0,
+    "modo": "pedal"
+   },
+   {
+    "x": 36.7,
+    "y": 41.8,
+    "modo": "pedal"
+   },
+   {
+    "x": 129.2,
+    "y": 79.6,
+    "modo": "pedal"
+   },
+   {
+    "x": 156.8,
+    "y": 63.6,
+    "modo": "pedal"
+   },
+   {
+    "x": 194.0,
+    "y": 80.1,
+    "modo": "pedal"
+   }
+  ],
+  "inicio": {
+   "lugar": "Santa Ana",
+   "ep": 23
+  },
+  "fin": {
+   "lugar": "La Unión",
+   "ep": 25
+  }
+ },
+ "nicaragua": {
+  "w": 200,
+  "h": 146.3,
+  "puntos": [
+   {
+    "x": 6.0,
+    "y": 6.0,
+    "modo": "barca / lancha"
+   },
+   {
+    "x": 71.0,
+    "y": 36.8,
+    "modo": "pedal"
+   },
+   {
+    "x": 176.2,
+    "y": 140.3,
+    "modo": "pedal"
+   }
+  ],
+  "inicio": {
+   "lugar": "Potosí",
+   "ep": 25
+  },
+  "fin": {
+   "lugar": "Rivas",
+   "ep": 25
+  }
+ },
+ "costa-rica": {
+  "w": 200,
+  "h": 146.3,
+  "puntos": [
+   {
+    "x": 6.0,
+    "y": 6.0,
+    "modo": "pedal"
+   },
+   {
+    "x": 41.2,
+    "y": 37.9,
+    "modo": "pedal"
+   },
+   {
+    "x": 59.0,
+    "y": 83.0,
+    "modo": "pedal"
+   },
+   {
+    "x": 83.2,
+    "y": 92.7,
+    "modo": "pedal"
+   },
+   {
+    "x": 98.8,
+    "y": 102.2,
+    "modo": "pedal"
+   },
+   {
+    "x": 119.4,
+    "y": 117.5,
+    "modo": "pedal"
+   },
+   {
+    "x": 147.0,
+    "y": 134.0,
+    "modo": "pedal"
+   },
+   {
+    "x": 152.3,
+    "y": 140.3,
+    "modo": "pedal"
+   }
+  ],
+  "inicio": {
+   "lugar": "La Cruz",
+   "ep": 26
+  },
+  "fin": {
+   "lugar": "Paso Canoas",
+   "ep": 27
+  }
+ },
+ "panama": {
+  "w": 200,
+  "h": 69.7,
+  "puntos": [
+   {
+    "x": 6.0,
+    "y": 42.2,
+    "modo": "pedal"
+   },
+   {
+    "x": 99.7,
+    "y": 63.7,
+    "modo": "pedal"
+   },
+   {
+    "x": 140.0,
+    "y": 36.3,
+    "modo": "pedal"
+   },
+   {
+    "x": 194.0,
+    "y": 6.0,
+    "modo": "pedal"
+   }
+  ],
+  "inicio": {
+   "lugar": "David",
+   "ep": 27
+  },
+  "fin": {
+   "lugar": "Ciudad de Panamá",
+   "ep": 27
+  }
+ },
+ "colombia": {
+  "w": 200,
+  "h": 146.3,
+  "puntos": [
+   {
+    "x": 44.1,
+    "y": 25.8,
+    "modo": "avión"
+   },
+   {
+    "x": 39.3,
+    "y": 29.9,
+    "modo": "pedal"
+   },
+   {
+    "x": 37.3,
+    "y": 27.2,
+    "modo": "pedal"
+   },
+   {
+    "x": 38.8,
+    "y": 40.3,
+    "modo": "pedal"
+   },
+   {
+    "x": 45.6,
+    "y": 52.2,
+    "modo": "pedal"
+   },
+   {
+    "x": 53.3,
+    "y": 56.6,
+    "modo": "pedal"
+   },
+   {
+    "x": 55.7,
+    "y": 55.6,
+    "modo": "pedal"
+   },
+   {
+    "x": 63.0,
+    "y": 49.1,
+    "modo": "pedal"
+   },
+   {
+    "x": 99.2,
+    "y": 6.0,
+    "modo": "bus"
+   },
+   {
+    "x": 101.5,
+    "y": 15.8,
+    "modo": "pedal"
+   },
+   {
+    "x": 98.9,
+    "y": 18.8,
+    "modo": "pedal"
+   },
+   {
+    "x": 102.7,
+    "y": 20.6,
+    "modo": "pedal"
+   },
+   {
+    "x": 103.8,
+    "y": 31.7,
+    "modo": "pedal"
+   },
+   {
+    "x": 101.1,
+    "y": 35.2,
+    "modo": "pedal"
+   },
+   {
+    "x": 90.1,
+    "y": 39.5,
+    "modo": "pedal"
+   },
+   {
+    "x": 79.4,
+    "y": 53.3,
+    "modo": "pedal"
+   },
+   {
+    "x": 77.9,
+    "y": 60.3,
+    "modo": "pedal"
+   },
+   {
+    "x": 53.4,
+    "y": 93.5,
+    "modo": "pedal"
+   },
+   {
+    "x": 50.8,
+    "y": 100.4,
+    "modo": "pedal"
+   },
+   {
+    "x": 20.2,
+    "y": 140.3,
+    "modo": "bus"
+   },
+   {
+    "x": 14.8,
+    "y": 139.4,
+    "modo": "pedal"
+   },
+   {
+    "x": 6.0,
+    "y": 138.9,
+    "modo": "pedal"
+   }
+  ],
+  "inicio": {
+   "lugar": "Medellín",
+   "ep": 28
+  },
+  "fin": {
+   "lugar": "Pasto",
+   "ep": 35
+  }
+ },
+ "ecuador": {
+  "w": 200,
+  "h": 146.3,
+  "puntos": [
+   {
+    "x": 76.2,
+    "y": 6.0,
+    "modo": "pedal"
+   },
+   {
+    "x": 70.2,
+    "y": 11.5,
+    "modo": "pedal"
+   },
+   {
+    "x": 64.9,
+    "y": 18.9,
+    "modo": "pedal"
+   },
+   {
+    "x": 61.0,
+    "y": 22.1,
+    "modo": "pedal"
+   },
+   {
+    "x": 56.1,
+    "y": 47.8,
+    "modo": "pedal"
+   },
+   {
+    "x": 43.2,
+    "y": 52.6,
+    "modo": "pedal"
+   },
+   {
+    "x": 39.8,
+    "y": 55.8,
+    "modo": "pedal"
+   },
+   {
+    "x": 45.5,
+    "y": 69.7,
+    "modo": "pedal"
+   },
+   {
+    "x": 40.2,
+    "y": 109.8,
+    "modo": "bus"
+   },
+   {
+    "x": 34.7,
+    "y": 140.3,
+    "modo": "pedal"
+   },
+   {
+    "x": 10.6,
+    "y": 128.0,
+    "modo": "pedal"
+   },
+   {
+    "x": 6.0,
+    "y": 125.9,
+    "modo": "pedal"
+   }
+  ],
+  "inicio": {
+   "lugar": "Tulcán",
+   "ep": 35
+  },
+  "fin": {
+   "lugar": "Huaquillas",
+   "ep": 38
+  }
+ },
+ "peru": {
+  "w": 200,
+  "h": 146.3,
+  "puntos": [
+   {
+    "x": 33.5,
+    "y": 6.0,
+    "modo": "pedal"
+   },
+   {
+    "x": 15.7,
+    "y": 18.4,
+    "modo": "pedal"
+   },
+   {
+    "x": 6.0,
+    "y": 40.1,
+    "modo": "pedal"
+   },
+   {
+    "x": 54.7,
+    "y": 55.7,
+    "modo": "pedal"
+   },
+   {
+    "x": 67.3,
+    "y": 62.4,
+    "modo": "pedal"
+   },
+   {
+    "x": 99.0,
+    "y": 127.3,
+    "modo": "pedal"
+   },
+   {
+    "x": 112.5,
+    "y": 140.3,
+    "modo": "pedal"
+   }
+  ],
+  "inicio": {
+   "lugar": "Tumbes",
+   "ep": 38
+  },
+  "fin": {
+   "lugar": "Laguna cerca de Cajabamba",
+   "ep": 41
+  }
+ }
+}
