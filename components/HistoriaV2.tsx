@@ -168,7 +168,7 @@ export default function HistoriaV2({ entry }: { entry: Entry }) {
         <div className="b-hero-pie">
           <p className="b-ruta"><Link href="/portfolio/viajes/">Historias</Link> <span aria-hidden="true">›</span> {CONT(slug)}</p>
           <a className="b-hero-leer" href="#b-leer">Empezar a leer <span aria-hidden="true">↓</span></a>
-          <p className="b-meta">{entry.coverage ? entry.coverage.replace('Relato elaborado a partir de los', 'Contado en los') : 'Por Àlex Fernández Ginés'}</p>
+          <span />
         </div>
       </header>
 
