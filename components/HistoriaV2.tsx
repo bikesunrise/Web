@@ -2,6 +2,7 @@
 // El contenido sale de data/content.json; en América las fotos son fotogramas 4K reales de los vídeos
 // (components/historia-v2/fotos.json, generado por bocetos/historias-v2/exportar_fotos.py).
 import Link from 'next/link';
+import type React from 'react';
 import type { Entry, Block } from '@/lib/content';
 import { imageFor } from '@/lib/content';
 import fotosAmerica from './historia-v2/fotos.json';
@@ -133,11 +134,6 @@ export default function HistoriaV2({ entry }: { entry: Entry }) {
         <div className="h-intro-txt">
           <div id="hv2-sello" className="pv2 h-sello" aria-hidden="true" />
           {lede ? <p className="h-lede">{texto(lede.value)}</p> : <p className="h-lede">{entry.excerpt}</p>}
-          <div className="h-cifras">
-            <div><b>{capitulos.length}</b><span>{titulados.length < capitulos.length ? "tramos" : "capítulos"}</span></div>
-            <div><b>{nFotos}</b><span>{am ? 'fotogramas' : 'fotos'}</span></div>
-            {entry.coverage ? <div><b>{(entry.coverage.match(/\d+/g) || []).length}</b><span>episodios</span></div> : null}
-          </div>
         </div>
         <div className="pv2 h-mapa-pv2">
           <div className="mapa-caja h-mapa"><div className="mapa-rollo" id="hv2-mapa"><p className="h-cargando">Cargando el mapa…</p></div></div>
@@ -159,24 +155,35 @@ export default function HistoriaV2({ entry }: { entry: Entry }) {
       <div className="h-capitulos" id="hv2-capitulos">
         <svg className="h-trazo" aria-hidden="true"><defs><mask id="h-revela"><path className="h-revela" fill="none" stroke="#fff" strokeWidth="8" /></mask></defs><path className="h-base" mask="url(#h-revela)" /><g className="h-puntos" /></svg>
         {capitulos.map((c, k) => {
-          const lado = k % 2 ? 'der' : 'izq';
-          const banda = k % 3 === 1 ? ' arena' : k % 3 === 2 && k === capitulos.length - 2 ? ' oscuro' : '';
+          const banda = k % 3 === 1 ? ' arena' : '';
           const [f1, f2, ...resto] = c.fotos;
+          const parrafos = c.bloques.length;
+          // Columna de lectura (60–75 caracteres). Las fotos entran anchas dentro del relato:
+          // la primera tras el primer párrafo y la segunda hacia los dos tercios; en tramos cortos, juntas al final.
+          const corto = parrafos <= 2;
+          const tras1 = corto ? -1 : 0, tras2 = corto ? -1 : Math.max(1, Math.round(parrafos * 0.66) - 1);
+          const bloque = (b: Block, j: number) => b.type === 'p' ? <p key={j}>{texto(b.value)}</p>
+            : b.type === 'h3' ? <h3 key={j}>{texto(b.value)}</h3>
+            : b.type === 'blockquote' ? <blockquote key={j}>{texto(b.value)}</blockquote>
+            : (b.type === 'ul' || b.type === 'ol') && Array.isArray(b.value) ? <ul key={j}>{b.value.map((x, n) => <li key={n}>{x}</li>)}</ul>
+            : b.type === 'html' && typeof b.value === 'string' ? <div key={j} className="h-rico" dangerouslySetInnerHTML={{ __html: b.value }} /> : null;
+          const cuerpo: React.ReactNode[] = [];
+          c.bloques.forEach((b, j) => {
+            cuerpo.push(bloque(b, j));
+            if (j === tras1 && f1) cuerpo.push(<FotoRasgada key={'f1'} f={f1} seed={k * 3 + i} cls={'h-ancha ' + (k % 2 ? 'a-der' : 'a-izq')} />);
+            if (j === tras2 && f2 && tras2 !== tras1) cuerpo.push(<FotoRasgada key={'f2'} f={f2} seed={k * 5 + i + 100} cls={'h-media ' + (k % 2 ? 'a-izq' : 'a-der')} />);
+          });
+          if (corto && f1) cuerpo.push(<div key="par" className={'h-par' + (f2 ? '' : ' una')}><FotoRasgada f={f1} seed={k * 3 + i} cls="" />{f2 ? <FotoRasgada f={f2} seed={k * 5 + i + 100} cls="" /> : null}</div>);
           return (
-            <section className={`h-cap ${lado}${banda}`} id={`cap-${k + 1}`} key={k} aria-labelledby={c.titulo ? `h-cap-${k + 1}` : undefined}>
+            <section className={`h-cap ${k % 2 ? 'der' : 'izq'}${banda}`} id={`cap-${k + 1}`} key={k} aria-labelledby={c.titulo ? `h-cap-${k + 1}` : undefined}>
               {k > 0 ? <Borde seed={k * 13 + i} /> : null}
-              <div className="h-cap-in">
-                {f1 ? <div className="h-fotos"><FotoRasgada f={f1} seed={k * 3 + i} cls="h-f1" />{f2 ? <FotoRasgada f={f2} seed={k * 5 + i + 100} cls="h-f2" /> : null}</div> : null}
-                <div className={'h-cuerpo' + (f1 ? '' : ' solo')}>
+              <div className="h-col">
+                <header className="h-cap-cab">
                   <span className="h-ancla" aria-hidden="true" />
-                  <span className="h-num" aria-hidden="true">{String(k + 1).padStart(2, '0')}</span>
+                  <span className="h-num">{String(k + 1).padStart(2, '0')}</span>
                   {c.titulo ? <h2 id={`h-cap-${k + 1}`}>{c.titulo}</h2> : null}
-                  {c.bloques.map((b, j) => b.type === 'p' ? <p key={j}>{texto(b.value)}</p>
-                    : b.type === 'h3' ? <h3 key={j}>{texto(b.value)}</h3>
-                    : b.type === 'blockquote' ? <blockquote key={j}>{texto(b.value)}</blockquote>
-                    : (b.type === 'ul' || b.type === 'ol') && Array.isArray(b.value) ? <ul key={j}>{b.value.map((x, n) => <li key={n}>{x}</li>)}</ul>
-                    : b.type === 'html' && typeof b.value === 'string' ? <div key={j} className="h-rico" dangerouslySetInnerHTML={{ __html: b.value }} /> : null)}
-                </div>
+                </header>
+                {cuerpo}
               </div>
               {resto.length ? <div className="h-galeria">{resto.map((f, n) => <img key={n} src={f.src} alt={f.alt} loading="lazy" />)}</div> : null}
             </section>
