@@ -8,7 +8,14 @@ export function iniciaAtlas(raiz, D) {
   const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const movil = matchMedia('(max-width: 900px)');
   const MUNDO = D.vistas.mundo;
-  let caja = MUNDO.slice(), tam = [0.62, 0.3], pos = [P[0].x, P[0].y], vista = 'mundo', cuadro = 0, actual = -1, reloj = 0;
+  let caja = MUNDO.slice(), tam = [0.62, 0.3], kPos = 0, dir = 1, vista = 'mundo', cuadro = 0, actual = -1, reloj = 0;
+  // La bici avanza por la línea de la ruta: D.camino son puntos sobre la ruta dibujada, en orden de viaje,
+  // y cada país sabe en qué punto del camino está (p.k). D.corte separa Asia de América (allí la bici salta).
+  const C = D.camino;
+  function puntoEn(k) {
+    const i = Math.max(0, Math.min(C.length - 1, Math.floor(k))), j = Math.min(C.length - 1, i + 1), f = k - i;
+    return [C[i][0] + (C[j][0] - C[i][0]) * f, C[i][1] + (C[j][1] - C[i][1]) * f];
+  }
 
   const asp = () => { const r = svg.getBoundingClientRect(); return movil.matches && r.height ? r.width / r.height : D.ancho / D.alto; };
   function marco(x0, y0, x1, y1, holgura, cx) {   // caja con la forma del marco que abarca el rectángulo dado
@@ -25,7 +32,7 @@ export function iniciaAtlas(raiz, D) {
   function verContinente(reg) {
     para();
     document.querySelectorAll('.conts button').forEach(b => b.setAttribute('aria-pressed', b.dataset.reg === reg));
-    mueve(continente(reg), tamCont(), pos, 'cont', 800);
+    mueve(continente(reg), tamCont(), kPos, 'cont', 800);
   }
   function pinta() {
     svg.setAttribute('viewBox', caja.map(v => v.toFixed(1)).join(' '));
@@ -33,17 +40,34 @@ export function iniciaAtlas(raiz, D) {
     if (!(k > 0)) return;
     svg.style.setProperty('--f', (tam[0] / k).toFixed(4));
     svg.style.setProperty('--fd', (tam[1] / k).toFixed(4));
+    const pos = puntoEn(kPos);
     bici.setAttribute('transform', `translate(${pos[0].toFixed(1)},${(pos[1]).toFixed(1)}) scale(${(0.8 / k).toFixed(4)}) translate(0,-34)`);
+    bici.querySelector('.am-bici-ico').setAttribute('transform', `translate(0,3) scale(${dir},1)`);
   }
   function mueve(aCaja, aTam, aPos, v, ms) {
-    const dc = caja.slice(), dt = tam.slice(), dp = pos.slice(), t0 = performance.now();
+    const dc = caja.slice(), dt = tam.slice(), t0 = performance.now();
+    // De Asia a América no hay ruta: la bici aparece al principio (o al final) del otro continente y sigue por la línea
+    const cruza = (kPos < D.corte) !== (aPos < D.corte);
+    const dk = cruza ? (aPos >= D.corte ? D.corte : D.corte - 1) : kPos, salta = false;
+    if (cruza) kPos = dk;
+    const largo = Math.abs(aPos - dk);
+    if (largo > 0.5) {                                           // mira hacia donde va
+      const a = puntoEn(dk), b = puntoEn(salta ? (aPos >= D.corte ? D.corte - 1 : D.corte) : Math.min(dk + 2, aPos) * (aPos > dk ? 1 : 0) + Math.max(dk - 2, aPos) * (aPos < dk ? 1 : 0));
+      if (Math.abs(b[0] - a[0]) > 0.01) dir = b[0] >= a[0] ? 1 : -1;
+    }
+    if (!quieto && largo > 40 && !salta) ms = Math.min(2600, ms + largo * 4);   // los tramos largos, más despacio
     if (v === 'mundo') svg.dataset.vista = v;
     vista = v; cancelAnimationFrame(cuadro);
     (function paso(t) {
       const p = quieto ? 1 : Math.min(1, (t - t0) / ms), e = p * p * (3 - 2 * p);
       caja = aCaja.map((x, i) => dc[i] + (x - dc[i]) * e);
       tam = aTam.map((x, i) => dt[i] + (x - dt[i]) * e);
-      pos = aPos.map((x, i) => dp[i] + (x - dp[i]) * e);
+      if (salta) kPos = p < 0.5 ? dk : aPos;
+      else {
+        kPos = dk + (aPos - dk) * e;
+        const a = puntoEn(kPos), b = puntoEn(kPos + (aPos > dk ? 1.5 : -1.5));
+        if (Math.abs(b[0] - a[0]) > 0.02) dir = b[0] >= a[0] ? 1 : -1;   // gira la bici con las curvas
+      }
       if (p >= 0.5) svg.dataset.vista = v;
       pinta();
       if (p < 1) cuadro = requestAnimationFrame(paso); else despeja();
@@ -129,14 +153,14 @@ export function iniciaAtlas(raiz, D) {
     const carta = tira.querySelector(`.carta[data-i="${i}"]`);
     if (!desdeTira) tira.scrollTo({ left: carta.offsetLeft - tira.clientWidth / 2 + carta.offsetWidth / 2, behavior: quieto ? 'auto' : 'smooth' });
     document.querySelectorAll('.conts button').forEach(b => b.setAttribute('aria-pressed', b.dataset.reg === p.reg && vista !== 'pais' && !acercar));
-    if (acercar) mueve(encuadre(p), tamZoom(), [p.x, p.y], 'pais', 900);
-    else mueve(caja, tam, [p.x, p.y], vista, 500);
+    if (acercar) mueve(encuadre(p), tamZoom(), p.k, 'pais', 900);
+    else mueve(caja, tam, p.k, vista, 700);
   }
   function para() { clearInterval(reloj); reloj = 0; document.getElementById('b-play').classList.remove('sonando'); document.getElementById('b-play-txt').textContent = 'Recorrer el viaje'; }
   function suena() {
     document.getElementById('b-play').classList.add('sonando'); document.getElementById('b-play-txt').textContent = 'Pausar';
     elige(actual >= N - 1 || vista === 'mundo' ? 0 : actual + 1, true);
-    reloj = setInterval(() => { if (actual >= N - 1) return para(); elige(actual + 1, true); }, 2800);
+    reloj = setInterval(() => { if (actual >= N - 1) return para(); elige(actual + 1, true); }, 3300);
   }
   const fino = matchMedia('(hover: hover) and (pointer: fine)');
   svg.addEventListener('pointerover', e => { const g = e.target.closest('.am-pais,.am-tierra'); if (g && fino.matches && !reloj && +g.dataset.i !== actual) elige(+g.dataset.i, false); });
@@ -148,11 +172,12 @@ export function iniciaAtlas(raiz, D) {
   document.getElementById('t-ant').addEventListener('click', () => tira.scrollBy({ left: -tira.clientWidth * 0.8, behavior: quieto ? 'auto' : 'smooth' }));
   document.getElementById('t-sig').addEventListener('click', () => tira.scrollBy({ left: tira.clientWidth * 0.8, behavior: quieto ? 'auto' : 'smooth' }));
   document.getElementById('b-play').addEventListener('click', () => reloj ? para() : suena());
-  document.getElementById('b-mundo').addEventListener('click', () => { para(); mueve(MUNDO, tamMundo(), pos, 'mundo', 800); });
+  document.getElementById('b-mundo').addEventListener('click', () => { para(); mueve(MUNDO, tamMundo(), kPos, 'mundo', 800); });
   document.querySelector('.conts').addEventListener('click', e => { const b = e.target.closest('button'); if (b) verContinente(b.dataset.reg); });
   const ro = new ResizeObserver(pinta); ro.observe(svg);
   tam = tamMundo();
   const inicio = P.findIndex(p => p.slug === 'nepal');
+  kPos = P[inicio].k;
   elige(inicio, false);
   if (movil.matches) { caja = continente(P[inicio].reg); tam = tamCont(); svg.dataset.vista = vista = 'cont'; pinta(); verContinente(P[inicio].reg); }
 
