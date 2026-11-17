@@ -174,6 +174,13 @@ export default function HistoriaV2({ entry }: { entry: Entry }) {
 
       <div className="b-rejilla">
         <article className="b-main" id="b-leer">
+          {videos.length ? (
+            <section className="b-caja b-videos b-videos-arriba" aria-labelledby="b-videos">
+              <h2 id="b-videos">El viaje, en vídeo</h2>
+              <div className="b-videos-rej" dangerouslySetInnerHTML={{ __html: videos.join('') }} />
+            </section>
+          ) : null}
+
           {lede ? <p className="b-lede">{texto(lede.value)}</p> : <p className="b-lede">{entry.excerpt}</p>}
 
           <aside className="b-caja b-vistazo" aria-labelledby="b-vistazo">
@@ -197,12 +204,6 @@ export default function HistoriaV2({ entry }: { entry: Entry }) {
             );
           })}
 
-          {videos.length ? (
-            <section className="b-caja b-videos" aria-labelledby="b-videos">
-              <h2 id="b-videos">El viaje, en vídeo</h2>
-              <div className="b-videos-rej" dangerouslySetInnerHTML={{ __html: videos.join('') }} />
-            </section>
-          ) : null}
 
           {galeria.length ? (
             <section className="b-galeria" aria-labelledby="b-galeria">

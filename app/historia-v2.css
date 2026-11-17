@@ -141,3 +141,4 @@
   .hv3 .b-par figcaption{display:none}
 }
 @media (prefers-reduced-motion:reduce){.hv3 .b-tesela img,.hv3 .b-videos-rej .episode-card img{transition:none}}
+.hv3 .b-videos-arriba{margin-top:0}
