@@ -60,14 +60,14 @@ export function iniciaAtlas(raiz, D) {
     } else if (s.forma === 'circulo') {
       f = `<circle cx="100" cy="75" r="68"/><circle class="fina" cx="100" cy="75" r="53"/>
            ${arco('pa' + i + suf, 'M42,75 A58,58 0 0 1 158,75')}${arco('pb' + i + suf, 'M36,78 A64,64 0 0 0 164,78')}
-           <text><textPath href="#pa${i}${suf}" startOffset="50%" text-anchor="middle" style="font-size:9.5px">${s.arriba}</textPath></text>
-           <text><textPath href="#pb${i}${suf}" startOffset="50%" text-anchor="middle" style="font-size:9.5px">${s.abajo}</textPath></text>`;
+           <text><textPath href="#pa${i}${suf}" startOffset="50%" text-anchor="middle" style="font-size:7.4px">${s.arriba}</textPath></text>
+           <text><textPath href="#pb${i}${suf}" startOffset="50%" text-anchor="middle" style="font-size:7.4px">${s.abajo}</textPath></text>`;
     } else if (s.forma === 'hex') {
       f = `<path d="M40,14 H160 L196,75 L160,136 H40 L4,75 Z"/><path class="fina" d="M46,25 H154 L184,75 L154,125 H46 L16,75 Z"/>
-           <text x="100" y="42" text-anchor="middle" style="font-size:10px">${s.arriba}</text><text x="100" y="118" text-anchor="middle" style="font-size:10px">${s.abajo}</text>`;
+           <text x="100" y="42" text-anchor="middle" style="font-size:7.6px">${s.arriba}</text><text x="100" y="118" text-anchor="middle" style="font-size:7.6px">${s.abajo}</text>`;
     } else {
       f = `<rect x="6" y="16" width="188" height="118" rx="3"/><rect class="fina" x="13" y="23" width="174" height="104" rx="2"/>
-           <text x="100" y="42" text-anchor="middle" style="font-size:${s.arriba.length > 22 ? 9 : 11}px">${s.arriba}</text><path class="fina" d="M24,102 H176"/><text x="100" y="118" text-anchor="middle" style="font-size:10.5px">${s.abajo}</text>`;
+           <text x="100" y="42" text-anchor="middle" style="font-size:${s.arriba.length > 22 ? 6.8 : 8.6}px">${s.arriba}</text><path class="fina" d="M24,102 H176"/><text x="100" y="118" text-anchor="middle" style="font-size:8px">${s.abajo}</text>`;
     }
     if (s.forma !== 'schengen') f += `<use href="#d-${s.modo}" transform="translate(${s.forma === 'rect' ? 170 : 100},${s.forma === 'rect' ? 68 : s.forma === 'hex' ? 64 : 56}) scale(.4)"/>`;
     const tam = p.nombre.length > 12 ? 21 : p.nombre.length > 9 ? 25 : 30;
