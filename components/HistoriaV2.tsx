@@ -1,6 +1,8 @@
 // Página de historia por país con el estilo de la portada (atlas ilustrado, sellos, fotos con borde pintado).
 // El contenido sale de data/content.json; en América las fotos son fotogramas 4K reales de los vídeos
 // (components/historia-v2/fotos.json, generado por bocetos/historias-v2/exportar_fotos.py).
+import fs from 'node:fs';
+import path from 'node:path';
 import Link from 'next/link';
 import type React from 'react';
 import type { Entry, Block } from '@/lib/content';
@@ -18,6 +20,10 @@ const NOMBRES: Record<string, string> = { francia: 'Francia', italia: 'Italia', 
   'la-india': 'India', nepal: 'Nepal', canada: 'Canadá', 'estados-unidos': 'Estados Unidos', mexico: 'México', guatemala: 'Guatemala',
   'el-salvador': 'El Salvador', nicaragua: 'Nicaragua', 'costa-rica': 'Costa Rica', panama: 'Panamá', colombia: 'Colombia', ecuador: 'Ecuador', peru: 'Perú' };
 const CONT = (slug: string) => (ORDEN.indexOf(slug) <= 9 ? 'Europa' : ORDEN.indexOf(slug) <= 13 ? 'Asia' : 'América');
+
+// cabecera por capas: foto de fondo, título y, encima, el paisaje recortado (bocetos/historias-v2/recorte_hero.py).
+// fx/fy: punto de la foto que se mantiene a la vista al recortar en pantallas estrechas
+const CAPAS: Record<string, { fx: string; fy: string }> = { mexico: { fx: '30%', fy: '40%' } };
 
 const mmss = (s = 0) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
 
@@ -84,6 +90,7 @@ export default function HistoriaV2({ entry }: { entry: Entry }) {
       previo = a;
     });
   }
+  const capa = CAPAS[slug] && fs.existsSync(path.join(process.cwd(), 'public/historias', slug, 'hero-frente.webp')) ? CAPAS[slug] : null;
   const hero: Foto = am?.hero || { src: imageFor(entry), alt: `Paisaje del viaje en bicicleta por ${pais}` };
   const lede = intro.find((b) => b.type === 'p');
   const titulados = capitulos.map((c, k) => ({ t: c.titulo, k })).filter((x) => x.t);
@@ -93,8 +100,8 @@ export default function HistoriaV2({ entry }: { entry: Entry }) {
   const ant = i > 1 ? ORDEN[i - 1] : '';
   const portadaDe = (s2: string) => (fotosAmerica as Record<string, { hero: Foto }>)[s2]?.hero.src
     || imageFor(byPath.get(`/viajes/viajar-en-bicicleta-por-${s2}`) || entry);
-  // historias vecinas para el lateral: las dos anteriores y las tres siguientes del viaje
-  const vecinas = ORDEN.slice(Math.max(1, i - 2), Math.min(ORDEN.length, i + 4)).filter((s2) => s2 && s2 !== slug).slice(0, 5);
+  // el resto de países del viaje, en orden, para el lateral
+  const vecinas = ORDEN.filter((s2) => s2 && s2 !== slug);
   // fotos: la primera de cada capítulo va a lo ancho tras el primer párrafo; la segunda, emparejada con otra
   // de la galería, va más abajo en el mismo capítulo, así las imágenes acompañan todo el relato
   const pares: Foto[][] = capitulos.map((c) => {
@@ -120,18 +127,22 @@ export default function HistoriaV2({ entry }: { entry: Entry }) {
   return (
     <div className="hv2 hv3">
       <div dangerouslySetInnerHTML={{ __html: filtroTinta }} />
-      <header className="b-cab">
-        <div className="b-cab-in">
-          <span className="b-letra" aria-hidden="true">{pais[0]}</span>
+      <header className={'b-hero' + (capa ? ' b-hero--capas' : '')} style={capa ? ({ '--fx': capa.fx, '--fy': capa.fy } as React.CSSProperties) : undefined}>
+        <img className="b-hero-fondo" src={capa ? `/historias/${slug}/hero-fondo.webp` : hero.src} alt={capa ? '' : hero.alt} fetchPriority="high" />
+        <div className="b-hero-txt">
+          <p className="b-hero-pre">Viajar en bicicleta por</p>
+          <h1><span className="sr-only">Viajar en bicicleta por </span>{pais}</h1>
+        </div>
+        {capa ? <img className="b-hero-frente" src={`/historias/${slug}/hero-frente.webp`} alt={hero.alt} /> : null}
+        <div className="b-hero-pie">
           <p className="b-ruta"><Link href="/portfolio/viajes/">Historias</Link> <span aria-hidden="true">›</span> {CONT(slug)}</p>
-          <span className="b-tag">{CONT(slug)}</span>
-          <h1>Viajar en bicicleta por {pais}</h1>
-          <p className="b-meta">Por Àlex Fernández Ginés{entry.coverage ? ` · ${entry.coverage.replace('Relato elaborado a partir de los', 'Contado en los')}` : ''}</p>
+          <a className="b-hero-leer" href="#b-leer">Empezar a leer <span aria-hidden="true">↓</span></a>
+          <p className="b-meta">{entry.coverage ? entry.coverage.replace('Relato elaborado a partir de los', 'Contado en los') : 'Por Àlex Fernández Ginés'}</p>
         </div>
       </header>
 
       <div className="b-rejilla">
-        <article className="b-main">
+        <article className="b-main" id="b-leer">
           {lede ? <p className="b-lede">{texto(lede.value)}</p> : <p className="b-lede">{entry.excerpt}</p>}
 
           <aside className="b-caja b-vistazo" aria-labelledby="b-vistazo">
@@ -187,8 +198,6 @@ export default function HistoriaV2({ entry }: { entry: Entry }) {
         </article>
 
         <aside className="b-lado" aria-label={`Más sobre ${pais}`}>
-          <figure className="b-alta"><img src={hero.src} alt={hero.alt} fetchPriority="high" />{hero.yt ? <figcaption>{pieFoto(hero)}</figcaption> : null}</figure>
-
           <section className="b-tarjeta b-mapa-t" aria-labelledby="b-mapa">
             <div id="hv2-sello" className="pv2 b-sello" aria-hidden="true" />
             <h2 id="b-mapa">La ruta por {pais}</h2>
@@ -196,15 +205,8 @@ export default function HistoriaV2({ entry }: { entry: Entry }) {
             <p className="b-nota">{CONT(slug) === 'América' ? 'Recorrido real, con las paradas de los vídeos.' : 'Línea esquemática entre países.'} Toca otro país para ir a su historia.</p>
           </section>
 
-          <section className="b-tarjeta b-yo" aria-labelledby="b-yo">
-            <img src="/images/nepal.jpg" alt="Àlex con su bicicleta cargada en Nepal" loading="lazy" />
-            <h2 id="b-yo">Sobre mí</h2>
-            <p>Soy Àlex. Salí de casa en bicicleta y fui contando el camino país a país, en los vídeos y aquí.</p>
-            <a href="https://www.youtube.com/@Bikesunrise" target="_blank" rel="noopener noreferrer">Ver los vídeos en YouTube →</a>
-          </section>
-
           <section className="b-tarjeta b-mas" aria-labelledby="b-mas">
-            <h2 id="b-mas">Más historias</h2>
+            <h2 id="b-mas">El resto del viaje</h2>
             <div className="b-teselas">{vecinas.map((s2) => (
               <Link key={s2} href={`/viajes/viajar-en-bicicleta-por-${s2}/`} className="b-tesela"><img src={portadaDe(s2)} alt="" loading="lazy" /><span>{NOMBRES[s2]}</span></Link>
             ))}</div>
