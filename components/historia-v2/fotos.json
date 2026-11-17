@@ -1,0 +1,858 @@
+{
+ "canada": {
+  "hero": {
+   "src": "/historias/canada/0.webp",
+   "alt": "Pista de grava que serpentea entre prados cerca de Calgary, vista desde el dron",
+   "ep": 1,
+   "t": 1003,
+   "yt": "REobSLS_Qlw"
+  },
+  "fotos": [
+   {
+    "src": "/historias/canada/1.webp",
+    "alt": "Carretera recta entre praderas a la salida de Calgary, con la bici cargada en primer plano",
+    "ep": 1,
+    "t": 472,
+    "yt": "REobSLS_Qlw"
+   },
+   {
+    "src": "/historias/canada/2.webp",
+    "alt": "Montañas nevadas de las Rocosas canadienses sobre un bosque de coníferas",
+    "ep": 2,
+    "t": 30,
+    "yt": "2D-vXZ3bDK4"
+   },
+   {
+    "src": "/historias/canada/3.webp",
+    "alt": "Lago de agua azul intensa entre montañas y bosque cerca de Banff",
+    "ep": 2,
+    "t": 594,
+    "yt": "2D-vXZ3bDK4"
+   },
+   {
+    "src": "/historias/canada/4.webp",
+    "alt": "Carretera entre un bosque de coníferas, vista desde el aire",
+    "ep": 2,
+    "t": 802,
+    "yt": "2D-vXZ3bDK4"
+   },
+   {
+    "src": "/historias/canada/5.webp",
+    "alt": "Río de aguas claras entre bosques de las Rocosas, visto desde el aire",
+    "ep": 3,
+    "t": 30,
+    "yt": "2JaLNMrHl4M"
+   },
+   {
+    "src": "/historias/canada/6.webp",
+    "alt": "Lake Louise con las montañas nevadas al fondo",
+    "ep": 3,
+    "t": 208,
+    "yt": "2JaLNMrHl4M"
+   },
+   {
+    "src": "/historias/canada/7.webp",
+    "alt": "Valle con un río y lagos visto desde el aire",
+    "ep": 3,
+    "t": 923,
+    "yt": "2JaLNMrHl4M"
+   },
+   {
+    "src": "/historias/canada/8.webp",
+    "alt": "Río azul entre bosques bajo un cielo de nubes",
+    "ep": 3,
+    "t": 1519,
+    "yt": "2JaLNMrHl4M"
+   },
+   {
+    "src": "/historias/canada/9.webp",
+    "alt": "Lago al anochecer con montañas, junto a la última acampada en Canadá",
+    "ep": 3,
+    "t": 1668,
+    "yt": "2JaLNMrHl4M"
+   }
+  ]
+ },
+ "estados-unidos": {
+  "hero": {
+   "src": "/historias/estados-unidos/0.webp",
+   "alt": "La bici cargada en una carretera entre praderas de Montana, vista desde el dron",
+   "ep": 4,
+   "t": 1246,
+   "yt": "NQM_F4GcOfw"
+  },
+  "fotos": [
+   {
+    "src": "/historias/estados-unidos/1.webp",
+    "alt": "Lago entre pinos en Montana",
+    "ep": 4,
+    "t": 1157,
+    "yt": "NQM_F4GcOfw"
+   },
+   {
+    "src": "/historias/estados-unidos/2.webp",
+    "alt": "Pista de grava blanca entre bosques, con la bici avanzando",
+    "ep": 5,
+    "t": 415,
+    "yt": "a2I8t6JcDT4"
+   },
+   {
+    "src": "/historias/estados-unidos/3.webp",
+    "alt": "Atardecer sobre el lago del valle de Red Rock",
+    "ep": 5,
+    "t": 889,
+    "yt": "a2I8t6JcDT4"
+   },
+   {
+    "src": "/historias/estados-unidos/4.webp",
+    "alt": "Vapor de una fuente termal en Yellowstone",
+    "ep": 6,
+    "t": 476,
+    "yt": "3FWchjBCagc"
+   },
+   {
+    "src": "/historias/estados-unidos/5.webp",
+    "alt": "Pinos de Yellowstone vistos desde abajo contra el cielo azul",
+    "ep": 6,
+    "t": 654,
+    "yt": "3FWchjBCagc"
+   },
+   {
+    "src": "/historias/estados-unidos/6.webp",
+    "alt": "Acantilados rojizos al atardecer en el sur de Wyoming",
+    "ep": 7,
+    "t": 805,
+    "yt": "2oFu3MUe_l0"
+   },
+   {
+    "src": "/historias/estados-unidos/7.webp",
+    "alt": "Paredes de roca del cañón a la entrada de Flaming Gorge",
+    "ep": 7,
+    "t": 1461,
+    "yt": "2oFu3MUe_l0"
+   },
+   {
+    "src": "/historias/estados-unidos/8.webp",
+    "alt": "Carretera que sube entre montañas verdes hacia el Douglas Pass, vista desde el dron",
+    "ep": 8,
+    "t": 1310,
+    "yt": "7I5F116nAwA"
+   },
+   {
+    "src": "/historias/estados-unidos/9.webp",
+    "alt": "Paredes de roca roja junto al río Colorado, cerca de Moab",
+    "ep": 8,
+    "t": 1964,
+    "yt": "7I5F116nAwA"
+   },
+   {
+    "src": "/historias/estados-unidos/10.webp",
+    "alt": "Cañón de roca roja visto desde un mirador",
+    "ep": 9,
+    "t": 653,
+    "yt": "mOMzT7IwqMc"
+   },
+   {
+    "src": "/historias/estados-unidos/11.webp",
+    "alt": "Paredes onduladas del Lower Antelope Canyon",
+    "ep": 9,
+    "t": 1187,
+    "yt": "mOMzT7IwqMc"
+   },
+   {
+    "src": "/historias/estados-unidos/12.webp",
+    "alt": "El Gran Cañón del Colorado",
+    "ep": 9,
+    "t": 1484,
+    "yt": "mOMzT7IwqMc"
+   },
+   {
+    "src": "/historias/estados-unidos/13.webp",
+    "alt": "Carretera hacia las rocas rojas de Sedona",
+    "ep": 10,
+    "t": 119,
+    "yt": "P7EBR6HaEH0"
+   }
+  ]
+ },
+ "mexico": {
+  "hero": {
+   "src": "/historias/mexico/0.webp",
+   "alt": "La bici en una pista de tierra de la Baja Divide, vista desde el dron",
+   "ep": 11,
+   "t": 1219,
+   "yt": "Q6_-zrrmpg8"
+  },
+  "fotos": [
+   {
+    "src": "/historias/mexico/1.webp",
+    "alt": "Bandera de México en la frontera de Tecate",
+    "ep": 10,
+    "t": 1665,
+    "yt": "P7EBR6HaEH0"
+   },
+   {
+    "src": "/historias/mexico/2.webp",
+    "alt": "Pistas junto a la costa rocosa del Pacífico en la Baja California, desde el aire",
+    "ep": 11,
+    "t": 1368,
+    "yt": "Q6_-zrrmpg8"
+   },
+   {
+    "src": "/historias/mexico/3.webp",
+    "alt": "Cruzando en barca el río crecido hacia Chametla, en Sinaloa",
+    "ep": 12,
+    "t": 1007,
+    "yt": "Ynch66iK3Ww"
+   },
+   {
+    "src": "/historias/mexico/4.webp",
+    "alt": "Patio de la iglesia de Tequepexpan, donde dormí",
+    "ep": 13,
+    "t": 1278,
+    "yt": "LUeVR4pQAzU"
+   },
+   {
+    "src": "/historias/mexico/5.webp",
+    "alt": "Campos de agave en las laderas de Jalisco, vistos desde el aire",
+    "ep": 13,
+    "t": 1575,
+    "yt": "LUeVR4pQAzU"
+   },
+   {
+    "src": "/historias/mexico/6.webp",
+    "alt": "Vista de Guanajuato desde la habitación de la Casa Zúñiga",
+    "ep": 14,
+    "t": 1221,
+    "yt": "elinxL1IK6s"
+   },
+   {
+    "src": "/historias/mexico/7.webp",
+    "alt": "Valle verde del Estado de México visto desde el aire",
+    "ep": 15,
+    "t": 892,
+    "yt": "58ZJz7_6CDE"
+   },
+   {
+    "src": "/historias/mexico/8.webp",
+    "alt": "Prados y bosque junto a la reserva de la mariposa monarca, desde el aire",
+    "ep": 15,
+    "t": 1486,
+    "yt": "58ZJz7_6CDE"
+   },
+   {
+    "src": "/historias/mexico/9.webp",
+    "alt": "Calle del centro histórico de Ciudad de México",
+    "ep": 16,
+    "t": 890,
+    "yt": "ktwaV1WBnuI"
+   },
+   {
+    "src": "/historias/mexico/10.webp",
+    "alt": "El Popocatépetl sobre los campos de Puebla",
+    "ep": 17,
+    "t": 149,
+    "yt": "DPYQVTFrCnA"
+   },
+   {
+    "src": "/historias/mexico/11.webp",
+    "alt": "El agua quieta del balneario de Tamazulapam donde acampé",
+    "ep": 17,
+    "t": 1130,
+    "yt": "DPYQVTFrCnA"
+   },
+   {
+    "src": "/historias/mexico/12.webp",
+    "alt": "Pueblo colgado en la sierra de Oaxaca",
+    "ep": 18,
+    "t": 924,
+    "yt": "JTyeN2rJ3tE"
+   },
+   {
+    "src": "/historias/mexico/13.webp",
+    "alt": "Cueva por la que pasa un río, entre Oaxaca y Chiapas",
+    "ep": 19,
+    "t": 625,
+    "yt": "rAnSVNODPA8"
+   }
+  ]
+ },
+ "guatemala": {
+  "hero": {
+   "src": "/historias/guatemala/0.webp",
+   "alt": "Un volcán de Guatemala asomando sobre un mar de nubes",
+   "ep": 20,
+   "t": 60,
+   "yt": "bZyFF6b__bw"
+  },
+  "fotos": [
+   {
+    "src": "/historias/guatemala/1.webp",
+    "alt": "Calle de colores en San Pedro La Laguna, a orillas del lago Atitlán",
+    "ep": 20,
+    "t": 1580,
+    "yt": "bZyFF6b__bw"
+   },
+   {
+    "src": "/historias/guatemala/2.webp",
+    "alt": "En la lancha cruzando el lago Atitlán hacia Santiago",
+    "ep": 20,
+    "t": 1639,
+    "yt": "bZyFF6b__bw"
+   },
+   {
+    "src": "/historias/guatemala/3.webp",
+    "alt": "Nubes bajas entre las montañas del lago Atitlán",
+    "ep": 20,
+    "t": 1669,
+    "yt": "bZyFF6b__bw"
+   },
+   {
+    "src": "/historias/guatemala/4.webp",
+    "alt": "El lago Atitlán desde lo alto",
+    "ep": 20,
+    "t": 2116,
+    "yt": "bZyFF6b__bw"
+   },
+   {
+    "src": "/historias/guatemala/5.webp",
+    "alt": "El lago Atitlán con sus volcanes, desde Agua Escondida",
+    "ep": 21,
+    "t": 148,
+    "yt": "IGnV9gVLFd0"
+   },
+   {
+    "src": "/historias/guatemala/6.webp",
+    "alt": "Calle de Antigua Guatemala",
+    "ep": 21,
+    "t": 465,
+    "yt": "IGnV9gVLFd0"
+   },
+   {
+    "src": "/historias/guatemala/7.webp",
+    "alt": "Réplica de un templo maya de Tikal en el Parque Nacional Naciones Unidas",
+    "ep": 21,
+    "t": 564,
+    "yt": "IGnV9gVLFd0"
+   },
+   {
+    "src": "/historias/guatemala/8.webp",
+    "alt": "Camino entre roca volcánica a los pies del Pacaya",
+    "ep": 21,
+    "t": 1158,
+    "yt": "IGnV9gVLFd0"
+   },
+   {
+    "src": "/historias/guatemala/9.webp",
+    "alt": "Atardecer sobre la arena volcánica del Pacaya, donde acampé",
+    "ep": 21,
+    "t": 1500,
+    "yt": "IGnV9gVLFd0"
+   },
+   {
+    "src": "/historias/guatemala/10.webp",
+    "alt": "El volcán de Fuego y el Acatenango al amanecer desde el Pacaya",
+    "ep": 21,
+    "t": 1544,
+    "yt": "IGnV9gVLFd0"
+   },
+   {
+    "src": "/historias/guatemala/11.webp",
+    "alt": "La bici en la pista de arena volcánica junto al Pacaya",
+    "ep": 21,
+    "t": 1634,
+    "yt": "IGnV9gVLFd0"
+   },
+   {
+    "src": "/historias/guatemala/12.webp",
+    "alt": "La tienda en el ecoparque de la selva donde llegué de noche",
+    "ep": 22,
+    "t": 714,
+    "yt": "6VyxwOtdyPM"
+   },
+   {
+    "src": "/historias/guatemala/13.webp",
+    "alt": "Charlando con Javier en La Combi, en Chiquimulilla",
+    "ep": 22,
+    "t": 1279,
+    "yt": "6VyxwOtdyPM"
+   }
+  ]
+ },
+ "el-salvador": {
+  "hero": {
+   "src": "/historias/el-salvador/0.webp",
+   "alt": "Montañas de cafetales camino de Apaneca, desde el dron",
+   "ep": 23,
+   "t": 1695,
+   "yt": "810LUKfAJYU"
+  },
+  "fotos": [
+   {
+    "src": "/historias/el-salvador/1.webp",
+    "alt": "Atardecer en la playa de El Ancla, el día de la liberación de tortugas",
+    "ep": 22,
+    "t": 2201,
+    "yt": "6VyxwOtdyPM"
+   },
+   {
+    "src": "/historias/el-salvador/2.webp",
+    "alt": "La sierra de Apaneca con nubes en el horizonte, desde el aire",
+    "ep": 23,
+    "t": 1725,
+    "yt": "810LUKfAJYU"
+   },
+   {
+    "src": "/historias/el-salvador/3.webp",
+    "alt": "El fuego de la noche en el camping del volcán Santa Ana",
+    "ep": 23,
+    "t": 1873,
+    "yt": "810LUKfAJYU"
+   },
+   {
+    "src": "/historias/el-salvador/4.webp",
+    "alt": "El cráter del volcán Santa Ana con su laguna",
+    "ep": 23,
+    "t": 1963,
+    "yt": "810LUKfAJYU"
+   },
+   {
+    "src": "/historias/el-salvador/5.webp",
+    "alt": "Playa de arena y palmeras en la costa de La Libertad",
+    "ep": 24,
+    "t": 615,
+    "yt": "NkYsWu-_YZM"
+   },
+   {
+    "src": "/historias/el-salvador/6.webp",
+    "alt": "Lago cerca de San Miguel al amanecer, con un volcán al fondo",
+    "ep": 24,
+    "t": 1339,
+    "yt": "NkYsWu-_YZM"
+   },
+   {
+    "src": "/historias/el-salvador/7.webp",
+    "alt": "Volcán en el oriente de El Salvador visto desde el aire",
+    "ep": 24,
+    "t": 1368,
+    "yt": "NkYsWu-_YZM"
+   },
+   {
+    "src": "/historias/el-salvador/8.webp",
+    "alt": "Niebla de la mañana sobre el lago, con una lancha amarrada",
+    "ep": 24,
+    "t": 1398,
+    "yt": "NkYsWu-_YZM"
+   }
+  ]
+ },
+ "nicaragua": {
+  "hero": {
+   "src": "/historias/nicaragua/0.webp",
+   "alt": "La lancha cruzando el golfo de Fonseca hacia Nicaragua",
+   "ep": 25,
+   "t": 30,
+   "yt": "Bw1RK3ZTicQ"
+  },
+  "fotos": [
+   {
+    "src": "/historias/nicaragua/1.webp",
+    "alt": "Islas y costa del golfo de Fonseca desde la lancha",
+    "ep": 25,
+    "t": 385,
+    "yt": "Bw1RK3ZTicQ"
+   },
+   {
+    "src": "/historias/nicaragua/2.webp",
+    "alt": "Atardecer en la finca vallada donde dormí la primera noche",
+    "ep": 25,
+    "t": 592,
+    "yt": "Bw1RK3ZTicQ"
+   },
+   {
+    "src": "/historias/nicaragua/3.webp",
+    "alt": "León de piedra junto a la catedral de León",
+    "ep": 25,
+    "t": 681,
+    "yt": "Bw1RK3ZTicQ"
+   },
+   {
+    "src": "/historias/nicaragua/4.webp",
+    "alt": "Carretera hacia el sur de Nicaragua con el viento de cara",
+    "ep": 25,
+    "t": 1155,
+    "yt": "Bw1RK3ZTicQ"
+   }
+  ]
+ },
+ "colombia": {
+  "hero": {
+   "src": "/historias/colombia/0.webp",
+   "alt": "Finca entre cafetales en Antioquia, desde el dron",
+   "ep": 28,
+   "t": 1667,
+   "yt": "4E4AQxN3FHA"
+  },
+  "fotos": [
+   {
+    "src": "/historias/colombia/1.webp",
+    "alt": "Montañas verdes de Antioquia",
+    "ep": 28,
+    "t": 0,
+    "yt": "4E4AQxN3FHA"
+   },
+   {
+    "src": "/historias/colombia/2.webp",
+    "alt": "El río Cauca crecido junto a la finca donde esperé el planchón",
+    "ep": 28,
+    "t": 1161,
+    "yt": "4E4AQxN3FHA"
+   },
+   {
+    "src": "/historias/colombia/3.webp",
+    "alt": "El camino de tierra que sube al Alto de las Ventanas",
+    "ep": 29,
+    "t": 208,
+    "yt": "1Rr7Ouwp_PY"
+   },
+   {
+    "src": "/historias/colombia/4.webp",
+    "alt": "Pueblo entre colinas verdes de Caldas visto desde el aire",
+    "ep": 29,
+    "t": 1425,
+    "yt": "1Rr7Ouwp_PY"
+   },
+   {
+    "src": "/historias/colombia/5.webp",
+    "alt": "El pueblo de Letras a 3.800 metros, desde el aire",
+    "ep": 30,
+    "t": 712,
+    "yt": "qDGH3eduAEY"
+   },
+   {
+    "src": "/historias/colombia/6.webp",
+    "alt": "El cañón del Chicamocha, en Santander",
+    "ep": 31,
+    "t": 298,
+    "yt": "mPUxMsUooA0"
+   },
+   {
+    "src": "/historias/colombia/7.webp",
+    "alt": "El camino de tierra entre la vegetación hacia San Joaquín, desde el aire",
+    "ep": 31,
+    "t": 1102,
+    "yt": "mPUxMsUooA0"
+   },
+   {
+    "src": "/historias/colombia/8.webp",
+    "alt": "El Páramo La Rusia, en Boyacá",
+    "ep": 32,
+    "t": 978,
+    "yt": "SYNzjskN97M"
+   },
+   {
+    "src": "/historias/colombia/9.webp",
+    "alt": "La bici por un valle verde de Boyacá camino de Arcabuco, desde el dron",
+    "ep": 32,
+    "t": 1244,
+    "yt": "SYNzjskN97M"
+   },
+   {
+    "src": "/historias/colombia/10.webp",
+    "alt": "El valle árido de Ráquira visto desde el aire",
+    "ep": 33,
+    "t": 477,
+    "yt": "LguHKQQoBNs"
+   },
+   {
+    "src": "/historias/colombia/11.webp",
+    "alt": "El planchón que cruza el río Magdalena hacia la Tatacoa",
+    "ep": 33,
+    "t": 1460,
+    "yt": "LguHKQQoBNs"
+   },
+   {
+    "src": "/historias/colombia/12.webp",
+    "alt": "Amanecer sobre las montañas desde lo alto del Trampolín de la Muerte",
+    "ep": 34,
+    "t": 30,
+    "yt": "nCg8AlRPHKo"
+   },
+   {
+    "src": "/historias/colombia/13.webp",
+    "alt": "El macizo colombiano con nubes en los valles, desde el aire",
+    "ep": 34,
+    "t": 769,
+    "yt": "nCg8AlRPHKo"
+   }
+  ]
+ },
+ "ecuador": {
+  "hero": {
+   "src": "/historias/ecuador/0.webp",
+   "alt": "Laderas cultivadas de la sierra ecuatoriana vistas desde el aire",
+   "ep": 36,
+   "t": 30,
+   "yt": "raJ6Mc-K3Ns"
+  },
+  "fotos": [
+   {
+    "src": "/historias/ecuador/1.webp",
+    "alt": "Frailejones en el páramo de la Reserva Ecológica El Ángel",
+    "ep": 35,
+    "t": 657,
+    "yt": "B1OAUOYOIzc"
+   },
+   {
+    "src": "/historias/ecuador/2.webp",
+    "alt": "La pista de la TEMBR cruzando el páramo de El Ángel",
+    "ep": 35,
+    "t": 716,
+    "yt": "B1OAUOYOIzc"
+   },
+   {
+    "src": "/historias/ecuador/3.webp",
+    "alt": "Mural en una calle de Otavalo",
+    "ep": 35,
+    "t": 1493,
+    "yt": "B1OAUOYOIzc"
+   },
+   {
+    "src": "/historias/ecuador/4.webp",
+    "alt": "El Cotopaxi nevado sobre el páramo",
+    "ep": 35,
+    "t": 2120,
+    "yt": "B1OAUOYOIzc"
+   },
+   {
+    "src": "/historias/ecuador/5.webp",
+    "alt": "La pista hacia el Cotopaxi, con el volcán al fondo",
+    "ep": 35,
+    "t": 2209,
+    "yt": "B1OAUOYOIzc"
+   },
+   {
+    "src": "/historias/ecuador/6.webp",
+    "alt": "Carretera que serpentea por la cordillera de Angamarca, desde el dron",
+    "ep": 36,
+    "t": 537,
+    "yt": "raJ6Mc-K3Ns"
+   },
+   {
+    "src": "/historias/ecuador/7.webp",
+    "alt": "Nubes entre las montañas de la cordillera de Angamarca",
+    "ep": 36,
+    "t": 1014,
+    "yt": "raJ6Mc-K3Ns"
+   },
+   {
+    "src": "/historias/ecuador/8.webp",
+    "alt": "La pista de tierra por la cordillera de Angamarca vista desde el aire",
+    "ep": 36,
+    "t": 1044,
+    "yt": "raJ6Mc-K3Ns"
+   },
+   {
+    "src": "/historias/ecuador/9.webp",
+    "alt": "Camino entre plumeros en la sierra ecuatoriana",
+    "ep": 37,
+    "t": 0,
+    "yt": "asZWkk_-1gQ"
+   },
+   {
+    "src": "/historias/ecuador/10.webp",
+    "alt": "El Chimborazo, el punto más alejado del centro de la Tierra",
+    "ep": 37,
+    "t": 208,
+    "yt": "asZWkk_-1gQ"
+   },
+   {
+    "src": "/historias/ecuador/11.webp",
+    "alt": "Mural en una calle de Cuenca",
+    "ep": 37,
+    "t": 593,
+    "yt": "asZWkk_-1gQ"
+   },
+   {
+    "src": "/historias/ecuador/12.webp",
+    "alt": "Valle verde de la sierra al sur de Cuenca",
+    "ep": 37,
+    "t": 1394,
+    "yt": "asZWkk_-1gQ"
+   },
+   {
+    "src": "/historias/ecuador/13.webp",
+    "alt": "Pista de montaña en los Andes ecuatorianos, desde el dron",
+    "ep": 38,
+    "t": 208,
+    "yt": "T4icOX4O9dg"
+   }
+  ]
+ },
+ "peru": {
+  "hero": {
+   "src": "/historias/peru/0.webp",
+   "alt": "Valle profundo cerca de Chalaco, desde el aire",
+   "ep": 40,
+   "t": 178,
+   "yt": "njaSZyb1tm0"
+  },
+  "fotos": [
+   {
+    "src": "/historias/peru/1.webp",
+    "alt": "La costa del norte de Perú, desierto junto al Pacífico",
+    "ep": 38,
+    "t": 950,
+    "yt": "T4icOX4O9dg"
+   },
+   {
+    "src": "/historias/peru/2.webp",
+    "alt": "Amanecer en la playa de Punta Sal",
+    "ep": 38,
+    "t": 1366,
+    "yt": "T4icOX4O9dg"
+   },
+   {
+    "src": "/historias/peru/3.webp",
+    "alt": "La bici por una carretera en un valle verde de la sierra de Piura",
+    "ep": 39,
+    "t": 0,
+    "yt": "92C_eWnZfrg"
+   },
+   {
+    "src": "/historias/peru/4.webp",
+    "alt": "Playa del norte de Perú camino de Lobitos",
+    "ep": 39,
+    "t": 237,
+    "yt": "92C_eWnZfrg"
+   },
+   {
+    "src": "/historias/peru/5.webp",
+    "alt": "Calle de San Miguel, en la sierra de Piura, donde los vecinos me trajeron naranjas",
+    "ep": 39,
+    "t": 752,
+    "yt": "92C_eWnZfrg"
+   },
+   {
+    "src": "/historias/peru/6.webp",
+    "alt": "Carretera estrecha colgada de la montaña en la sierra norte de Perú",
+    "ep": 39,
+    "t": 1365,
+    "yt": "92C_eWnZfrg"
+   },
+   {
+    "src": "/historias/peru/7.webp",
+    "alt": "Curvas de la carretera bajando a un valle de la sierra de Piura",
+    "ep": 39,
+    "t": 1395,
+    "yt": "92C_eWnZfrg"
+   },
+   {
+    "src": "/historias/peru/8.webp",
+    "alt": "Cruzando el río con la bici antes de la subida",
+    "ep": 40,
+    "t": 950,
+    "yt": "njaSZyb1tm0"
+   },
+   {
+    "src": "/historias/peru/9.webp",
+    "alt": "Vacas cruzando el río en un valle de la sierra",
+    "ep": 40,
+    "t": 979,
+    "yt": "njaSZyb1tm0"
+   },
+   {
+    "src": "/historias/peru/10.webp",
+    "alt": "Jóvenes bailando en la calle en Cajamarca",
+    "ep": 40,
+    "t": 1425,
+    "yt": "njaSZyb1tm0"
+   },
+   {
+    "src": "/historias/peru/11.webp",
+    "alt": "Curvas de la carretera entre montes de Cajamarca, desde el dron",
+    "ep": 41,
+    "t": 714,
+    "yt": "2S2n5DTyl9Y"
+   },
+   {
+    "src": "/historias/peru/12.webp",
+    "alt": "Una laguna entre montañas en la sierra de Cajabamba",
+    "ep": 41,
+    "t": 951,
+    "yt": "2S2n5DTyl9Y"
+   },
+   {
+    "src": "/historias/peru/13.webp",
+    "alt": "La última acampada en los Andes, en la laguna del Toro",
+    "ep": 41,
+    "t": 1665,
+    "yt": "2S2n5DTyl9Y"
+   }
+  ]
+ },
+ "costa-rica": {
+  "hero": {
+   "src": "/historias/costa-rica/0.webp",
+   "alt": "La costa del Pacífico central de Costa Rica al atardecer, desde el aire",
+   "ep": 25,
+   "t": 1363,
+   "yt": "Bw1RK3ZTicQ"
+  },
+  "fotos": [
+   {
+    "src": "/historias/costa-rica/1.webp",
+    "alt": "La bici cargada junto al mar en el norte de Costa Rica",
+    "ep": 26,
+    "t": 0,
+    "yt": "zeNSAmoyJoQ"
+   },
+   {
+    "src": "/historias/costa-rica/2.webp",
+    "alt": "Playa Puerto Soley, donde pasé dos días leyendo y mirando el mar",
+    "ep": 26,
+    "t": 895,
+    "yt": "zeNSAmoyJoQ"
+   },
+   {
+    "src": "/historias/costa-rica/3.webp",
+    "alt": "Atardecer en Playa Puerto Soley",
+    "ep": 26,
+    "t": 925,
+    "yt": "zeNSAmoyJoQ"
+   }
+  ]
+ },
+ "panama": {
+  "hero": {
+   "src": "/historias/panama/0.webp",
+   "alt": "La sombra de la bici cargada sobre el asfalto",
+   "ep": 26,
+   "t": 985,
+   "yt": "zeNSAmoyJoQ"
+  },
+  "fotos": [
+   {
+    "src": "/historias/panama/1.webp",
+    "alt": "Playa cerca de Jacó, donde acampé junto a un pescador",
+    "ep": 26,
+    "t": 1850,
+    "yt": "zeNSAmoyJoQ"
+   },
+   {
+    "src": "/historias/panama/2.webp",
+    "alt": "La tienda entre papayos y arbustos cerca de Jacó",
+    "ep": 26,
+    "t": 1999,
+    "yt": "zeNSAmoyJoQ"
+   },
+   {
+    "src": "/historias/panama/3.webp",
+    "alt": "En el paseo marítimo de Ciudad de Panamá, ocho meses y medio después de salir de Canadá",
+    "ep": 27,
+    "t": 118,
+    "yt": "vgv36qfAyeA"
+   }
+  ]
+ }
+}

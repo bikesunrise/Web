@@ -8,6 +8,9 @@ import ArticleRoadmap,{ArticleSummary} from '@/components/ArticleRoadmap';
 import ArticleBody from '@/components/ArticleBody';
 import ContactForm from '@/components/ContactForm';
 import GearBrowser from '@/components/GearBrowser';
+import HistoriaV2 from '@/components/HistoriaV2';
+import '../portada-v2.css';
+import '../historia-v2.css';
 import {entries,byPath,archiveSources,archiveItems,imageFor,category} from '@/lib/content';
 type Props={params:Promise<{slug:string[]}>};
 export function generateStaticParams(){return entries.map(e=>({slug:e.path.split('/').filter(Boolean)}))}
@@ -16,6 +19,7 @@ export default async function ContentPage({params}:Props){const {slug}=await par
  if(path==='/material-para-bikepacking')return <><Header/><main><GearBrowser/></main><Footer/></>;
  const isArchive=!!archiveSources[path] || entry.kind==='archive';
  if(path==='/contacto')return <><Header/><main className="inner-page contact-page"><section className="contact-head"><span className="section-kicker">BIKESUNRISE / CONTACTO</span><h1>Nos vemos en el camino.</h1><p>¿Tienes una pregunta sobre viajar en bicicleta, una propuesta o una historia que compartir? Escríbeme.</p></section><div className="contact-layout"><div><h2>Hablemos de aventuras.</h2><p>Una conversación puede ser el comienzo de un viaje. También puedes seguir el camino en <a href="https://www.instagram.com/bikesunrise/" target="_blank" rel="noopener noreferrer">Instagram ↗</a> y <a href="https://www.youtube.com/@Bikesunrise" target="_blank" rel="noopener noreferrer">YouTube ↗</a>.</p></div><ContactForm/></div></main><Footer/></>;
+ if(String(entry.kind)==='journey')return <><Header overlay/><main><HistoriaV2 entry={entry}/></main></>;
  const illustratedStory=entry.kind==='journey'||path.startsWith('/rutas/')||path.startsWith('/eurovelo/');
  const intro=path==='/viajar-en-bicicleta'?'Todo lo que necesitas para viajar en bicicleta: cómo preparar tu primera ruta, elegir el material y organizar la vida en el camino.':entry.excerpt;
  const related=entries.filter(x=>x.path!==path && x.kind==='article' && x.path.split('/')[1]===path.split('/')[1]).slice(0,3);
