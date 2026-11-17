@@ -47,10 +47,12 @@
 .pv2 .boton-linea{appearance:none;border:2px solid var(--bosque);background:transparent;color:var(--bosque);border-radius:999px;padding:11px 22px;font:600 15px/1 var(--sans);cursor:pointer;transition:background .2s,transform .2s}
 .pv2 .boton-linea:hover{background:var(--arena)}
 .pv2 .boton-linea:active{transform:scale(.97)}
+.pv2 .conts{display:none}
 .pv2 .pista-mapa{margin:0 0 0 auto;font:italic 500 18px/1.2 var(--mano);color:var(--tierra)}
 .pv2 .mapa-caja{--tv:#2f5a41;--na:#d8842c;--pp:#f3ecd9;position:relative;left:50%;translate:-50% 0;width:min(calc(100vw - 28px),1900px);margin-top:18px;border-radius:10px;overflow:hidden;box-shadow:var(--sombra);
   background:var(--pp) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .2 0 0 0 .13 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23g)'/%3E%3C/svg%3E")}
 .pv2 .mapa-caja:after{content:"";position:absolute;inset:9px;border:3px solid var(--tv);outline:1.5px solid var(--tv);outline-offset:4px;border-radius:4px;pointer-events:none;z-index:1;opacity:.85}
+.pv2 #pv2-atlas{display:contents}
 .pv2 .atlas-mundo{display:block;width:100%;height:auto;--f:1;--fd:1}
 .il{fill:none;stroke:var(--tv,currentColor);stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
 .il .r{fill:var(--tv,currentColor);stroke:var(--tv,currentColor);stroke-width:1}
@@ -188,27 +190,51 @@
 @media (max-width:900px){.pv2 .top nav{display:none}
 .pv2 .hero{height:84svh;min-height:520px}
 .pv2 .hero-pie{bottom:58px}
+.pv2 .atlas{padding:56px 0 80px}
 .pv2 .atlas-cab{grid-template-columns:1fr}
-.pv2 .cifras{justify-content:flex-start}
-.pv2 .mapa-caja{overflow:visible;background:none;box-shadow:none;border-radius:0}
+.pv2 .cifras{justify-content:flex-start;gap:26px}
+.pv2 .cifras b{font-size:38px}
+.pv2 .mandos{margin-top:28px;gap:10px}
+.pv2 .mandos .boton{flex:1 1 auto;justify-content:center}
+.pv2 #b-mundo{display:none}
+.pv2 .conts{display:flex;width:100%;gap:8px}
+.pv2 .conts button{flex:1;appearance:none;border:2px solid var(--bosque);background:transparent;color:var(--bosque);border-radius:999px;padding:10px 6px;font:600 14px/1 var(--sans);cursor:pointer;min-height:44px}
+.pv2 .conts button[aria-pressed="true"]{background:var(--bosque);color:#fff}
+.pv2 .pista-mapa{margin:2px 0 0;flex-basis:100%;font-size:15px}
+.pv2 .mapa-caja{left:auto;translate:none;width:auto;margin:14px calc(var(--gut)*-1) 0;background:none;box-shadow:none;overflow:visible;border-radius:0}
 .pv2 .mapa-caja:after{display:none}
-.pv2 .mapa-caja{background:none;box-shadow:none;overflow:visible}
-.pv2 .mapa-rollo{border-radius:8px;background:var(--pp);box-shadow:var(--sombra);overflow:hidden;outline:2.5px solid var(--tv);outline-offset:-7px}
-.pv2 .atlas-mundo .denso:not(.activo) .am-etq,.pv2 .atlas-mundo .denso:not(.activo) .am-guia,.pv2 .atlas-mundo[data-vista="mundo"] .am-pais:not(.activo) .am-etq,.pv2 .atlas-mundo[data-vista="mundo"] .am-pais:not(.activo) .am-guia{display:none}
-.pv2 .atlas-mundo[data-vista="mundo"] .denso.activo .am-etq{display:inline}
-.pv2 .am-cont{font-size:44px}
-.pv2 .ficha{position:static;width:auto;margin-top:12px;grid-template-columns:132px 1fr;box-shadow:none;background:var(--arena)}
-.pv2 .ficha .pasaporte{width:132px;height:100px}
+.pv2 .mapa-rollo{height:min(58svh,500px);border-radius:0;background:var(--pp);overflow:hidden;box-shadow:inset 0 0 0 2px var(--tv),inset 0 0 0 7px var(--pp),inset 0 0 0 8.5px var(--tv)}
+.pv2 .atlas-mundo{width:100%;height:100%}
+.pv2 .atlas-mundo .denso:not(.activo) .am-etq,.pv2 .atlas-mundo .denso:not(.activo) .am-guia{display:none}
+.pv2 .atlas-mundo[data-vista="mundo"] .am-pais:not(.activo) .am-etq,.pv2 .atlas-mundo[data-vista="mundo"] .am-pais:not(.activo) .am-guia{display:none}
+.pv2 .atlas-mundo[data-vista="cont"] .am-paradas{display:block}
+.pv2 .am-cont,.pv2 .am-cartela,.pv2 .am-oceano{display:none}
+.pv2 .am-zona{r:26px}
+.pv2 .ficha{position:static;width:auto;margin:0;padding:12px var(--gut);grid-template-columns:120px 1fr;gap:12px;border-radius:0;box-shadow:none;background:var(--arena)}
+.pv2 .ficha .pasaporte{width:120px;height:92px}
 .pv2 .ficha p#f-texto{font-size:14px;-webkit-line-clamp:3}
-.pv2 .pista-mapa{margin-left:0;flex-basis:100%}
-.pv2 .carta{width:176px}
-.pv2 .pasaporte{width:160px;height:126px}
+.pv2 .ficha .boton{padding:10px 14px;font-size:13px;min-height:40px}
+.pv2 .ficha .pasos button{width:40px;height:40px}
+.pv2 .mapa-nota{margin:12px 0 0;font-size:13px}
+.pv2 .tira-cab{margin-top:34px}
+.pv2 .tira{padding-bottom:10px}
+.pv2 .carta{width:150px;padding:8px 4px 10px}
+.pv2 .pasaporte{width:140px;height:110px}
+.pv2 .tira-cont{font-size:20px;padding:0 6px 0 12px}
 .pv2 .rejilla{grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 14px}
-.pv2 .a-num{font-size:46px;top:-14px}
-.pv2 .destacada{grid-template-columns:1fr}
-.pv2 .fila{grid-template-columns:repeat(2,minmax(0,1fr))}
-.pv2 .fila .historia:last-child{grid-column:1/-1;max-width:60%;margin:0 auto}
+.pv2 .a-num{font-size:40px;top:-12px}
+.pv2 .a-tit{font-size:21px}
+.pv2 .a-txt{font-size:14.5px}
+.pv2 .mision{padding:96px 0 104px}
 .pv2 .pie-in{grid-template-columns:1fr 1fr}
 .pv2 .pie-in>div:first-child{grid-column:1/-1}}
+@media (min-width:601px) and (max-width:900px){.pv2 .rejilla{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pv2 .mapa-rollo{height:min(62svh,620px)}}
+@media (max-width:420px){.pv2 .rejilla{grid-template-columns:1fr 1fr;gap:28px 12px}
+.pv2 .a-txt{display:none}
+.pv2 .pie-in{grid-template-columns:1fr}
+.pv2 .legal{flex-direction:column}}
+@media (min-width:901px) and (max-width:1180px){.pv2 .rejilla{grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 18px}
+.pv2 .ficha{width:min(280px,calc(100% - 36px))}}
 .pv2 h1,.pv2 h2,.pv2 h3,.pv2 .a-tit,.pv2 .d-pais,.pv2 .h-pais,.pv2 .v-tit,.pv2 .pie-marca,.pv2 .marca{font-family:var(--serif)!important;font-weight:800!important;letter-spacing:-.04em!important;font-variation-settings:"SOFT" 100,"WONK" 1!important;text-transform:none!important}
 .pv2 .cuerpo h2 span{font-weight:600!important;letter-spacing:-.02em!important}

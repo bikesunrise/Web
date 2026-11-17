@@ -10,11 +10,22 @@ export function iniciaAtlas(raiz, D) {
   const MUNDO = D.vistas.mundo;
   let caja = MUNDO.slice(), tam = [0.62, 0.3], pos = [P[0].x, P[0].y], vista = 'mundo', cuadro = 0, actual = -1, reloj = 0;
 
+  const asp = () => { const r = svg.getBoundingClientRect(); return movil.matches && r.height ? r.width / r.height : D.ancho / D.alto; };
+  function marco(x0, y0, x1, y1, holgura, cx) {   // caja con la forma del marco que abarca el rectángulo dado
+    const a = asp(), w = Math.max((x1 - x0) * holgura, (y1 - y0) * holgura * a), h = w / a;
+    return [(x0 + x1) / 2 - w * cx, (y0 + y1) / 2 - h * 0.5, w, h];
+  }
   function encuadre(p) {            // la cámara encuadra el tramo de ruta de ese país
-    const m = movil.matches, asp = m ? 1.1 : D.ancho / D.alto;
-    const [x0, y0, x1, y1] = p.bb;
-    const w = Math.max((x1 - x0) * 1.45, (y1 - y0) * 1.45 * asp), h = w / asp;
-    return [(x0 + x1) / 2 - w * (m ? 0.5 : 0.58), (y0 + y1) / 2 - h * 0.5, w, h];
+    return movil.matches ? marco(...p.bb, 1.8, 0.5) : marco(...p.bb, 1.45, 0.58);   // en el marco alto del móvil, más aire
+  }
+  function continente(reg) {        // en el móvil, la cámara abarca un continente entero
+    const bb = P.filter(p => p.reg === reg).map(p => p.bb);
+    return marco(Math.min(...bb.map(b => b[0])), Math.min(...bb.map(b => b[1])), Math.max(...bb.map(b => b[2])), Math.max(...bb.map(b => b[3])), 1.12, 0.5);
+  }
+  function verContinente(reg) {
+    para();
+    document.querySelectorAll('.conts button').forEach(b => b.setAttribute('aria-pressed', b.dataset.reg === reg));
+    mueve(continente(reg), tamCont(), pos, 'cont', 800);
   }
   function pinta() {
     svg.setAttribute('viewBox', caja.map(v => v.toFixed(1)).join(' '));
@@ -38,7 +49,9 @@ export function iniciaAtlas(raiz, D) {
       if (p < 1) cuadro = requestAnimationFrame(paso);
     })(t0);
   }
-  const tamZoom = () => movil.matches ? [0.6, 0.5] : [0.68, 0.6];
+  const tableta = () => movil.matches && innerWidth > 600;
+  const tamZoom = () => tableta() ? [0.8, 0.7] : movil.matches ? [0.6, 0.5] : [0.68, 0.6];
+  const tamCont = () => tableta() ? [0.85, 0.75] : [0.62, 0.5];
   const tamMundo = () => movil.matches ? [0.55, 0.42] : [0.62, 0.3];
 
   // Sello de pasaporte de cada país: forma y tinta propias, y el nombre encima en su color
@@ -101,6 +114,7 @@ export function iniciaAtlas(raiz, D) {
     a.href = p.href; a.firstChild.textContent = p.slug ? 'Leer la historia ' : 'Ver las rutas ';
     const carta = tira.querySelector(`.carta[data-i="${i}"]`);
     if (!desdeTira) tira.scrollTo({ left: carta.offsetLeft - tira.clientWidth / 2 + carta.offsetWidth / 2, behavior: quieto ? 'auto' : 'smooth' });
+    document.querySelectorAll('.conts button').forEach(b => b.setAttribute('aria-pressed', b.dataset.reg === p.reg && vista !== 'pais' && !acercar));
     if (acercar) mueve(encuadre(p), tamZoom(), [p.x, p.y], 'pais', 900);
     else mueve(caja, tam, [p.x, p.y], vista, 500);
   }
@@ -121,9 +135,12 @@ export function iniciaAtlas(raiz, D) {
   document.getElementById('t-sig').addEventListener('click', () => tira.scrollBy({ left: tira.clientWidth * 0.8, behavior: quieto ? 'auto' : 'smooth' }));
   document.getElementById('b-play').addEventListener('click', () => reloj ? para() : suena());
   document.getElementById('b-mundo').addEventListener('click', () => { para(); mueve(MUNDO, tamMundo(), pos, 'mundo', 800); });
+  document.querySelector('.conts').addEventListener('click', e => { const b = e.target.closest('button'); if (b) verContinente(b.dataset.reg); });
   const ro = new ResizeObserver(pinta); ro.observe(svg);
   tam = tamMundo();
-  elige(P.findIndex(p => p.slug === 'nepal'), false);
+  const inicio = P.findIndex(p => p.slug === 'nepal');
+  elige(inicio, false);
+  if (movil.matches) { caja = continente(P[inicio].reg); tam = tamCont(); svg.dataset.vista = vista = 'cont'; pinta(); verContinente(P[inicio].reg); }
 
   return () => { para(); cancelAnimationFrame(cuadro); ro.disconnect(); tira.innerHTML = ''; };
 }
