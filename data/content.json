@@ -21642,7 +21642,7 @@
   {
     "path": "/viajes/viajar-en-bicicleta-por-albania",
     "title": "Viajar en bicicleta por Albania",
-    "excerpt": "Descubre mi experiencia de viajar en bicicleta por Albania, un país de paisajes increíbles y hospitalidad única. + INFO AQUÍ 🔍",
+    "excerpt": "Salí de Shkodër hacia las montañas, con mucho calor y una hospitalidad que me sorprendió cada día.",
     "image": "/images/content/ae11d5d6767c0a20.jpg",
     "date": "",
     "kind": "journey",
@@ -21807,12 +21807,19 @@
         "type": "figure",
         "value": "/images/content/99e951a32219f073.jpg"
       }
+    ],
+    "summary": [
+      "La salida desde Shkodër.",
+      "Agua, ajedrez y una cena en casa de un desconocido.",
+      "Días de 35 grados y caminos rotos.",
+      "Dorian y Niko, que me trataron como a un amigo.",
+      "Una acampada junto a un río y los últimos leks antes de Macedonia."
     ]
   },
   {
     "path": "/viajes/viajar-en-bicicleta-por-bosnia",
     "title": "Viajar en bicicleta por Bosnia & Herzegovina",
-    "excerpt": "Viajar en bicicleta por Bosnia es una experiencia de contrastes: montañas desafiantes, generosidad local y la belleza de un país auténtico.",
+    "excerpt": "Montañas largas, una avería lejos de todo y unos días de descanso en Mostar.",
     "image": "/images/content/452cc9081012e7b3.jpg",
     "date": "",
     "kind": "journey",
@@ -21997,12 +22004,19 @@
         "type": "figure",
         "value": "/images/content/c4dff969a54fa085.jpg"
       }
+    ],
+    "summary": [
+      "Una primera subida de casi 14 kilómetros.",
+      "Un tornillo roto en la rueda trasera, en mitad de la nada.",
+      "Café y conversación con una familia de un pueblo.",
+      "Mostar y su casco antiguo.",
+      "La subida tras Mostar, con calor y casi sin agua."
     ]
   },
   {
     "path": "/viajes/viajar-en-bicicleta-por-croacia",
     "title": "Viajar en bicicleta por Croacia",
-    "excerpt": "Viajar en bicicleta por Croacia fue una experiencia llena de naturaleza, retos y momentos de conexión. Ideal para los que buscan aventura.",
+    "excerpt": "Entré con una tormenta encima y crucé el interior rural hasta llegar a la costa del Adriático.",
     "image": "/images/content/48abb57e829a9433.jpg",
     "date": "",
     "kind": "journey",
@@ -22203,12 +22217,19 @@
         "type": "figure",
         "value": "/images/content/0427393eb3df4d68.jpg"
       }
+    ],
+    "summary": [
+      "La tormenta y la familia que me acogió antes de cruzar.",
+      "Pueblos rurales y un castillo en ruinas.",
+      "El parque natural de las cascadas.",
+      "La costa del Adriático y su turismo.",
+      "Un día con Oriol, que vivía a diez kilómetros de mi casa."
     ]
   },
   {
     "path": "/viajes/viajar-en-bicicleta-por-eslovenia",
     "title": "Viajar en bicicleta por Eslovenia",
-    "excerpt": "➤ ¿Buscas cómo es viajar en bicicleta por Eslovenia? Aquí te narro mis vivencias viajando por este país en bicicleta. Imágenes y vídeos.",
+    "excerpt": "Crucé desde Italia hacia los Alpes Julianos, el lago Bled y Liubliana, y paré unos días en una granja.",
     "image": "/images/content/5e2f90ded900918f.jpg",
     "date": "",
     "kind": "journey",
@@ -22369,12 +22390,19 @@
         "type": "figure",
         "value": "/images/content/75b683f02e6b50c5.jpg"
       }
+    ],
+    "summary": [
+      "La primera noche al raso en Eslovenia.",
+      "Los Alpes Julianos y una subida de casi dos horas.",
+      "El lago Bled, con menos gente de la que esperaba.",
+      "Liubliana, sin rumbo fijo.",
+      "Unos días recogiendo arándanos en una granja de Warmshowers."
     ]
   },
   {
     "path": "/viajes/viajar-en-bicicleta-por-francia",
     "title": "Viajar en bicicleta por Francia",
-    "excerpt": "¿Quieres viajar en bicicleta por Francia? En esta página encontrarás, imágenes, rutas y mis experiencias viajando en bicicleta por Francia.",
+    "excerpt": "Entré desde los Pirineos y crucé el sur de Francia por la costa hasta subir a los Alpes Marítimos.",
     "image": "/images/content/8cdbd2a222b66b06.jpg",
     "date": "",
     "kind": "journey",
@@ -22503,12 +22531,19 @@
         "type": "figure",
         "value": "/images/content/931233b58cc114f7.jpg"
       }
+    ],
+    "summary": [
+      "La bajada desde la frontera hacia Perpiñán.",
+      "La costa por la EuroVelo 8.",
+      "El viento en contra por la Camarga.",
+      "Tomás, el bombero que me abrió su casa.",
+      "La subida a los Alpes Marítimos, a 2.300 metros."
     ]
   },
   {
     "path": "/viajes/viajar-en-bicicleta-por-grecia",
     "title": "Viajar en bicicleta por Grecia",
-    "excerpt": "¿Quieres saber cómo es viajar en bicicleta por Grecia? Aquí te narro mis vivencias, anécdotas, imágenes y mucho más de este país en bici. +INFO",
+    "excerpt": "Entré tras tres días parado por una pieza del hornillo y fui hacia la costa, entre playas, termas y alguna casa abandonada.",
     "image": "/images/content/65c5bb32db19798c.jpg",
     "date": "",
     "kind": "journey",
@@ -22685,12 +22720,19 @@
         "type": "figure",
         "value": "/images/content/233e5e2236172f35.jpg"
       }
+    ],
+    "summary": [
+      "Tres días parado esperando una pieza del hornillo.",
+      "Anastasios, el panadero que me dejó acampar en su casa.",
+      "Una playa casi vacía para mí solo.",
+      "Unas termas naturales en mitad del camino.",
+      "Una noche en una casa abandonada junto a la costa."
     ]
   },
   {
     "path": "/viajes/viajar-en-bicicleta-por-italia",
     "title": "Viajar en bicicleta por Italia",
-    "excerpt": "¿Te gustaría saber cómo es viajar en bicicleta por Italia? En esta página encontrarás información acerca de la acampada libre, imágenes y más.",
+    "excerpt": "Del Piamonte a los Dolomitas, entre viñedos, pueblos pequeños y el paso Fedaia.",
     "image": "/images/content/24ae3676862fea44.jpg",
     "date": "",
     "kind": "journey",
@@ -22883,12 +22925,19 @@
         "type": "figure",
         "value": "/images/content/0a9379196ed9796b.jpg"
       }
+    ],
+    "summary": [
+      "La bajada por las colinas del Piamonte.",
+      "Focaccia y pizza regaladas en una panadería.",
+      "El calor de la llanura y la sombra de los viñedos.",
+      "Trento y el paso Fedaia, frente a la Marmolada.",
+      "Una tormenta en la montaña y el amanecer después."
     ]
   },
   {
     "path": "/viajes/viajar-en-bicicleta-por-la-india",
     "title": "Viajar en bicicleta por la India",
-    "excerpt": "🔍 Viajar en bicicleta por la India posiblemente ha sido el país más difícil de viajar con una bicicleta. Conoce aquí todo el relato por este país.",
+    "excerpt": "Del caos de las carreteras a las faldas del Himalaya, una Navidad tibetana y el Taj Mahal.",
     "image": "/images/content/1d9ec8586bfcd838.jpg",
     "date": "",
     "kind": "journey",
@@ -23233,12 +23282,20 @@
         "type": "p",
         "value": "La India tiene talleres de bicicletas en casi todas las ciudades. En pueblos pequeños, los mecánicos suelen ser muy ingeniosos y podrán ayudarte con reparaciones básicas."
       }
+    ],
+    "summary": [
+      "Tráfico, vacas y basura en las primeras carreteras.",
+      "Pedir sitio para dormir a las familias.",
+      "Días de niebla.",
+      "Templos rosados en las faldas del Himalaya.",
+      "Navidad con una familia tibetana cerca de Dharamsala.",
+      "Agra, el Taj Mahal y las llanuras del norte."
     ]
   },
   {
     "path": "/viajes/viajar-en-bicicleta-por-macedonia-del-norte",
     "title": "Viajar en bicicleta por Macedonia del Norte",
-    "excerpt": "¿Te gustaría saber cómo es viajar en bicicleta por Macedonia del Norte? Aquí te cuenta mis vivencias, anécdotas, imágenes y mucho más del viaje.",
+    "excerpt": "Bordeé el lago Ohrid y seguí hacia Grecia con Charles y Anne-Claire, entre girasoles y alguna tormenta.",
     "image": "/images/content/fa9f3483daae9142.jpg",
     "date": "",
     "kind": "journey",
@@ -23383,12 +23440,19 @@
         "type": "figure",
         "value": "/images/content/88dc2f9f3d628859.jpg"
       }
+    ],
+    "summary": [
+      "La calma del lago Ohrid.",
+      "El reencuentro con Charles y Anne-Claire, camino de Bitola.",
+      "Un parque casi sin tráfico, con sombra en la subida.",
+      "Una noche de lluvia en un hotel abandonado.",
+      "Campos de girasoles y una tormenta antes de Grecia."
     ]
   },
   {
     "path": "/viajes/viajar-en-bicicleta-por-montenegro",
     "title": "Viajar en bicicleta por Montenegro",
-    "excerpt": "¿Quieres viajar en bicicleta por Montenegro? Aquí te cuento mis vivencias por este país con anécdotas, imágenes y videos para inspirarte. +INFO",
+    "excerpt": "De Bosnia al Parque Nacional de Durmitor, entre túneles oscuros, subidas duras y una familia que me abrió su casa.",
     "image": "/images/content/799c5eb29ad608f5.jpg",
     "date": "",
     "kind": "journey",
@@ -23541,12 +23605,19 @@
         "type": "figure",
         "value": "/images/content/e161a9f5d9b8d6c0.jpg"
       }
+    ],
+    "summary": [
+      "El último amanecer en Bosnia y la frontera.",
+      "Los túneles a oscuras, con tres linternas.",
+      "La subida a Durmitor, empujando la bici.",
+      "Café, tomates y ajos con una familia en lo alto.",
+      "Acampar bajo un cielo lleno de estrellas."
     ]
   },
   {
     "path": "/viajes/viajar-en-bicicleta-por-nepal",
     "title": "Viajar en bicicleta por Nepal",
-    "excerpt": "¿Quiere saber cómo es viajar en bicicleta por Nepal? En esta página descubrirás anécdotas personales, imágenes, videos y más de este país. 🔍",
+    "excerpt": "Entré desde la India diez meses después de salir de casa y subí hacia los Annapurnas hasta la nieve de Manang.",
     "image": "/images/content/5a8a7ef6e671de7b.jpg",
     "date": "",
     "kind": "journey",
@@ -23743,12 +23814,19 @@
         "type": "figure",
         "value": "/images/content/0771a8dd5223627a.jpg"
       }
+    ],
+    "summary": [
+      "Lumbini, al cruzar desde la India.",
+      "Las primeras subidas camino de Pokhara.",
+      "El circuito de los Annapurnas.",
+      "Una habitación gratis en Chame.",
+      "La nevada en Manang y aceptar parar."
     ]
   },
   {
     "path": "/viajes/viajar-en-bicicleta-por-pakistan",
     "title": "Viajar en bicicleta por Pakistán",
-    "excerpt": "🔍 ¿Te gustaría saber cómo es viajar en bicicleta por Pakistán? Aquí encontrarás mi historia viajando por este país en imágenes, videos y relatos.",
+    "excerpt": "Volé de Turquía a Islamabad y subí hacia el norte por la Karakórum Highway, entre montañas enormes y mucho frío.",
     "image": "/images/content/4acd6bb8675183ac.jpg",
     "date": "",
     "kind": "journey",
@@ -23945,12 +24023,19 @@
         "type": "figure",
         "value": "/images/content/c68f21756acff61b.jpg"
       }
+    ],
+    "summary": [
+      "La llegada a Islamabad desde Turquía.",
+      "El tráfico de Rawalpindi.",
+      "Quince horas de bus nocturno por la Karakórum Highway.",
+      "Adrián y Elena y la hospitalidad del norte.",
+      "El Rakaposhi y noches bajo cero."
     ]
   },
   {
     "path": "/viajes/viajar-en-bicicleta-por-turquia",
     "title": "Viajar en bicicleta por Turquía",
-    "excerpt": "¿Te gustaría saber cómo es viajar en bicicleta por Turquía? Es uno de mis países favoritos para viajar en bicicleta, por paisajes y hospitalidad.+ 🔍",
+    "excerpt": "Crucé la frontera con otros cicloviajeros y pedaleé hasta Estambul, entre fiestas, té e invitaciones a casa.",
     "image": "/images/content/b210eff59cf1e4cd.jpg",
     "date": "",
     "kind": "journey",
@@ -24267,6 +24352,13 @@
         "type": "figure",
         "value": "/images/content/047201cd5466a131.jpg"
       }
+    ],
+    "summary": [
+      "Un grupo de seis cicloviajeros en la frontera.",
+      "Las fiestas del primer pueblo turco.",
+      "La policía a medianoche, curiosa más que otra cosa.",
+      "Té, palabras en turco y casas abiertas.",
+      "Estambul y una mezquita a la hora del rezo."
     ]
   },
   {

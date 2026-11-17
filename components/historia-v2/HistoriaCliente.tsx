@@ -35,6 +35,21 @@ export default function HistoriaCliente({ slug, sig }: { slug: string; sig: stri
         svg.style.setProperty('--f', (0.7 / k).toFixed(4));
         svg.style.setProperty('--fd', (0.6 / k).toFixed(4));
         bici?.setAttribute('transform', `translate(${bx},${by}) scale(${(0.8 / k).toFixed(4)}) translate(0,-34)`);
+        // los rótulos que se salgan del marco se desplazan hacia dentro
+        requestAnimationFrame(() => {
+          const caja = svg.getBoundingClientRect(), m = 8;
+          svg.querySelectorAll<SVGTextElement>('.am-rotulos.foco text').forEach((t) => {
+            if (t.dataset.x0 == null) t.dataset.x0 = t.getAttribute('x') || '0';
+            t.setAttribute('x', t.dataset.x0);
+            const q = t.getBoundingClientRect();
+            if (!q.width) return;
+            let dx = 0;
+            if (q.width > caja.width - 2 * m) dx = (caja.left + caja.width / 2 - (q.left + q.width / 2)) / k;
+            else if (q.left < caja.left + m) dx = (caja.left + m - q.left) / k;
+            else if (q.right > caja.right - m) dx = -(q.right - (caja.right - m)) / k;
+            if (dx) t.setAttribute('x', (parseFloat(t.dataset.x0) + dx).toFixed(2));
+          });
+        });
       };
       encuadra();
       const ro = new ResizeObserver(encuadra); ro.observe(hueco); limpia.push(() => ro.disconnect());

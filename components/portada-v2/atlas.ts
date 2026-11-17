@@ -74,7 +74,26 @@ export function iniciaAtlas(raiz, D) {
     })(t0);
   }
   // Al acercar: los nombres de países vecinos que pisen un rótulo o la bici se ocultan
+  // Los rótulos del país que se salgan del marco (sobre todo en el móvil) se desplazan hacia dentro
+  function metePorDentro() {
+    const caja = svg.getBoundingClientRect(), vb = svg.viewBox.baseVal, k = caja.width / vb.width, m = 8;
+    svg.querySelectorAll('.am-rotulos text').forEach(t => {
+      if (t.dataset.x0 == null) t.dataset.x0 = t.getAttribute('x');
+      t.setAttribute('x', t.dataset.x0);
+    });
+    if (vista !== 'pais') return;
+    svg.querySelectorAll('.am-rotulos.foco text').forEach(t => {
+      const r = t.getBoundingClientRect();
+      if (!r.width) return;
+      let dx = 0;
+      if (r.width > caja.width - 2 * m) dx = (caja.left + caja.width / 2 - (r.left + r.width / 2)) / k;
+      else if (r.left < caja.left + m) dx = (caja.left + m - r.left) / k;
+      else if (r.right > caja.right - m) dx = -(r.right - (caja.right - m)) / k;
+      if (dx) t.setAttribute('x', (parseFloat(t.dataset.x0) + dx).toFixed(2));
+    });
+  }
   function despeja() {
+    metePorDentro();
     const otros = [...svg.querySelectorAll('.am-pais')];
     otros.forEach(g => g.classList.remove('tapado'));
     if (vista !== 'pais') return;
