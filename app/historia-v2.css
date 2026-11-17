@@ -11,8 +11,8 @@
 
 /* Cabecera en banda */
 /* Cabecera: foto a sangre con el título por capas; el paisaje recortado pasa por delante de las letras */
-.hv3 .b-hero{position:relative;height:clamp(560px,94svh,940px);overflow:hidden;background:#1d2a26;color:#fff;isolation:isolate;container-type:size;--fx:var(--fxd,.5);--fin:var(--find,1);
-  --sw:max(100cqw,177.78cqh);--sh:max(100cqh,56.25cqw);--sx:calc((100cqw - var(--sw)) * var(--fx));--sy:calc((100cqh - var(--sh)) * var(--fy));--tw:clamp(230px,calc(var(--sw) * .19),340px)}
+.hv3 .b-hero{position:relative;height:clamp(560px,94svh,940px);overflow:hidden;background:#1d2a26;color:#fff;isolation:isolate;container-type:size;--fx:var(--fxd,.5);--fin:var(--find,1);--base:var(--based,.62);
+  --sw:max(100cqw,calc(100cqh * var(--ar,1.7778)));--sh:max(100cqh,calc(100cqw / var(--ar,1.7778)));--sx:calc((100cqw - var(--sw)) * var(--fx));--sy:calc((100cqh - var(--sh)) * var(--fy));--tw:clamp(230px,calc(var(--sw) * .19),340px)}
 .hv3 .b-escena{position:absolute;left:var(--sx);top:var(--sy);width:var(--sw);height:var(--sh)}
 .hv3 .b-escena img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
 .hv3 .b-hero-fondo{z-index:0}
@@ -156,7 +156,19 @@
 
 /* cabecera por capas: el título empieza y acaba donde dice la foto, para que la figura recortada solo lo roce */
 .hv3 .b-hero--capas .b-hero-txt{--ini:max(var(--gut),calc((100cqw - var(--ancho)) / 2 + var(--gut)),calc(var(--sx) + var(--ix) * var(--sw)));left:var(--ini);right:auto;margin:0;padding:0;max-width:none}
-.hv3 .b-hero--capas .b-hero-txt{--tit:min(calc(var(--sw) * var(--tam)),calc((var(--sx) + var(--fin) * var(--sw) - var(--ini)) / (var(--letras) * .53)))}
+.hv3 .b-hero--capas .b-hero-txt{--tit:min(calc(var(--sw) * var(--tam)),calc((var(--sx) + var(--fin) * var(--sw) - var(--ini)) / (var(--letras) * .53)),calc((100cqw - var(--ini) - var(--gut)) / (var(--letras) * .53)))}
 .hv3 .b-hero--capas h1{font-size:var(--tit)}
 .hv3 .b-hero--capas .b-hero-pre{font-size:min(48px,calc(var(--tit) * .26))}
-@media (max-width:980px){.hv3 .b-hero{--fx:var(--fxm,var(--fxd,.5));--fin:var(--finm,var(--find,1))}.hv3 .b-hero--capas .b-hero-txt{bottom:calc(100cqh - var(--sy) - var(--base) * var(--sh))}}
+@media (max-width:980px){.hv3 .b-hero{--fx:var(--fxm,var(--fxd,.5));--fin:var(--finm,var(--find,1));--base:var(--basem,var(--based,.62))}.hv3 .b-hero--capas .b-hero-txt{bottom:calc(100cqh - var(--sy) - var(--base) * var(--sh))}}
+
+/* cabecera ilustrada: fondo claro, título y trazo en tinta; las colinas del dibujo ya oscurecen el pie */
+.hv3 .b-hero--ilu{background:var(--cielo);color:var(--tinta)}
+.hv3 .b-hero--ilu:before{display:none}
+.hv3 .b-hero--ilu h1{color:var(--tinta)}
+.hv3 .b-hero--ilu .b-hero-pre{color:var(--tinta);font-weight:400}
+.hv3 .b-hero--ilu .b-trazo path{stroke:var(--tinta)}
+.hv3 .b-hero--ilu .b-trazo .parada{fill:var(--tinta)}
+.hv3 .b-hero--ilu .b-trazo .extremo{fill:var(--cielo);stroke:var(--tinta)}
+.hv3 .b-hero--ilu .b-trazo text{fill:var(--tinta)}
+.hv3 .b-hero--ilu .b-hero-pie{color:#fff}
+.hv3 .b-hero--ilu .b-ruta{color:rgba(255,255,255,.88)}

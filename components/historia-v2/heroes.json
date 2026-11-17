@@ -1,0 +1,44 @@
+{
+ "mexico": {
+  "base": 0.5,
+  "fin": 0.5,
+  "finm": 1,
+  "basem": 0.36,
+  "fx": 0.5,
+  "fxm": 0.66,
+  "fy": 1,
+  "tam": 0.13,
+  "alt": "Dibujo de un paisaje mexicano: un volcán nevado al fondo, cardones y agaves en el desierto",
+  "tinta": "#3c2618",
+  "cielo": "#f7e9d6",
+  "ar": 2.0
+ },
+ "nepal": {
+  "base": 0.5,
+  "fin": 0.5,
+  "finm": 1,
+  "basem": 0.36,
+  "fx": 0.5,
+  "fxm": 0.58,
+  "fy": 1,
+  "tam": 0.13,
+  "alt": "Dibujo del Himalaya nevado con una estupa y banderas de oración en primer plano",
+  "tinta": "#22303c",
+  "cielo": "#eef1f0",
+  "ar": 2.0
+ },
+ "italia": {
+  "base": 0.5,
+  "fin": 0.5,
+  "finm": 1,
+  "basem": 0.36,
+  "fx": 0.5,
+  "fxm": 0.62,
+  "fy": 1,
+  "tam": 0.13,
+  "alt": "Dibujo de las paredes de los Dolomitas con cipreses y viñas en primer plano",
+  "tinta": "#2e2629",
+  "cielo": "#f4ebe5",
+  "ar": 2.0
+ }
+}
