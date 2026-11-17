@@ -4,7 +4,7 @@
 import Link from 'next/link';
 import type React from 'react';
 import type { Entry, Block } from '@/lib/content';
-import { imageFor } from '@/lib/content';
+import { imageFor, byPath } from '@/lib/content';
 import fotosAmerica from './historia-v2/fotos.json';
 import HistoriaCliente from './historia-v2/HistoriaCliente';
 import { pie, filtroTinta } from './portada-v2/pie';
@@ -19,21 +19,6 @@ const NOMBRES: Record<string, string> = { francia: 'Francia', italia: 'Italia', 
   'el-salvador': 'El Salvador', nicaragua: 'Nicaragua', 'costa-rica': 'Costa Rica', panama: 'Panamá', colombia: 'Colombia', ecuador: 'Ecuador', peru: 'Perú' };
 const CONT = (slug: string) => (ORDEN.indexOf(slug) <= 9 ? 'Europa' : ORDEN.indexOf(slug) <= 13 ? 'Asia' : 'América');
 
-// --- utilidades de dibujo (mismas formas que la portada)
-function azar(semilla: number) { let a = semilla >>> 0; return () => { a = (a + 0x6d2b79f5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
-function mascara(seed: number, inset = 5, escala = 9, freq = 0.09) {
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'><filter id='f' x='-20%' y='-20%' width='140%' height='140%'><feTurbulence type='fractalNoise' baseFrequency='${freq}' numOctaves='5' seed='${seed}'/><feDisplacementMap in='SourceGraphic' scale='${escala}'/><feGaussianBlur stdDeviation='.7'/></filter><rect x='${inset}' y='${inset}' width='${100 - 2 * inset}' height='${100 - 2 * inset}' fill='white' filter='url(#f)'/></svg>`;
-  return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
-}
-function borde(seed: number, alto = 46) {
-  const r = azar(seed), medio = alto * 0.55; let x = 0, y = medio + (r() * 8 - 4), d = `M0,${alto} L0,${y.toFixed(1)}`, k = 0;
-  while (x < 1440) { const paso = 150 + r() * 60, amp = (7 + r() * 5) * (k++ % 2 ? 1 : -1), x2 = Math.min(1440, x + paso), y2 = medio + (r() * 8 - 4);
-    d += ` C${(x + paso * 0.35).toFixed(1)},${(y - amp).toFixed(1)} ${(x2 - paso * 0.35).toFixed(1)},${(y2 + amp).toFixed(1)} ${x2.toFixed(1)},${y2.toFixed(1)}`; x = x2; y = y2; }
-  return d + ` L1440,${alto} Z`;
-}
-function Borde({ seed, cls = 'arriba' }: { seed: number; cls?: string }) {
-  return <svg className={'h-borde ' + cls} viewBox="0 0 1440 46" preserveAspectRatio="none" aria-hidden="true"><path d={borde(seed)} /></svg>;
-}
 const mmss = (s = 0) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
 
 // --- lectura de los bloques
@@ -103,133 +88,131 @@ export default function HistoriaV2({ entry }: { entry: Entry }) {
   const lede = intro.find((b) => b.type === 'p');
   const titulados = capitulos.map((c, k) => ({ t: c.titulo, k })).filter((x) => x.t);
   const resumen = entry.summary?.length ? entry.summary : titulados.map((x) => x.t);
-  const nFotos = am ? 1 + am.fotos.length : capitulos.reduce((n, c) => n + c.fotos.length, 0) + galeria.length;
   const i = ORDEN.indexOf(slug);
   const sig = ORDEN[i + 1];
   const ant = i > 1 ? ORDEN[i - 1] : '';
+  const portadaDe = (s2: string) => (fotosAmerica as Record<string, { hero: Foto }>)[s2]?.hero.src
+    || imageFor(byPath.get(`/viajes/viajar-en-bicicleta-por-${s2}`) || entry);
+  // historias vecinas para el lateral: las dos anteriores y las tres siguientes del viaje
+  const vecinas = ORDEN.slice(Math.max(1, i - 2), Math.min(ORDEN.length, i + 4)).filter((s2) => s2 && s2 !== slug).slice(0, 5);
+  // fotos: la primera de cada capítulo va a lo ancho tras el primer párrafo; la segunda, emparejada con otra
+  // de la galería, va más abajo en el mismo capítulo, así las imágenes acompañan todo el relato
+  const pares: Foto[][] = capitulos.map((c) => {
+    const resto = c.fotos.slice(1);
+    if (c.bloques.length < 2) return [];
+    while (resto.length < 2 && galeria.length) resto.push(galeria.shift() as Foto);
+    return resto.slice(0, 2);
+  });
 
-  const pieFoto = (f: Foto) => (f.yt ? <> {f.alt} · <a href={`https://www.youtube.com/watch?v=${f.yt}&t=${f.t}s`} target="_blank" rel="noopener noreferrer">EP.{f.ep}, {mmss(f.t)}</a></> : null);
-  const FotoRasgada = ({ f, seed, cls }: { f: Foto; seed: number; cls: string }) => (
-    <figure className={cls}>
-      <span className="h-rasgada" style={{ ['--m' as string]: mascara(seed) }}><img src={f.src} alt={f.alt} loading="lazy" /></span>
+  const pieFoto = (f: Foto) => (f.yt ? <>{f.alt} · <a href={`https://www.youtube.com/watch?v=${f.yt}&t=${f.t}s`} target="_blank" rel="noopener noreferrer">EP.{f.ep}, {mmss(f.t)}</a></> : null);
+  const FotoLimpia = ({ f, cls = '' }: { f: Foto; cls?: string }) => (
+    <figure className={'b-foto ' + cls}>
+      <img src={f.src} alt={f.alt} loading="lazy" />
       {f.yt ? <figcaption>{pieFoto(f)}</figcaption> : null}
     </figure>
   );
+  const bloque = (b: Block, j: number, cap = false) => b.type === 'p' ? <p key={j} className={cap ? 'b-capital' : undefined}>{texto(b.value)}</p>
+    : b.type === 'h3' ? <h3 key={j}>{texto(b.value)}</h3>
+    : b.type === 'blockquote' ? <blockquote key={j}>{texto(b.value)}</blockquote>
+    : (b.type === 'ul' || b.type === 'ol') && Array.isArray(b.value) ? <ul key={j}>{b.value.map((x, n) => <li key={n}>{x}</li>)}</ul>
+    : b.type === 'html' && typeof b.value === 'string' ? <div key={j} className="b-rico" dangerouslySetInnerHTML={{ __html: b.value }} /> : null;
 
   return (
-    <div className="hv2">
+    <div className="hv2 hv3">
       <div dangerouslySetInnerHTML={{ __html: filtroTinta }} />
-      <section className="h-hero">
-        <img src={hero.src} alt={hero.alt} fetchPriority="high" />
-        <div className="h-hero-txt">
-          <Link className="h-volver" href="/portfolio/viajes/">← Todas las historias</Link>
-          <p className="h-cont">{CONT(slug)} · Viajar en bicicleta por</p>
-          <h1>{pais}</h1>
+      <header className="b-cab">
+        <div className="b-cab-in">
+          <span className="b-letra" aria-hidden="true">{pais[0]}</span>
+          <p className="b-ruta"><Link href="/portfolio/viajes/">Historias</Link> <span aria-hidden="true">›</span> {CONT(slug)}</p>
+          <span className="b-tag">{CONT(slug)}</span>
+          <h1>Viajar en bicicleta por {pais}</h1>
+          <p className="b-meta">Por Àlex Fernández Ginés{entry.coverage ? ` · ${entry.coverage.replace('Relato elaborado a partir de los', 'Contado en los')}` : ''}</p>
         </div>
-        {hero.yt ? <p className="h-hero-pie">{pieFoto(hero)}</p> : null}
-        <Borde seed={i * 7 + 3} cls="h-hero-borde" />
-      </section>
+      </header>
 
-      <section className="h-intro">
-        <div className="h-intro-txt">
-          <div id="hv2-sello" className="pv2 h-sello" aria-hidden="true" />
-          {lede ? <p className="h-lede">{texto(lede.value)}</p> : <p className="h-lede">{entry.excerpt}</p>}
-        </div>
-        <div className="pv2 h-mapa-pv2">
-          <div className="mapa-caja h-mapa"><div className="mapa-rollo" id="hv2-mapa"><p className="h-cargando">Cargando el mapa…</p></div></div>
-          <p className="h-mapa-nota">{CONT(slug) === 'América' ? 'Recorrido real con las paradas verificadas en los vídeos.' : 'Línea esquemática entre países: no es un track GPS.'} Toca otro país para ir a su historia.</p>
-        </div>
-      </section>
+      <div className="b-rejilla">
+        <article className="b-main">
+          {lede ? <p className="b-lede">{texto(lede.value)}</p> : <p className="b-lede">{entry.excerpt}</p>}
 
-      <section className="h-vistazo">
-        <div className="h-vistazo-in">
-          <div>
-            <p className="h-pista">antes de empezar</p>
-            <h2>De un vistazo</h2>
-            {entry.coverage ? <p className="h-cobertura">{entry.coverage}</p> : null}
-          </div>
-          <ol>{resumen.map((r, k) => <li key={k}>{entry.summary?.length ? r : <a href={`#cap-${titulados[k].k + 1}`}>{r}</a>}</li>)}</ol>
-        </div>
-      </section>
+          <aside className="b-caja b-vistazo" aria-labelledby="b-vistazo">
+            <h2 id="b-vistazo">De un vistazo</h2>
+            <ol>{resumen.map((r, k) => <li key={k}>{entry.summary?.length ? r : <a href={`#cap-${titulados[k].k + 1}`}>{r}</a>}</li>)}</ol>
+          </aside>
 
-      <div className="h-capitulos" id="hv2-capitulos">
-        <svg className="h-trazo" aria-hidden="true"><defs><mask id="h-revela"><path className="h-revela" fill="none" stroke="#fff" strokeWidth="8" /></mask></defs><path className="h-base" mask="url(#h-revela)" /><g className="h-puntos" /></svg>
-        {capitulos.map((c, k) => {
-          const banda = k % 3 === 1 ? ' arena' : '';
-          const [f1, f2, ...resto] = c.fotos;
-          const parrafos = c.bloques.length;
-          // Columna de lectura (60–75 caracteres). Las fotos entran anchas dentro del relato:
-          // la primera tras el primer párrafo y la segunda hacia los dos tercios; en tramos cortos, juntas al final.
-          const corto = parrafos <= 2;
-          const tras1 = corto ? -1 : 0, tras2 = corto ? -1 : Math.max(1, Math.round(parrafos * 0.66) - 1);
-          const bloque = (b: Block, j: number) => b.type === 'p' ? <p key={j}>{texto(b.value)}</p>
-            : b.type === 'h3' ? <h3 key={j}>{texto(b.value)}</h3>
-            : b.type === 'blockquote' ? <blockquote key={j}>{texto(b.value)}</blockquote>
-            : (b.type === 'ul' || b.type === 'ol') && Array.isArray(b.value) ? <ul key={j}>{b.value.map((x, n) => <li key={n}>{x}</li>)}</ul>
-            : b.type === 'html' && typeof b.value === 'string' ? <div key={j} className="h-rico" dangerouslySetInnerHTML={{ __html: b.value }} /> : null;
-          const cuerpo: React.ReactNode[] = [];
-          c.bloques.forEach((b, j) => {
-            cuerpo.push(bloque(b, j));
-            if (j === tras1 && f1) cuerpo.push(<FotoRasgada key={'f1'} f={f1} seed={k * 3 + i} cls={'h-ancha ' + (k % 2 ? 'a-der' : 'a-izq')} />);
-            if (j === tras2 && f2 && tras2 !== tras1) cuerpo.push(<FotoRasgada key={'f2'} f={f2} seed={k * 5 + i + 100} cls={'h-media ' + (k % 2 ? 'a-izq' : 'a-der')} />);
-          });
-          if (corto && f1) cuerpo.push(<div key="par" className={'h-par' + (f2 ? '' : ' una')}><FotoRasgada f={f1} seed={k * 3 + i} cls="" />{f2 ? <FotoRasgada f={f2} seed={k * 5 + i + 100} cls="" /> : null}</div>);
-          return (
-            <section className={`h-cap ${k % 2 ? 'der' : 'izq'}${banda}`} id={`cap-${k + 1}`} key={k} aria-labelledby={c.titulo ? `h-cap-${k + 1}` : undefined}>
-              {k > 0 ? <Borde seed={k * 13 + i} /> : null}
-              <div className="h-col">
-                <header className="h-cap-cab">
-                  <span className="h-ancla" aria-hidden="true" />
-                  <span className="h-num">{String(k + 1).padStart(2, '0')}</span>
-                  {c.titulo ? <h2 id={`h-cap-${k + 1}`}>{c.titulo}</h2> : null}
-                </header>
-                {cuerpo}
-              </div>
-              {resto.length ? <div className="h-galeria">{resto.map((f, n) => <img key={n} src={f.src} alt={f.alt} loading="lazy" />)}</div> : null}
+          {capitulos.map((c, k) => {
+            const [f1] = c.fotos;
+            const tras = c.bloques.length >= 4 ? 1 : 0;
+            const par = pares[k];
+            const luego = par.length ? Math.max(tras + 1, Math.floor(c.bloques.length * 0.7)) : -1;
+            const pareja = par.length === 2
+              ? <div className="b-par"><FotoLimpia f={par[0]} /><FotoLimpia f={par[1]} /></div>
+              : par.length === 1 ? <FotoLimpia f={par[0]} /> : null;
+            return (
+              <section className="b-cap" id={`cap-${k + 1}`} key={k} aria-labelledby={c.titulo ? `b-cap-${k + 1}` : undefined}>
+                {c.titulo ? <h2 id={`b-cap-${k + 1}`}>{c.titulo}</h2> : null}
+                {c.bloques.map((b, j) => <span key={j} className="b-trozo">{bloque(b, j, j === 0 && !!c.titulo)}{j === tras && f1 ? <FotoLimpia f={f1} /> : null}{j === Math.min(luego, c.bloques.length - 1) ? pareja : null}</span>)}
+              </section>
+            );
+          })}
+
+          {videos.length ? (
+            <section className="b-caja b-videos" aria-labelledby="b-videos">
+              <h2 id="b-videos">El viaje, en vídeo</h2>
+              <div className="b-videos-rej" dangerouslySetInnerHTML={{ __html: videos.join('') }} />
             </section>
-          );
-        })}
+          ) : null}
+
+          {galeria.length ? (
+            <section className="b-galeria" aria-labelledby="b-galeria">
+              <h2 id="b-galeria">Más imágenes de {pais}</h2>
+              <div className="b-mosaico">{galeria.map((f, n) => <img key={n} src={f.src} alt={f.alt} loading="lazy" />)}</div>
+            </section>
+          ) : null}
+
+          <section className="b-caja b-siguiente" aria-labelledby="b-sig">
+            {sig ? <>
+              <div id="hv2-sig" className="pv2 b-sello-sig" aria-hidden="true" />
+              <div>
+                <p className="b-pista">Siguiente país del viaje</p>
+                <h2 id="b-sig">{NOMBRES[sig]}</h2>
+                <Link className="b-boton" href={`/viajes/viajar-en-bicicleta-por-${sig}/`}>Seguir a {NOMBRES[sig]} <span aria-hidden="true">→</span></Link>
+                {ant ? <p className="b-ant"><Link href={`/viajes/viajar-en-bicicleta-por-${ant}/`}>← Volver a {NOMBRES[ant]}</Link></p> : null}
+              </div>
+            </> : <div>
+              <p className="b-pista">Fin del tramo pedaleado</p>
+              <h2 id="b-sig">Aquí termina, de momento</h2>
+              <Link className="b-boton" href="/#atlas">Volver al atlas <span aria-hidden="true">→</span></Link>
+            </div>}
+          </section>
+        </article>
+
+        <aside className="b-lado" aria-label={`Más sobre ${pais}`}>
+          <figure className="b-alta"><img src={hero.src} alt={hero.alt} fetchPriority="high" />{hero.yt ? <figcaption>{pieFoto(hero)}</figcaption> : null}</figure>
+
+          <section className="b-tarjeta b-mapa-t" aria-labelledby="b-mapa">
+            <div id="hv2-sello" className="pv2 b-sello" aria-hidden="true" />
+            <h2 id="b-mapa">La ruta por {pais}</h2>
+            <div className="pv2 b-mapa-pv2"><div className="mapa-caja b-mapa"><div className="mapa-rollo" id="hv2-mapa"><p className="b-cargando">Cargando el mapa…</p></div></div></div>
+            <p className="b-nota">{CONT(slug) === 'América' ? 'Recorrido real, con las paradas de los vídeos.' : 'Línea esquemática entre países.'} Toca otro país para ir a su historia.</p>
+          </section>
+
+          <section className="b-tarjeta b-yo" aria-labelledby="b-yo">
+            <img src="/images/nepal.jpg" alt="Àlex con su bicicleta cargada en Nepal" loading="lazy" />
+            <h2 id="b-yo">Sobre mí</h2>
+            <p>Soy Àlex. Salí de casa en bicicleta y fui contando el camino país a país, en los vídeos y aquí.</p>
+            <a href="https://www.youtube.com/@Bikesunrise" target="_blank" rel="noopener noreferrer">Ver los vídeos en YouTube →</a>
+          </section>
+
+          <section className="b-tarjeta b-mas" aria-labelledby="b-mas">
+            <h2 id="b-mas">Más historias</h2>
+            <div className="b-teselas">{vecinas.map((s2) => (
+              <Link key={s2} href={`/viajes/viajar-en-bicicleta-por-${s2}/`} className="b-tesela"><img src={portadaDe(s2)} alt="" loading="lazy" /><span>{NOMBRES[s2]}</span></Link>
+            ))}</div>
+          </section>
+
+        </aside>
       </div>
 
-      {galeria.length ? (
-        <section className="h-fotos-viaje" aria-labelledby="h-galeria">
-          <Borde seed={i + 9} />
-          <div className="h-dentro">
-            <h2 id="h-galeria">Imágenes del viaje</h2>
-            <p className="h-pista">{galeria.length} fotos de {pais}</p>
-            <div className="h-mosaico">{galeria.map((f, n) => <img key={n} src={f.src} alt={f.alt} loading="lazy" />)}</div>
-          </div>
-        </section>
-      ) : null}
-      {videos.length ? (
-        <section className="h-videos" aria-labelledby="h-videos">
-          <Borde seed={i + 21} />
-          <div className="h-dentro">
-            <h2 id="h-videos">El viaje, en vídeo</h2>
-            <p className="h-pista">los episodios de {pais}</p>
-            <div className="h-rejilla" dangerouslySetInnerHTML={{ __html: videos.join('') }} />
-          </div>
-        </section>
-      ) : null}
-
-      <section className="h-siguiente" aria-labelledby="h-sig">
-        <Borde seed={i + 33} />
-        <div className="h-dentro h-sig-in">
-          {sig ? <>
-            <div id="hv2-sig" className="pv2 h-sello-sig" aria-hidden="true" />
-            <div>
-              <p className="h-pista">siguiente país</p>
-              <h2 id="h-sig">{NOMBRES[sig]}</h2>
-              <Link className="h-boton" href={`/viajes/viajar-en-bicicleta-por-${sig}/`}>Seguir a {NOMBRES[sig]} <span aria-hidden="true">→</span></Link>
-              {ant ? <p className="h-ant"><Link href={`/viajes/viajar-en-bicicleta-por-${ant}/`}>← Volver a {NOMBRES[ant]}</Link></p> : null}
-            </div>
-          </> : <div>
-            <p className="h-pista">fin del tramo pedaleado</p>
-            <h2 id="h-sig">Aquí termina, de momento</h2>
-            <Link className="h-boton" href="/#atlas">Volver al atlas <span aria-hidden="true">→</span></Link>
-          </div>}
-        </div>
-      </section>
       <div className="pv2" dangerouslySetInnerHTML={{ __html: pie }} />
       <HistoriaCliente slug={slug} sig={sig || null} />
     </div>
