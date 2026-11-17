@@ -101,6 +101,7 @@
 .pv2 .am-guia{stroke:var(--tv);stroke-opacity:.5;stroke-width:1.2px}
 .pv2 .am-nombre{font:700 16.5px/1 var(--sans);letter-spacing:.1em;fill:var(--tv);paint-order:stroke;stroke:var(--pp);stroke-width:5px;stroke-linejoin:round;transition:fill .2s}
 .pv2 .atlas-mundo[data-vista="mundo"] .denso .am-etq,.pv2 .atlas-mundo[data-vista="mundo"] .denso .am-guia{display:none}
+.pv2 .am-pais.tapado .am-etq,.pv2 .am-pais.tapado .am-guia{visibility:hidden}
 .pv2 .am-pais:hover .am-punto,.pv2 .am-pais:focus-visible .am-punto,.pv2 .am-pais.activo .am-punto{fill:var(--na)}
 .pv2 .am-pais:hover .am-nombre,.pv2 .am-pais:focus-visible .am-nombre,.pv2 .am-pais.activo .am-nombre{fill:var(--na)}
 .pv2 .am-pais:focus-visible .am-punto{stroke:var(--tv)}

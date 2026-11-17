@@ -46,8 +46,22 @@ export function iniciaAtlas(raiz, D) {
       pos = aPos.map((x, i) => dp[i] + (x - dp[i]) * e);
       if (p >= 0.5) svg.dataset.vista = v;
       pinta();
-      if (p < 1) cuadro = requestAnimationFrame(paso);
+      if (p < 1) cuadro = requestAnimationFrame(paso); else despeja();
     })(t0);
+  }
+  // Al acercar: los nombres de países vecinos que pisen un rótulo o la bici se ocultan
+  function despeja() {
+    const otros = [...svg.querySelectorAll('.am-pais')];
+    otros.forEach(g => g.classList.remove('tapado'));
+    if (vista !== 'pais') return;
+    const foco = [...svg.querySelectorAll('.am-rotulos.foco text'), ...[...svg.querySelectorAll('.am-detalle.foco use')].filter(u => !/pino|abeto|arbol|palmera|cactus|agave|duna|hierba/.test(u.getAttribute('href'))), bici];
+    const cajas = foco.map(e => e.getBoundingClientRect());
+    const pisa = (a, b) => a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
+    otros.filter(g => !g.classList.contains('activo')).forEach(g => {
+      const n = g.querySelector('.am-nombre'); if (!n) return;
+      const r = n.getBoundingClientRect();
+      if (r.width && cajas.some(c => pisa(r, c))) g.classList.add('tapado');
+    });
   }
   const tableta = () => movil.matches && innerWidth > 600;
   const tamZoom = () => tableta() ? [0.8, 0.7] : movil.matches ? [0.6, 0.5] : [0.68, 0.6];
