@@ -44,7 +44,7 @@
 .hv3 .b-main{padding-top:48px;max-width:42rem}
 .hv3 .b-lado{padding:48px 0;display:flex;flex-direction:column;gap:28px}
 
-.hv3 .b-lede{margin:0 0 30px;font:400 clamp(20px,1.7vw,23px)/1.6 var(--serif)}
+.hv3 .b-lede{margin:0 0 28px;font:400 18px/1.7 var(--serif)}
 .hv3 .b-cap{margin-top:52px}
 .hv3 .b-cap h2{margin:0 0 18px;font-size:clamp(28px,2.8vw,38px);line-height:1.08}
 .hv3 .b-trozo{display:contents}
@@ -174,3 +174,11 @@
 .hv3 .b-hero--ilu .b-hero-pie{color:#fff}
 .hv3 .b-hero--ilu .b-ruta{color:rgba(255,255,255,.85)}
 @media (max-width:600px){.hv3 .b-hero--ilu .b-trazo{display:none}}
+
+/* frase destacada del capítulo: rompe la alternancia de texto y foto */
+.hv3 .b-destacado{position:relative;margin:48px 0 38px;padding:30px 30px 26px;background:var(--banda)}
+.hv3 .b-destacado:before{content:"\201C";position:absolute;top:-14px;left:20px;font:800 92px/1 var(--serif);font-variation-settings:"SOFT" 100,"WONK" 1;color:var(--tierra)}
+.hv3 .b-destacado p{margin:0!important;font:italic 500 clamp(19px,1.55vw,22px)/1.5 var(--serif);color:var(--bosque)}
+.hv3 .b-destacado--oscuro{background:var(--bosque)}
+.hv3 .b-destacado--oscuro:before{color:var(--arena-2)}
+.hv3 .b-destacado--oscuro p{color:#f3efe6}

@@ -140,7 +140,25 @@ export default function HistoriaV2({ entry }: { entry: Entry }) {
     return resto.slice(0, 2);
   });
 
+  // frase para destacar en una caja: una del propio capítulo, con peso personal (lo que sentí, aprendí, decidí...)
+  const destacada = (c: Capitulo): string | null => {
+    const frases = c.bloques.filter((b) => b.type === 'p').flatMap((b) => String(texto(b.value)).split(/(?<=[.!?])\s+/));
+    let mejor: string | null = null, nota = 0;
+    for (const f of frases) {
+      const t = f.trim().replace(/\s+([.,;:!?])/g, '$1');
+      if (t.length < 60 || t.length > 190) continue;
+      let n = 0;
+      if (/(aprend|entend|sent[ií]|recuerd|nunca|siempre|lo mejor|lo más|me di cuenta|pens[eé]|decid[ií]|me enseñ|no olvid|me sorprend)/i.test(t)) n += 3;
+      if (/\b(me|mi|yo|nos)\b/i.test(t)) n += 1;
+      if (/^(Después|Luego|Al día|Por la|Esa noche|Tras)/.test(t)) n -= 2;
+      if (n > nota) { nota = n; mejor = t; }
+    }
+    return nota >= 2 ? mejor : null;
+  };
   const pieFoto = (f: Foto) => (f.yt ? <>{f.alt} · <a href={`https://www.youtube.com/watch?v=${f.yt}&t=${f.t}s`} target="_blank" rel="noopener noreferrer">EP.{f.ep}, {mmss(f.t)}</a></> : null);
+  const Destacado = ({ texto: t, oscuro }: { texto: string; oscuro: boolean }) => (
+    <aside className={'b-caja b-destacado' + (oscuro ? ' b-destacado--oscuro' : '')}><p>{t}</p></aside>
+  );
   const FotoLimpia = ({ f, cls = '' }: { f: Foto; cls?: string }) => (
     <figure className={'b-foto ' + cls}>
       <img src={f.src} alt={f.alt} loading="lazy" />
@@ -192,6 +210,9 @@ export default function HistoriaV2({ entry }: { entry: Entry }) {
 
           {capitulos.map((c, k) => {
             const [f1] = c.fotos;
+            // una caja destacada cada dos capítulos para cortar la alternancia de texto e imagen
+            const frase = k % 2 === 1 ? destacada(c) : null;
+            const nDest = Math.floor(k / 2);
             const tras = c.bloques.length >= 4 ? 1 : 0;
             const par = pares[k];
             const luego = par.length ? Math.max(tras + 1, Math.floor(c.bloques.length * 0.7)) : -1;
@@ -201,7 +222,8 @@ export default function HistoriaV2({ entry }: { entry: Entry }) {
             return (
               <section className="b-cap" id={`cap-${k + 1}`} key={k} aria-labelledby={c.titulo ? `b-cap-${k + 1}` : undefined}>
                 {c.titulo ? <h2 id={`b-cap-${k + 1}`}>{c.titulo}</h2> : null}
-                {c.bloques.map((b, j) => <span key={j} className="b-trozo">{bloque(b, j, j === 0 && !!c.titulo)}{j === tras && f1 ? <FotoLimpia f={f1} /> : null}{j === Math.min(luego, c.bloques.length - 1) ? pareja : null}</span>)}
+                {frase && c.bloques.length < 3 ? <Destacado texto={frase} oscuro={nDest % 2 === 1} /> : null}
+                {c.bloques.map((b, j) => <span key={j} className="b-trozo">{bloque(b, j, j === 0 && !!c.titulo)}{j === tras && f1 ? <FotoLimpia f={f1} /> : null}{frase && c.bloques.length >= 3 && j === (tras === 1 ? 2 : 1) && j !== Math.min(luego, c.bloques.length - 1) ? <Destacado texto={frase} oscuro={nDest % 2 === 1} /> : null}{j === Math.min(luego, c.bloques.length - 1) ? pareja : null}</span>)}
               </section>
             );
           })}
