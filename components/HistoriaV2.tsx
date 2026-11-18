@@ -140,10 +140,10 @@ export default function HistoriaV2({ entry }: { entry: Entry }) {
     return resto.slice(0, 2);
   });
 
-  // frase para destacar en una caja: una del propio capítulo, con peso personal (lo que sentí, aprendí, decidí...)
+  // frase para destacar en una caja: una del propio capítulo, mejor si tiene peso personal (lo que sentí, aprendí, decidí...)
   const destacada = (c: Capitulo): string | null => {
     const frases = c.bloques.filter((b) => b.type === 'p').flatMap((b) => String(texto(b.value)).split(/(?<=[.!?])\s+/));
-    let mejor: string | null = null, nota = 0;
+    let mejor: string | null = null, nota = -99;
     for (const f of frases) {
       const t = f.trim().replace(/\s+([.,;:!?])/g, '$1');
       if (t.length < 60 || t.length > 190) continue;
@@ -151,9 +151,11 @@ export default function HistoriaV2({ entry }: { entry: Entry }) {
       if (/(aprend|entend|sent[ií]|recuerd|nunca|siempre|lo mejor|lo más|me di cuenta|pens[eé]|decid[ií]|me enseñ|no olvid|me sorprend)/i.test(t)) n += 3;
       if (/\b(me|mi|yo|nos)\b/i.test(t)) n += 1;
       if (/^(Después|Luego|Al día|Por la|Esa noche|Tras)/.test(t)) n -= 2;
+      if (/[:¿?]/.test(t)) n -= 1;
       if (n > nota) { nota = n; mejor = t; }
     }
-    return nota >= 2 ? mejor : null;
+    // si no hay ninguna frase con peso personal, vale la mejor de buena longitud del capítulo
+    return mejor;
   };
   const pieFoto = (f: Foto) => (f.yt ? <>{f.alt} · <a href={`https://www.youtube.com/watch?v=${f.yt}&t=${f.t}s`} target="_blank" rel="noopener noreferrer">EP.{f.ep}, {mmss(f.t)}</a></> : null);
   const Destacado = ({ texto: t, oscuro }: { texto: string; oscuro: boolean }) => (
