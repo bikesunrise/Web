@@ -42,11 +42,22 @@
 .pv2 .cifras span{font:500 14px/1.3 var(--sans);color:var(--suave)}
 .pv2 .mandos{display:flex;flex-wrap:wrap;align-items:center;gap:12px 14px;margin-top:40px}
 .pv2 .mandos .boton{border:0;cursor:pointer}
-.pv2 .ico-play{width:0;height:0;border-left:11px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent}
-.pv2 .sonando .ico-play{width:11px;height:13px;border:0;border-left:4px solid #fff;border-right:4px solid #fff}
+.pv2 .ico-play{width:0;height:0;margin-left:3px;border-left:11px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent}
+.pv2 .sonando .ico-play{width:11px;height:13px;margin-left:0;border:0;border-left:4px solid #fff;border-right:4px solid #fff}
 .pv2 .boton-linea{appearance:none;border:2px solid var(--bosque);background:transparent;color:var(--bosque);border-radius:999px;padding:11px 22px;font:600 15px/1 var(--sans);cursor:pointer;transition:background .2s,transform .2s}
 .pv2 .boton-linea:hover{background:var(--arena)}
 .pv2 .boton-linea:active{transform:scale(.97)}
+.pv2 .b-mando{display:inline-flex;align-items:center;min-height:54px;padding:7px 24px 7px 7px;gap:13px;font:600 16px/1 var(--sans);letter-spacing:.005em;transition:background .25s,transform .25s,box-shadow .25s}
+.pv2 .b-mando .disco{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.pv2 #b-play{box-shadow:0 12px 26px -16px rgba(27,55,47,.9)}
+.pv2 #b-play .disco{background:#d8842c;box-shadow:inset 0 0 0 2px rgba(255,255,255,.35)}
+.pv2 #b-play:hover{background:var(--bosque-2);transform:translateY(-1px);box-shadow:0 16px 30px -16px rgba(27,55,47,.95)}
+.pv2 #b-play:hover .disco{transform:scale(1.08)}
+.pv2 #b-mundo{background:#fbf6ea;border-width:2px;outline:1.5px solid var(--bosque);outline-offset:3px;margin-left:6px}
+.pv2 #b-mundo .disco{background:var(--arena);color:var(--bosque)}
+.pv2 #b-mundo:hover{background:var(--arena)}
+.pv2 #b-mundo:hover .disco{transform:rotate(-24deg);background:#fbf6ea}
+@media (prefers-reduced-motion:reduce){.pv2 .b-mando,.pv2 .b-mando .disco{transition:none}}
 .pv2 .conts{display:none}
 .pv2 .pista-mapa{margin:0 0 0 auto;font:italic 500 18px/1.2 var(--mano);color:var(--tierra)}
 .pv2 .mapa-caja{--tv:#2f5a41;--na:#d8842c;--pp:#f3ecd9;position:relative;left:50%;translate:-50% 0;width:min(calc(100vw - 28px),1900px);margin-top:18px;border-radius:10px;overflow:hidden;box-shadow:var(--sombra);
