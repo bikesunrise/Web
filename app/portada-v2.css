@@ -204,7 +204,7 @@
 .pv2 .video-portada img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .4s}
 .pv2 .video-portada:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,35,29,0) 45%,rgba(16,35,29,.55))}
 .pv2 .video-portada:hover img{transform:scale(1.04);filter:saturate(1.08)}
-.pv2 .video-play{position:absolute;z-index:1;left:50%;top:50%;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;background:#d8842c;box-shadow:inset 0 0 0 3px rgba(255,255,255,.35),0 14px 30px -10px rgba(0,0,0,.6);display:grid;place-items:center;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.pv2 .video-play{position:absolute;z-index:1;right:22px;bottom:22px;width:76px;height:76px;border-radius:50%;background:#d8842c;box-shadow:inset 0 0 0 3px rgba(255,255,255,.35),0 14px 30px -10px rgba(0,0,0,.6);display:grid;place-items:center;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
 .pv2 .video-play span{width:0;height:0;margin-left:6px;border-left:24px solid #fff;border-top:15px solid transparent;border-bottom:15px solid transparent}
 .pv2 .video-portada:hover .video-play{transform:scale(1.08)}
 .pv2 .video-ep iframe{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:8px;outline:1.5px solid rgba(243,239,230,.45);outline-offset:7px}
@@ -277,7 +277,7 @@
 .pv2 .mision{padding:96px 0 104px}
 .pv2 .mision .mision-in{grid-template-columns:1fr;text-align:center;gap:48px}
 .pv2 .mision-in p.apoyo{margin-left:auto}
-.pv2 .video-play{width:68px;height:68px;margin:-34px 0 0 -34px}
+.pv2 .video-play{width:60px;height:60px;right:14px;bottom:14px}
 .pv2 .video-play span{border-left-width:20px;border-top-width:12px;border-bottom-width:12px}
 .pv2 .video-ep figcaption b{font-size:18px}
 .pv2 .pie-in{grid-template-columns:1fr 1fr}
