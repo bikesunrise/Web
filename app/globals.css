@@ -199,3 +199,6 @@ h2,.atlas-heading h2,.section-opening h2,.mission h2,.story-copy h2,.gear-item h
 .header-right a.red svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linejoin:round}
 .header-right a.red svg .lleno{fill:currentColor;stroke:none}
 .header-right a.red:hover{background:#fff;border-color:#fff;color:var(--ink);opacity:1}
+
+/* cabeceras con patrón: el dibujo ocupa toda la cabecera, sin repetirse */
+.patron-hero .archive-hero-photo,.patron-hero .article-cover{background-repeat:no-repeat!important;background-size:cover!important;background-position:center!important;opacity:1!important}

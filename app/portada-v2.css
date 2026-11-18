@@ -48,17 +48,18 @@
 .pv2 .boton-linea{appearance:none;border:2px solid var(--bosque);background:transparent;color:var(--bosque);border-radius:999px;padding:11px 22px;font:600 15px/1 var(--sans);cursor:pointer;transition:background .2s,transform .2s}
 .pv2 .boton-linea:hover{background:var(--arena)}
 .pv2 .boton-linea:active{transform:scale(.97)}
-.pv2 .b-mando{display:inline-flex;align-items:center;min-height:54px;padding:7px 24px 7px 7px;gap:13px;font:600 16px/1 var(--sans);letter-spacing:.005em;transition:background .25s,transform .25s,box-shadow .25s}
-.pv2 .b-mando .disco{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
-.pv2 #b-play{box-shadow:0 12px 26px -16px rgba(27,55,47,.9)}
-.pv2 #b-play .disco{background:#d8842c;box-shadow:inset 0 0 0 2px rgba(255,255,255,.35)}
-.pv2 #b-play:hover{background:var(--bosque-2);transform:translateY(-1px);box-shadow:0 16px 30px -16px rgba(27,55,47,.95)}
-.pv2 #b-play:hover .disco{transform:scale(1.08)}
-.pv2 #b-mundo{background:#fbf6ea;border-width:2px;outline:1.5px solid var(--bosque);outline-offset:3px;margin-left:6px}
-.pv2 #b-mundo .disco{background:var(--arena);color:var(--bosque)}
-.pv2 #b-mundo:hover{background:var(--arena)}
-.pv2 #b-mundo:hover .disco{transform:rotate(-24deg);background:#fbf6ea}
-@media (prefers-reduced-motion:reduce){.pv2 .b-mando,.pv2 .b-mando .disco{transition:none}}
+.pv2 .mandos-barra{display:inline-flex;align-items:center;gap:2px;padding:4px;border-radius:999px;background:#fbf6ea;border:1px solid rgba(36,71,60,.22);box-shadow:0 8px 20px -14px rgba(36,71,60,.55)}
+.pv2 .mandos-barra .sep{width:1px;height:18px;background:rgba(36,71,60,.2);margin:0 2px}
+.pv2 .b-mando{appearance:none;display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 15px 0 5px;border:0;border-radius:999px;background:transparent;color:var(--bosque);font:600 13.5px/1 var(--sans);cursor:pointer;transition:background .2s,color .2s}
+.pv2 .b-mando:hover{background:var(--arena)}
+.pv2 .b-mando:active{transform:scale(.97)}
+.pv2 .b-mando .disco{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#d8842c;flex:none}
+.pv2 .b-mando .ico-play{margin-left:2px;border-left-width:8px;border-top-width:5px;border-bottom-width:5px}
+.pv2 .sonando .ico-play{width:8px;height:9px;margin-left:0;border-left-width:3px;border-right-width:3px}
+.pv2 #b-play.sonando{background:var(--bosque);color:#fff}
+.pv2 #b-mundo{padding:0 15px 0 12px}
+.pv2 #b-mundo svg{flex:none}
+@media (prefers-reduced-motion:reduce){.pv2 .b-mando{transition:none}}
 .pv2 .conts{display:none}
 .pv2 .pista-mapa{margin:0 0 0 auto;font:italic 500 18px/1.2 var(--mano);color:var(--tierra)}
 .pv2 .mapa-caja{--tv:#2f5a41;--na:#d8842c;--pp:#f3ecd9;position:relative;left:50%;translate:-50% 0;width:min(calc(100vw - 28px),1900px);margin-top:18px;border-radius:10px;overflow:hidden;box-shadow:var(--sombra);
@@ -236,7 +237,9 @@
 .pv2 .cifras{justify-content:flex-start;gap:26px}
 .pv2 .cifras b{font-size:38px}
 .pv2 .mandos{margin-top:28px;gap:10px}
-.pv2 .mandos .boton{flex:1 1 auto;justify-content:center}
+.pv2 .mandos-barra{width:100%}
+.pv2 .mandos-barra #b-play{flex:1;justify-content:center;height:40px}
+.pv2 .mandos-barra .sep{display:none}
 .pv2 #b-mundo{display:none}
 .pv2 .conts{display:flex;width:100%;gap:8px}
 .pv2 .conts button{flex:1;appearance:none;border:2px solid var(--bosque);background:transparent;color:var(--bosque);border-radius:999px;padding:10px 6px;font:600 14px/1 var(--sans);cursor:pointer;min-height:44px}
