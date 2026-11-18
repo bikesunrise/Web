@@ -202,3 +202,9 @@ h2,.atlas-heading h2,.section-opening h2,.mission h2,.story-copy h2,.gear-item h
 
 /* cabeceras con patrón: el dibujo ocupa toda la cabecera, sin repetirse */
 .patron-hero .archive-hero-photo,.patron-hero .article-cover{background-repeat:no-repeat!important;background-size:cover!important;background-position:center!important;opacity:1!important}
+
+/* catálogo de material: productos sin enlace y botón de cargar más */
+.gear-pronto{font-size:10px;letter-spacing:.06em;color:#7a806f;padding:8px 0}
+.gear-mas{display:block;margin:40px auto 0;padding:13px 26px;border:1.5px solid #294334;border-radius:999px;background:transparent;color:#294334;font:600 14px/1 Montserrat,sans-serif;cursor:pointer;transition:background .2s,color .2s}
+.gear-mas:hover{background:#294334;color:#fff}
+.gear-object:has(img[data-loaded="true"])>svg{display:none}
