@@ -3,6 +3,14 @@
 // Interacción del atlas: cámara por país, bici que viaja, ficha con sello y tira de sellos.
 export function iniciaAtlas(raiz, D) {
 
+  document.querySelectorAll('.video-portada').forEach((b) => b.addEventListener('click', () => {
+    const f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0';
+    f.title = b.getAttribute('aria-label');
+    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.allowFullscreen = true;
+    b.replaceWith(f);
+  }));
   const P = D.paises, N = P.length;
   const svg = raiz.querySelector('.atlas-mundo'), bici = svg.querySelector('.am-bici');
   const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;

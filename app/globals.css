@@ -192,3 +192,10 @@ h2,.atlas-heading h2,.section-opening h2,.mission h2,.story-copy h2,.gear-item h
 .illustrated-story .editorial-chapter:nth-child(4n+4) .story-episodes .episode-card{color:#294334}
 .illustrated-story .chapter-intro{padding-top:45px;padding-bottom:65px}
 @media(max-width:800px){.illustrated-story .editorial-chapter{padding:44px 24px 72px}.illustrated-story .editorial-chapter::before{background-size:160% 220px;opacity:.23}.illustrated-story .editorial-chapter>header{margin-bottom:28px}.illustrated-story .story-spread{margin-bottom:35px;gap:22px}.illustrated-story .chapter-number{min-width:36px;height:36px;font-size:13px}.illustrated-story .story-margin-note{margin:0}.illustrated-story .story-spread .editorial-prose{padding:0}.illustrated-story .story-gallery{column-gap:14px}.illustrated-story .gallery-item{margin-bottom:14px}}
+
+/* iconos de YouTube e Instagram en la cabecera: trazo fino como los de la web, en un círculo que se rellena al pasar */
+.header-right{align-items:center;gap:10px}
+.header-right a.red{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(255,255,255,.45);color:#fff;opacity:1;transition:background .25s,border-color .25s,color .25s}
+.header-right a.red svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linejoin:round}
+.header-right a.red svg .lleno{fill:currentColor;stroke:none}
+.header-right a.red:hover{background:#fff;border-color:#fff;color:var(--ink);opacity:1}
