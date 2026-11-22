@@ -252,3 +252,55 @@ h2,.atlas-heading h2,.section-opening h2,.mission h2,.story-copy h2,.gear-item h
 .gear-filter .filtro nav :is(button,a){padding:10px;font-size:13px}
 }
 @media(prefers-reduced-motion:reduce){.filtro summary::after,.gear-filter .filtro nav :is(button,a){transition:none}}
+/* Bloques de información de artículos y reseñas (bocetos/articulos/maquetar.py + lib/iconos.ts) */
+.bs-bloque{--bs-acento:#b55332;margin:34px 0}
+.bs-icono{width:34px;height:34px;flex:none;color:#294334}
+.bs-caja{display:grid;grid-template-columns:auto 1fr;column-gap:16px;align-items:start;padding:22px 26px 20px;border-radius:18px;background:#e6ebdf;color:#2c3a31}
+.bs-caja>*{grid-column:2}
+.bs-caja .bs-caja-t{grid-column:1/-1;display:flex;align-items:center;gap:12px;margin:0 0 8px;font:700 20px/1.2 var(--display);font-variation-settings:"SOFT" 100,"WONK" 1;letter-spacing:-.01em;color:#294334}
+.bs-caja p,.bs-caja li{font-size:16.5px;line-height:1.7;margin:0 0 .6em}
+.bs-caja p:last-child{margin-bottom:0}
+.bs-caja ul{margin:0;padding-left:1.1em}
+.bs-caja>:not(.bs-caja-t){grid-column:1/-1;padding-left:46px}
+.bs-caja--consejo{background:#f1e5c8}
+.bs-caja--aviso{background:#f4dccd}
+.bs-caja--experiencia{background:#ebe3d1}
+.bs-caja--pros{background:#e1eadb}
+.bs-caja--contras{background:#f3e0d4}
+.bs-caja--pros li::marker{color:#4f7a52}.bs-caja--contras li::marker{color:#b55332}
+.bs-procon{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.bs-procon .bs-caja>:not(.bs-caja-t){padding-left:0}
+.bs-ficha{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:1.5px solid #294334;border-radius:18px;overflow:hidden;background:#fbf8f1}
+.bs-ficha>div{display:flex;flex-direction:column;gap:6px;padding:18px 18px 20px;border-left:1px solid #d6cfbd}
+.bs-ficha>div:first-child{border-left:0}
+.bs-ficha span{font:600 11.5px/1.3 Montserrat,sans-serif;color:#6c7564;letter-spacing:.02em}
+.bs-ficha strong{font:700 17px/1.3 var(--display);font-variation-settings:"SOFT" 100,"WONK" 1;color:#294334}
+.bs-producto{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:28px;align-items:center;padding:22px;border-radius:22px;background:#fbf8f1;border:1px solid #ddd6c4}
+.bs-producto-foto{display:flex;align-items:center;justify-content:center;aspect-ratio:1;background:#fff;border-radius:16px;padding:18px}
+.bs-producto-foto img{max-width:100%;max-height:100%;object-fit:contain}
+.bs-producto-txt p{margin:0}
+.bs-producto-k{display:flex;align-items:center;gap:8px;font:600 12px Montserrat,sans-serif;color:#6c7564}
+.bs-producto-k .bs-icono{width:24px;height:24px}
+.bs-producto-n{font:800 28px/1.1 var(--display)!important;font-variation-settings:"SOFT" 100,"WONK" 1;letter-spacing:-.03em;color:#294334;margin:8px 0 12px!important}
+.bs-producto ul{margin:0 0 18px;padding-left:1.1em}
+.bs-producto li{font-size:15.5px;line-height:1.6}
+.bs-producto .bs-boton{display:inline-block;padding:13px 22px;border-radius:999px;background:#294334;color:#fff!important;font:600 14px Montserrat,sans-serif;text-decoration:none!important}
+.bs-producto .bs-boton:hover{background:#1d3226}
+.bs-producto-nota{margin-top:12px!important;font-size:12px!important;line-height:1.5;color:#7a8070}
+.bs-faq{border-top:1.5px solid #294334}
+.bs-faq details{border-bottom:1px solid #d6cfbd}
+.bs-faq summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 4px;cursor:pointer;list-style:none;font:700 18px/1.35 var(--display);font-variation-settings:"SOFT" 100,"WONK" 1;color:#294334}
+.bs-faq summary::-webkit-details-marker{display:none}
+.bs-faq summary::after{content:"";flex:none;width:30px;height:30px;border-radius:50%;background:#e6e0cf url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath d='M9 15h12M15 9v12' stroke='%23294334' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center/30px no-repeat;transition:transform .2s}
+.bs-faq details[open] summary::after{transform:rotate(45deg);background-color:#294334;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath d='M9 15h12M15 9v12' stroke='%23fff' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E")}
+.bs-faq summary:focus-visible{outline:2px solid #b55332;outline-offset:2px;border-radius:6px}
+.bs-faq details>div{padding:0 46px 20px 4px}
+.bs-faq details>div p{margin:0 0 .6em;font-size:16.5px;line-height:1.7}
+@media(max-width:700px){.bs-ficha{grid-template-columns:1fr 1fr}.bs-ficha>div:nth-child(3){border-left:0}.bs-ficha>div:nth-child(n+3){border-top:1px solid #d6cfbd}.bs-producto{grid-template-columns:1fr}.bs-procon{grid-template-columns:1fr}.bs-caja{padding:18px 18px 16px}.bs-caja>:not(.bs-caja-t){padding-left:0}.bs-faq details>div{padding-right:4px}}
+@media(prefers-reduced-motion:reduce){.bs-faq summary::after{transition:none}}
+.rich-block .bs-producto ul,.rich-block .bs-caja ul{background:none;border:0;box-shadow:none;border-radius:0;margin:0 0 16px;padding:0 0 0 1.1em}
+.rich-block .bs-producto li,.rich-block .bs-caja li{border:0;padding:2px 0}
+.bs-producto-foto img{box-shadow:none!important;border-radius:0!important;margin:0}
+.rich-block .bs-caja>ul{margin-top:0}
+/* lectura más cómoda en artículos y reseñas */
+.magazine-body .reading-column p,.magazine-body .reading-column li,.magazine-body .editorial-prose p{font-size:17px;line-height:1.75;color:#2f3b33}

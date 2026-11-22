@@ -2,6 +2,7 @@ import {entries,imageFor,type Block} from '@/lib/content';
 import Link from 'next/link';
 import {BookOpen, ListChecks, ArrowUpRight} from 'lucide-react';
 import {plain,heading,chaptersFor,hasContent} from '@/lib/article';
+import {conIconos} from '@/lib/iconos';
 export default function ArticleBody({blocks,title,guide=false,cover}:{blocks:Block[];title:string;guide?:boolean;cover?:string}){
  const chapters=chaptersFor(blocks,guide);
  const destinations=entries.filter(e=>e.kind==='journey').slice(0,6);
@@ -9,7 +10,7 @@ export default function ArticleBody({blocks,title,guide=false,cover}:{blocks:Blo
   if(b.type==='destinations')return <div className="guide-destinations" key={key}>{destinations.map(e=><Link href={e.path+'/'} key={e.path}><img src={imageFor(e)} alt="" loading="lazy"/><span>{e.title.replace('Viajar en bicicleta por ','')}<b aria-hidden="true">↗</b></span></Link>)}</div>;
   if(b.type==='html'&&typeof v==='string'){
    if(/^\s*<(ul|ol)[ >]/.test(v))return <div className="editorial-interest" key={key}><span className="interest-label"><ListChecks size={17} aria-hidden="true"/> En detalle</span><div dangerouslySetInnerHTML={{__html:v}}/></div>;
-   return <div className={'rich-block '+(/<table[ >]/.test(v)?'table-scroll':'')} key={key} dangerouslySetInnerHTML={{__html:v}}/>;
+   return <div className={'rich-block '+(/<table[ >]/.test(v)?'table-scroll':'')+(/class="bs-/.test(v)?' bs-bloque':'')} key={key} dangerouslySetInnerHTML={{__html:conIconos(v)}}/>;
   }
   if(b.type==='h3')return <h3 key={key}>{v}</h3>;
   if(b.type==='h4')return <h4 key={key}>{v}</h4>;
