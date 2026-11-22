@@ -309,3 +309,60 @@ h2,.atlas-heading h2,.section-opening h2,.mission h2,.story-copy h2,.gear-item h
 .bs-mapa{margin:34px 0}
 .bs-mapa .bs-mapa-svg{display:block;width:100%;height:auto;border-radius:18px;border:1px solid #d6cfbd}
 .bs-mapa figcaption{margin-top:10px;font-size:12.5px;line-height:1.55;color:#6c7564}
+/* Guía de ruta (components/GuiaRuta.tsx): siempre texto oscuro sobre claro o blanco sobre verde */
+.guia-ruta{--gr-tinta:#1f3328;--gr-verde:#294334;--gr-papel:#fbf8f1;--gr-linea:#d8d1bf;color:var(--gr-tinta);display:flex;flex-direction:column;gap:56px;margin:8px 0 40px}
+.gr-intro p{font:400 19px/1.7 Georgia,serif;color:#24342a;margin:0 0 1em;max-width:70ch}
+.gr-ico svg{width:30px;height:30px;display:block}
+.gr-stats{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));background:var(--gr-verde);border-radius:22px;overflow:hidden}
+.gr-stats li{display:flex;flex-direction:column;gap:4px;padding:22px 20px;border-left:1px solid rgba(255,255,255,.14);color:#fff}
+.gr-stats li:first-child{border-left:0}
+.gr-stats .gr-ico{color:#fff;--bs-acento:#f0a77f;margin-bottom:6px}
+.gr-stats span{font:600 12.5px/1.3 Montserrat,sans-serif;color:#d9e4dc}
+.gr-stats strong{font:800 24px/1.1 var(--display);font-variation-settings:"SOFT" 100,"WONK" 1;letter-spacing:-.02em;color:#fff}
+.gr-stats small{font:500 12px/1.4 Montserrat,sans-serif;color:#cfdcd3}
+.guia-ruta h2{font:800 34px/1.1 var(--display);font-variation-settings:"SOFT" 100,"WONK" 1;letter-spacing:-.03em;color:var(--gr-verde);margin:0 0 18px}
+.gr-dificultad{background:var(--gr-papel);border:1px solid var(--gr-linea);border-radius:22px;padding:30px 32px}
+.gr-dif-cab{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap}
+.gr-nota-total{margin:0;font:700 16px Montserrat,sans-serif;color:#4a5548}
+.gr-nota-total strong{font:800 48px/1 var(--display);color:var(--gr-verde)}
+.gr-nota-total span{display:block;font-size:12px;font-weight:500;color:#5d665a}
+.gr-dif-partes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:10px 0 20px}
+.gr-dif-n{display:flex;justify-content:space-between;margin:0 0 8px;font:700 15px Montserrat,sans-serif;color:var(--gr-tinta)}
+.gr-barra{height:10px;border-radius:99px;background:#e6dfcd;overflow:hidden}
+.gr-barra i{display:block;height:100%;border-radius:99px;background:var(--gr-verde)}
+.gr-dif-partes p:last-child{margin:10px 0 0;font:15px/1.55 Montserrat,sans-serif;color:#3a4a3f}
+.gr-dif-texto p{font:17px/1.7 Georgia,serif;color:#24342a;margin:0;max-width:72ch}
+.gr-capas,.gr-filtros{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.gr-capas button,.gr-filtros button{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;border:1.5px solid var(--gr-linea);background:#fff;color:var(--gr-tinta);font:600 13px Montserrat,sans-serif;cursor:pointer;box-shadow:none}
+.gr-capas button i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.gr-capas button span{font-weight:500;color:#5d665a}
+.gr-capas button[aria-pressed=false]{background:transparent;color:#5d665a;border-style:dashed}
+.gr-filtros button .gr-ico svg{width:20px;height:20px}
+.gr-filtros button[aria-pressed=true]{background:var(--gr-verde);border-color:var(--gr-verde);color:#fff}
+.gr-filtros button[aria-pressed=true] .gr-ico{color:#fff;--bs-acento:#f0a77f}
+.gr-capas button:focus-visible,.gr-filtros button:focus-visible,.gr-tabs button:focus-visible{outline:2px solid #b55332;outline-offset:2px}
+.gr-mapa{height:540px;border-radius:20px;overflow:hidden;border:1px solid var(--gr-linea);z-index:0}
+.gr-perfil{display:block;width:100%;height:auto;margin-top:14px;background:var(--gr-papel);border:1px solid var(--gr-linea);border-radius:16px;touch-action:none;cursor:crosshair}
+.gr-perfil text{font:500 12px Montserrat,sans-serif;fill:#3f4c42}
+.gr-perfil .gr-perfil-dato{fill:#fff;font-weight:700}
+.gr-fuente{font:13px/1.5 Montserrat,sans-serif;color:#4f5a4c;margin:10px 0 0}
+.gr-tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.gr-tabs button{flex:none;display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px 14px 0 0;border:1px solid var(--gr-linea);border-bottom:0;background:#efe9db;color:var(--gr-tinta);font:700 14.5px Montserrat,sans-serif;cursor:pointer;box-shadow:none}
+.gr-tabs button .gr-ico svg{width:22px;height:22px}
+.gr-tabs button[aria-selected=true]{background:var(--gr-verde);color:#fff;border-color:var(--gr-verde)}
+.gr-tabs button[aria-selected=true] .gr-ico{color:#fff;--bs-acento:#f0a77f}
+.gr-panel{background:var(--gr-papel);border:1px solid var(--gr-linea);border-radius:0 18px 18px 18px;padding:28px 32px}
+.gr-panel h3{font:800 21px/1.2 var(--display);font-variation-settings:"SOFT" 100,"WONK" 1;color:var(--gr-verde);margin:18px 0 6px}
+.gr-panel h3:first-child{margin-top:0}
+.gr-panel p,.gr-panel li{font:17px/1.7 Georgia,serif;color:#24342a;max-width:72ch}
+.gr-panel ul{padding-left:1.2em;margin:0}
+.gr-panel a{color:var(--gr-verde);text-decoration:underline;text-underline-offset:3px}
+.gr-lista{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px}
+.gr-lista li{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:#fff;border:1px solid var(--gr-linea)}
+.gr-km{flex:none;font:700 12.5px Montserrat,sans-serif;color:#fff;background:#b55332;border-radius:999px;padding:4px 10px}
+.gr-lista strong{font:600 15px Montserrat,sans-serif;color:var(--gr-tinta)}
+.gr-faq h2{margin-bottom:6px}
+@media(max-width:900px){.gr-stats{grid-template-columns:repeat(3,minmax(0,1fr))}.gr-stats li:nth-child(4){border-left:0}.gr-stats li:nth-child(n+4){border-top:1px solid rgba(255,255,255,.14)}.gr-dif-partes{grid-template-columns:1fr}}
+@media(max-width:560px){.guia-ruta{gap:42px}.gr-stats{grid-template-columns:1fr 1fr}.gr-stats li{border-left:0!important;border-top:1px solid rgba(255,255,255,.14)}.gr-stats li:nth-child(even){border-left:1px solid rgba(255,255,255,.14)!important}.gr-stats li:nth-child(-n+2){border-top:0}.gr-mapa{height:380px}.gr-dificultad,.gr-panel{padding:22px 20px}.guia-ruta h2{font-size:28px}.gr-intro p{font-size:17px}}
+.gr-ico .bs-icono{color:inherit;width:100%;height:100%}
+.gr-ico{color:var(--gr-verde);display:inline-flex}
