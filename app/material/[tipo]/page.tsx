@@ -54,7 +54,7 @@ export default async function TipoMaterial({ params }: Props) {
             </nav>
           </aside>
           <section className="gear-results">
-            <p className="gear-note">Los productos con enlace a Amazon son enlaces de afiliación: como afiliado de Amazon, obtengo ingresos por las compras adecuadas, sin coste extra para ti. Del resto iré publicando reseñas.</p>
+            <p className="gear-note">Los productos con enlace a Amazon son enlaces de afiliación: como afiliado de Amazon, obtengo ingresos por las compras adecuadas, sin coste extra para ti. Los demás llevan a la web de su marca. Iré publicando reseñas.</p>
             <p className="eyebrow">{items.length} OBJETOS / {t.categoria.toUpperCase()}</p>
             <div className="gear-grid">
               {items.map((p, i) => (
@@ -67,7 +67,7 @@ export default async function TipoMaterial({ params }: Props) {
                   <h2>{p.title}</h2>
                   <p>{p.description}</p>
                   <div>
-                    {p.url ? <a href={p.url} target="_blank" rel="sponsored nofollow noopener noreferrer">Ver en Amazon ↗</a> : <span className="gear-pronto">Reseña próximamente</span>}
+                    {p.url ? (p.url.includes('amazon.') ? <a href={p.url} target="_blank" rel="sponsored nofollow noopener noreferrer">Ver en Amazon ↗</a> : <a href={p.url} target="_blank" rel="nofollow noopener noreferrer">Web de la marca ↗</a>) : <span className="gear-pronto">Reseña próximamente</span>}
                     {p.review ? <a href={p.review}>Leer reseña →</a> : null}
                   </div>
                 </article>
