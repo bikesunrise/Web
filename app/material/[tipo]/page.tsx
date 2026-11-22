@@ -67,7 +67,7 @@ export default async function TipoMaterial({ params }: Props) {
                   <h2>{p.title}</h2>
                   <p>{p.description}</p>
                   <div>
-                    {p.url ? (p.url.includes('amazon.') ? <a href={p.url} target="_blank" rel="sponsored nofollow noopener noreferrer">Ver en Amazon ↗</a> : <a href={p.url} target="_blank" rel="nofollow noopener noreferrer">Web de la marca ↗</a>) : <span className="gear-pronto">Reseña próximamente</span>}
+                    {p.url ? (p.url.includes('amazon.') ? <a href={p.url} target="_blank" rel="sponsored nofollow noopener noreferrer">Ver producto ↗</a> : <a href={p.url} target="_blank" rel="nofollow noopener noreferrer">Ver producto ↗</a>) : <span className="gear-pronto">Reseña próximamente</span>}
                     {p.review ? <a href={p.review}>Leer reseña →</a> : null}
                   </div>
                 </article>
