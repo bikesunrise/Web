@@ -208,3 +208,17 @@ h2,.atlas-heading h2,.section-opening h2,.mission h2,.story-copy h2,.gear-item h
 .gear-mas{display:block;margin:40px auto 0;padding:13px 26px;border:1.5px solid #294334;border-radius:999px;background:transparent;color:#294334;font:600 14px/1 Montserrat,sans-serif;cursor:pointer;transition:background .2s,color .2s}
 .gear-mas:hover{background:#294334;color:#fff}
 .gear-object:has(img[data-loaded="true"])>svg{display:none}
+
+/* páginas por tipo de material */
+.tipo-nav{display:flex;flex-direction:column}
+.tipo-nav a{padding:10px 12px;border-radius:8px;font-size:12.5px;color:#40523f;text-decoration:none}
+.tipo-nav a:first-child{font-weight:600;margin-bottom:6px}
+.tipo-nav a:hover{background:#e6e3d6}
+.tipo-nav a[aria-current="page"]{background:#294334;color:#fff}
+.tipo-leer{margin-top:60px;padding:30px 34px;border-radius:14px;background:#e7ece4}
+.tipo-leer h2{margin:0 0 14px;font:800 26px/1.15 var(--display);letter-spacing:-.03em;color:#294334}
+.tipo-leer ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.tipo-leer a{color:#294334;font-size:14.5px;text-underline-offset:4px}
+.archive-hero .section-kicker a{color:inherit;text-decoration:none}
+@media(max-width:900px){.tipo-nav{flex-direction:row;flex-wrap:wrap;gap:6px}.tipo-nav a{background:#e6e3d6;padding:8px 10px}.tipo-nav a:first-child{margin:0}}
+.gear-tipo{display:inline-block;margin:-4px 0 18px;color:#294334;font-weight:600;font-size:14px;text-underline-offset:4px}
