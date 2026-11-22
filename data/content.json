@@ -14481,6 +14481,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>En bici</span><strong>Unos 800 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Recorrido</span><strong>De Santander a Valencia</strong></div><div><i class=\"bs-i\" data-i=\"bici\"></i><span>Vía verde</span><strong>Unos 260 km acondicionados</strong></div><div><i class=\"bs-i\" data-i=\"temporada\"></i><span>Época</span><strong>Primavera y otoño</strong></div></div>"
+      },
+      {
+        "type": "html",
         "value": "<p><strong>Si estás buscando <a href=\"/viajar-en-bicicleta/\">una aventura en bicicleta</a> que combine ejercicio y belleza natural,</strong> la Vía Verde Santander Mediterráneo podría ser tu próxima ruta ideal.</p>"
       },
       {
@@ -14489,7 +14493,7 @@
       },
       {
         "type": "html",
-        "value": "<p>La historia de esta ruta comienza como una línea ferroviaria, <strong>creada a principios del siglo XX para conectar Santander con otras ciudades del norte</strong>. Durante varias décadas, la línea de tren fue un importante medio de transporte.</p>"
+        "value": "<p>La línea se proyectó a principios del siglo XX para unir Santander con el Mediterráneo, pero nunca se terminó: faltaron unos 35 km para llegar a Santander. El tramo construido llevó mercancías y viajeros hasta el 1 de enero de 1985, cuando se cerraron los 434 km entre Cidad-Dosante y Caminreal., <strong>creada a principios del siglo XX para conectar Santander con otras ciudades del norte</strong>. Durante varias décadas, la línea de tren fue un importante medio de transporte.</p>"
       },
       {
         "type": "html",
@@ -14513,7 +14517,11 @@
       },
       {
         "type": "html",
-        "value": "<p>La <strong>Vía Verde Santander Mediterráneo</strong> tiene una longitud de aproximadamente 220 kilómetros y atraviesa varias regiones, destacándose por sus paisajes montañosos y vistas al mar. El recorrido conecta la ciudad de Santander con diversos puntos de la costa mediterránea, pasando por montañas, bosques, y llanuras.</p>"
+        "value": "<p>La Vía Verde Santander Mediterráneo sigue el trazado del antiguo ferrocarril que debía unir Santander con el Mediterráneo y que nunca llegó a terminarse. Conviene distinguir dos cosas: la <strong>vía verde acondicionada</strong>, que hoy suma unos 260 km en Burgos y Soria, y el <strong>viaje completo en bici de Santander a Valencia</strong> siguiendo el trazado, de unos 800 km, que combina la vía verde con carreteras secundarias y caminos. Pasa por montañas, páramos y valles hasta llegar a la costa.</p>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-caja bs-caja--aviso\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"aviso\"></i>La vía verde no es continua</p><p>El antiguo ferrocarril nunca se terminó y la vía verde tampoco está completa. Hay unos 106 km seguidos entre Burgos y el túnel de La Engaña; el resto del viaje alterna tramos acondicionados con carreteras y caminos.</p><p>Fuentes: Fundación de los Ferrocarriles Españoles (diciembre de 2023) y Red de Caminos Naturales del Ministerio de Agricultura.</p></div>"
       },
       {
         "type": "html",
@@ -14521,7 +14529,7 @@
       },
       {
         "type": "html",
-        "value": "<ul><li><p><strong>Longitud</strong>: Aproximadamente 810 km.</p></li><li><p><strong>Dificultad</strong>: Media, accesible tanto para ciclistas experimentados como principiantes.</p></li><li><p><strong>Superficie</strong>: Contiene tanto tramos de asfalto tanto como de tierra compactada, lo que la hace adecuada para <strong><a href=\"/bicicleta-de-cicloturismo/\">bicicletas</a></strong> de carretera, gravel y MTB.</p></li><li><p><strong>Paisaje</strong>: Montañas, costas, y áreas rurales, ofreciendo vistas espectaculares durante todo el recorrido.</p></li></ul>"
+        "value": "<ul><li><p><strong>Longitud</strong>: unos 800 km de Santander a Valencia con el itinerario de esta guía; de ellos, unos 260 km son vía verde acondicionada.</p></li><li><p><strong>Dificultad</strong>: media, accesible tanto para ciclistas con experiencia como para principiantes.</p></li><li><p><strong>Superficie</strong>: tramos de asfalto y de tierra compactada, adecuada para <strong><a href=\"/bicicleta-de-cicloturismo/\">bicicletas</a></strong> de gravel, MTB y de cicloturismo.</p></li><li><p><strong>Paisaje</strong>: montañas, páramos, valles y la llegada al Mediterráneo.</p></li></ul>"
       },
       {
         "type": "html",
@@ -14593,7 +14601,7 @@
       },
       {
         "type": "html",
-        "value": "<div class=\"bs-faq\"><details><summary>¿Cuánto mide la Vía Verde Santander Mediterráneo?</summary><div><p>La ruta tiene una longitud de aproximadamente 810 kilómetros, y atraviesa una variedad de paisajes, desde montañas hasta costas.</p></div></details><details><summary>¿Es la Vía Verde Santander Mediterráneo adecuada para bicicletas de carretera?</summary><div><p>Sí, buena parte de la vía está asfaltada, por lo que es adecuada para bicicletas de carretera, aunque algunos tramos de tierra pueden requerir una bicicleta híbrida o de montaña.</p></div></details><details><summary>¿Cuánto tiempo se tarda en recorrer la Vía Verde Santander Mediterráneo?</summary><div><p>El tiempo de recorrido depende de tu ritmo y la cantidad de etapas que recorras cada día, pero generalmente, puedes completar la ruta en 4-6 días.</p></div></details></div>"
+        "value": "<div class=\"bs-faq\"><details><summary>¿Cuánto mide la Vía Verde Santander Mediterráneo?</summary><div><p>Depende de lo que cuentes. La vía verde acondicionada suma unos 260 km en Burgos y Soria: 200 km más los 61 km del tramo de Las Merindades, abierto en diciembre de 2023. El viaje completo en bici de Santander a Valencia que propone esta guía son unos 800 km., y atraviesa una variedad de paisajes, desde montañas hasta costas.</p></div></details><details><summary>¿Es la Vía Verde Santander Mediterráneo adecuada para bicicletas de carretera?</summary><div><p>Sí, buena parte de la vía está asfaltada, por lo que es adecuada para bicicletas de carretera, aunque algunos tramos de tierra pueden requerir una bicicleta híbrida o de montaña.</p></div></details><details><summary>¿Cuánto tiempo se tarda en recorrer la Vía Verde Santander Mediterráneo?</summary><div><p>El tiempo de recorrido depende de tu ritmo y la cantidad de etapas que recorras cada día, pero generalmente, puedes completar la ruta en 4-6 días.</p></div></details></div>"
       }
     ]
   },
