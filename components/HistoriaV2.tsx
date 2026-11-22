@@ -250,7 +250,7 @@ export default function HistoriaV2({ entry }: { entry: Entry }) {
             </> : <div>
               <p className="b-pista">Fin del tramo pedaleado</p>
               <h2 id="b-sig">Aquí termina, de momento</h2>
-              <Link className="b-boton" href="/#atlas">Volver al atlas <span aria-hidden="true">→</span></Link>
+              <Link className="b-boton" href="/">Volver al inicio <span aria-hidden="true">→</span></Link>
             </div>}
           </section>
         </article>

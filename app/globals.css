@@ -422,3 +422,27 @@ h2,.atlas-heading h2,.section-opening h2,.mission h2,.story-copy h2,.gear-item h
  .gr-mosaico{grid-template-columns:1fr 1fr;gap:8px;padding:0 16px}.gr-mosaico figure,.gr-mosaico figure.ancha{grid-column:span 1;height:180px}.gr-mosaico figure.ancha:first-child{grid-column:span 2;height:220px}
  .gr-cajadif{padding:22px 20px}.gr-gal-marco{grid-template-columns:1fr;padding:0 16px}.gr-gal-flecha{display:none}.gr-mapa{height:420px}.gr-ancho{padding:0 16px}
  .gr-tabs{justify-content:flex-start}.gr-tabs button{padding:15px 16px;font-size:13px}.gr-paneles{padding:30px 20px 0}.gr-panel--dos ul{columns:1}.gr-texto p{font-size:17.5px}.gr-entradilla p{font-size:17.5px}}
+/* Guía de ruta, pulido: iconos en medalla, perfil con pueblos y cursor */
+.gr-st-v .gr-ico{width:54px;height:54px;padding:11px;border-radius:50%;background:#fbf8f1;box-shadow:inset 0 0 0 1.5px #b9cbbd;color:var(--gr-verde);--bs-acento:#b55332}
+.gr-st-v{gap:12px}
+.gr-st-v strong{font-size:27px}
+.gr-stats li{padding-left:2px}
+.gr-lugar .gr-ico{width:22px;height:22px;padding:0;background:none;box-shadow:none}
+.gr-boton .gr-ico{width:22px;height:22px}
+.gr-perfil-fig{margin:0;background:#fbf8f1;border:1px solid var(--gr-linea);border-top:0;padding:8px 10px 14px}
+.gr-perfil{display:block;width:100%;height:auto;background:none;border:0;margin:0;touch-action:pan-y;cursor:crosshair}
+.gr-perfil text{font:500 12.5px Montserrat,sans-serif;fill:#33473b}
+.gr-p-rej line{stroke:#d9d2c0;stroke-width:1;stroke-dasharray:3 5}
+.gr-p-km line{stroke:#1f3328;stroke-width:1.2}
+.gr-p-pueblo line{stroke:#294334;stroke-opacity:.28;stroke-width:1;stroke-dasharray:2 4}
+.gr-p-pueblo text{font:600 12px Montserrat,sans-serif;fill:#1f3328}
+.gr-p-alto circle{fill:#fff;stroke:#b55332;stroke-width:2.5}
+.gr-p-alto text{font:700 13px Montserrat,sans-serif;fill:#8d3a20}
+.gr-p-cursor line{stroke:#1f3328;stroke-width:1.5}
+.gr-p-cursor circle{fill:#1f3328;stroke:#fff;stroke-width:3}
+.gr-p-cursor rect{fill:#1f3328}
+.gr-perfil .gr-p-c1{font:700 14px Montserrat,sans-serif;fill:#fff}
+.gr-perfil .gr-p-c2{font:500 12.5px Montserrat,sans-serif;fill:#d9e4dc}
+.gr-perfil-datos{display:flex;flex-wrap:wrap;gap:8px 26px;padding:4px 8px 0 64px;font:500 14px Montserrat,sans-serif;color:#33473b}
+.gr-perfil-datos b{font:800 18px var(--display);color:var(--gr-verde);margin-right:4px}
+@media(max-width:640px){.gr-st-v .gr-ico{width:44px;height:44px;padding:9px}.gr-st-v strong{font-size:21px}.gr-perfil-datos{padding-left:4px;gap:6px 16px;font-size:13px}.gr-p-pueblo text{font-size:15px}.gr-perfil text{font-size:15px}}

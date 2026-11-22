@@ -43,32 +43,71 @@ const Icono = ({ n }: { n: string }) => <span className="gr-ico" dangerouslySetI
 const Cinta = ({ children }: { children: string }) => <div className="gr-cinta"><span>{children}</span></div>;
 const Html = ({ html, className }: { html: string; className?: string }) => <div className={className} dangerouslySetInnerHTML={{ __html: conIconos(html) }} />;
 
-function Perfil({ track, onKm, km }: { track: Punto[]; onKm: (km: number | null) => void; km: number | null }) {
-  const W = 1000, H = 200, P = 60;
-  const max = Math.max(...track.map((p) => p[3])), min = Math.min(...track.map((p) => p[3]));
-  const top = Math.ceil((max + 50) / 100) * 100, base = Math.max(0, Math.floor((min - 20) / 100) * 100);
+function Perfil({ track, pueblos, onKm, km }: { track: Punto[]; pueblos: Poi[]; onKm: (km: number | null) => void; km: number | null }) {
+  const W = 1100, H = 320, IZ = 64, DE = 60, AR = 86, AB = 46; // márgenes: izquierda, derecha, arriba (pueblos), abajo (km)
+  const alts = track.map((p) => p[3]);
+  const max = Math.max(...alts), min = Math.min(...alts);
+  const top = Math.ceil((max + 40) / 100) * 100, base = Math.max(0, Math.floor((min - 10) / 100) * 100);
   const total = track[track.length - 1][2];
-  const x = (k: number) => P + (k / total) * (W - P - 12);
-  const y = (a: number) => 12 + (1 - (a - base) / (top - base)) * (H - 44);
+  const x = (k: number) => IZ + (k / total) * (W - IZ - DE);
+  const y = (a: number) => AR + (1 - (a - base) / (top - base)) * (H - AR - AB);
   const linea = track.map((p, i) => `${i ? 'L' : 'M'}${x(p[2]).toFixed(1)},${y(p[3]).toFixed(1)}`).join('');
-  const area = `${linea}L${x(total).toFixed(1)},${H - 32}L${x(0)},${H - 32}Z`;
+  const area = `${linea}L${x(total).toFixed(1)},${H - AB}L${x(0)},${H - AB}Z`;
+  const alto = track.reduce((a, b) => (b[3] > a[3] ? b : a));
   const cerca = km == null ? null : track.reduce((a, b) => (Math.abs(b[2] - km) < Math.abs(a[2] - km) ? b : a));
+  const pueblo = cerca ? pueblos.reduce((a, b) => (Math.abs(b.km - cerca[2]) < Math.abs(a.km - cerca[2]) ? b : a), pueblos[0]) : null;
+  // pueblos que se rotulan: separados al menos 9 km para que no se pisen
+  // pueblos que se rotulan: salida, llegada y Girona siempre; el resto, separados al menos 9 km
+  const fijos = pueblos.filter((p, i) => i === 0 || i === pueblos.length - 1 || p.nombre === 'Girona');
+  const rotulos: Poi[] = [...fijos];
+  for (const p of pueblos) if (rotulos.every((r) => Math.abs(r.km - p.km) >= 9)) rotulos.push(p);
+  rotulos.sort((a, b) => a.km - b.km);
+  const corto = (n: string) => n.replace(/^Sant /, 'St. ');
   const ref = useRef<SVGSVGElement>(null);
   const mover = (e: React.PointerEvent) => {
     const r = ref.current!.getBoundingClientRect();
-    onKm(Math.max(0, Math.min(total, ((((e.clientX - r.left) / r.width) * W - P) / (W - P - 12)) * total)));
+    onKm(Math.max(0, Math.min(total, ((((e.clientX - r.left) / r.width) * W - IZ) / (W - IZ - DE)) * total)));
   };
-  const marcas = [];
-  for (let a = base; a <= top; a += 100) marcas.push(a);
+  const marcas: number[] = [];
+  for (let a = base; a <= top; a += top - base > 600 ? 200 : 100) marcas.push(a);
+  const kms: number[] = [];
+  for (let k = 0; k <= total; k += 10) kms.push(k);
+  const tx = cerca ? Math.min(Math.max(x(cerca[2]) - 95, IZ), W - DE - 190) : 0;
   return (
-    <svg ref={ref} className="gr-perfil" viewBox={`0 0 ${W} ${H}`} onPointerMove={mover} onPointerLeave={() => onKm(null)} role="img" aria-label="Perfil de desnivel de la ruta">
-      {marcas.map((a) => <g key={a}><line x1={P} x2={W - 12} y1={y(a)} y2={y(a)} stroke="#d8d1bf" strokeWidth="1" /><text x={P - 8} y={y(a) + 4} textAnchor="end">{a} m</text></g>)}
-      <path d={area} fill="#e9d9c5" />
-      <path d={linea} fill="none" stroke="#b55332" strokeWidth="2.6" strokeLinejoin="round" />
-      {[0, 0.25, 0.5, 0.75, 1].map((f) => <text key={f} x={x(f * total)} y={H - 10} textAnchor={f === 0 ? 'start' : f === 1 ? 'end' : 'middle'}>{Math.round(f * total)} km</text>)}
-      {cerca && <g><line x1={x(cerca[2])} x2={x(cerca[2])} y1={10} y2={H - 32} stroke="#1f3328" strokeWidth="1.5" /><circle cx={x(cerca[2])} cy={y(cerca[3])} r="5.5" fill="#1f3328" />
-        <rect x={Math.min(x(cerca[2]) + 10, W - 162)} y={14} width="150" height="28" rx="7" fill="#1f3328" /><text x={Math.min(x(cerca[2]) + 10, W - 162) + 75} y={33} textAnchor="middle" className="gr-perfil-dato">km {cerca[2].toFixed(1)} · {cerca[3]} m</text></g>}
-    </svg>
+    <figure className="gr-perfil-fig">
+      <svg ref={ref} className="gr-perfil" viewBox={`0 0 ${W} ${H}`} onPointerMove={mover} onPointerDown={mover} onPointerLeave={() => onKm(null)} role="img" aria-label={`Perfil de desnivel: de ${alts[0]} m a ${alts[alts.length - 1]} m, punto más alto ${alto[3]} m en el km ${alto[2].toFixed(0)}`}>
+        <defs>
+          <linearGradient id="gr-relleno" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor="#b55332" stopOpacity=".42" /><stop offset="1" stopColor="#b55332" stopOpacity=".04" /></linearGradient>
+        </defs>
+        {marcas.map((a) => <g key={a} className="gr-p-rej"><line x1={IZ} x2={W - DE} y1={y(a)} y2={y(a)} /><text x={IZ - 10} y={y(a) + 4} textAnchor="end">{a} m</text></g>)}
+        {kms.map((k) => <g key={k} className="gr-p-km"><line x1={x(k)} x2={x(k)} y1={H - AB} y2={H - AB + 6} />{k % 20 === 0 && <text x={x(k)} y={H - AB + 22} textAnchor="middle">{k} km</text>}</g>)}
+        {rotulos.map((p) => (
+          <g key={p.nombre} className="gr-p-pueblo">
+            <line x1={x(p.km)} x2={x(p.km)} y1={AR - 6} y2={H - AB} />
+            {p.km > total * 0.85 ? <text textAnchor="end" transform={`translate(${x(p.km) - 3},${AR - 10}) rotate(35)`}>{corto(p.nombre)}</text> : <text transform={`translate(${x(p.km) + 3},${AR - 10}) rotate(-35)`}>{corto(p.nombre)}</text>}
+          </g>
+        ))}
+        <path d={area} fill="url(#gr-relleno)" />
+        <path d={linea} fill="none" stroke="#b55332" strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" />
+        <line x1={IZ} x2={W - DE} y1={H - AB} y2={H - AB} stroke="#1f3328" strokeWidth="1.5" />
+        <g className="gr-p-alto"><circle cx={x(alto[2])} cy={y(alto[3])} r="5" /><text x={x(alto[2]) + 10} y={y(alto[3]) - 8}>{alto[3]} m</text></g>
+        {cerca && (
+          <g className="gr-p-cursor">
+            <line x1={x(cerca[2])} x2={x(cerca[2])} y1={AR - 6} y2={H - AB} />
+            <circle cx={x(cerca[2])} cy={y(cerca[3])} r="7" />
+            <rect x={tx} y={6} width="190" height="44" rx="10" />
+            <text x={tx + 14} y={25} className="gr-p-c1">km {cerca[2].toFixed(1)} · {cerca[3]} m</text>
+            {pueblo && <text x={tx + 14} y={42} className="gr-p-c2">cerca de {pueblo.nombre}</text>}
+          </g>
+        )}
+      </svg>
+      <figcaption className="gr-perfil-datos">
+        <span><b>{Math.round(alts.slice(1).reduce((s, a, i) => s + Math.max(0, a - alts[i]), 0) / 10) * 10} m</b> de subida</span>
+        <span><b>{Math.round(alts.slice(1).reduce((s, a, i) => s + Math.max(0, alts[i] - a), 0) / 10) * 10} m</b> de bajada</span>
+        <span><b>{max} m</b> punto más alto</span>
+        <span><b>{min} m</b> punto más bajo</span>
+      </figcaption>
+    </figure>
   );
 }
 
@@ -199,7 +238,7 @@ export default function GuiaRuta({ guia, titulo, portada, faqHtml, conclusionHtm
             ))}
           </div>
           <div ref={mapaRef} className="gr-mapa" aria-label="Mapa interactivo de la ruta" />
-          <Perfil track={track} km={km} onKm={setKm} />
+          <Perfil track={track} pueblos={pois.filter((p) => p.tipo === 'pueblo')} km={km} onKm={setKm} />
           <div className="gr-acciones">
             <a className="gr-boton" href={ficha.gpx} download><Icono n="distancia" />Descargar GPX</a>
             <Link className="gr-boton gr-boton--claro" href="/contacto/"><Icono n="aviso" />Avisar de un cambio en la ruta</Link>
