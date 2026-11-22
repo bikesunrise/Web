@@ -10,6 +10,7 @@ import Footer from '@/components/Footer';
 import gear from '@/data/gear.json';
 import tipos from '@/data/material-tipos.json';
 import { byPath } from '@/lib/content';
+import FiltroMaterial from '@/components/FiltroMaterial';
 
 type Tipo = { slug: string; categoria: string; h1: string; titulo: string; intro: string; relacionados: string[] };
 type Props = { params: Promise<{ tipo: string }> };
@@ -33,6 +34,8 @@ export default async function TipoMaterial({ params }: Props) {
   // primero lo que tiene foto y enlace, después el resto
   const items = gear.filter((p) => p.category === t.categoria).sort((a, b) => Number(!!b.image) - Number(!!a.image));
   const Icon = t.categoria.includes('campaña') ? Tent : t.categoria.includes('Grabación') ? Camera : t.categoria.includes('bici') || t.categoria === 'Componentes' ? Bike : Backpack;
+  const cuentas: Record<string, number> = {};
+  gear.forEach((p) => { cuentas[p.category] = (cuentas[p.category] || 0) + 1; });
   const leer = t.relacionados.map((p) => byPath.get(p)).filter(Boolean);
   return (
     <>
@@ -48,10 +51,7 @@ export default async function TipoMaterial({ params }: Props) {
         </section>
         <div className="gear-layout tipo-layout">
           <aside className="gear-filter">
-            <nav className="tipo-nav" aria-label="Tipos de material">
-              <Link href="/material-para-bikepacking/">Todo el material</Link>
-              {TIPOS.map((x) => <Link key={x.slug} href={`/material/${x.slug}/`} aria-current={x.slug === t.slug ? 'page' : undefined}>{x.h1}</Link>)}
-            </nav>
+            <FiltroMaterial actual={t.categoria} cuentas={cuentas} total={gear.length} />
           </aside>
           <section className="gear-results">
             <p className="gear-note">Los productos con enlace a Amazon son enlaces de afiliación: como afiliado de Amazon, obtengo ingresos por las compras adecuadas, sin coste extra para ti. Los demás llevan a la web de su marca. Iré publicando reseñas.</p>

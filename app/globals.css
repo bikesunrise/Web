@@ -222,3 +222,33 @@ h2,.atlas-heading h2,.section-opening h2,.mission h2,.story-copy h2,.gear-item h
 .archive-hero .section-kicker a{color:inherit;text-decoration:none}
 @media(max-width:900px){.tipo-nav{flex-direction:row;flex-wrap:wrap;gap:6px}.tipo-nav a{background:#e6e3d6;padding:8px 10px}.tipo-nav a:first-child{margin:0}}
 .gear-tipo{display:inline-block;margin:-4px 0 18px;color:#294334;font-weight:600;font-size:14px;text-underline-offset:4px}
+/* Filtro de Material (components/FiltroMaterial.tsx): categorías agrupadas por momento del viaje, con recuento. */
+.gear-layout .gear-filter{align-self:start;position:sticky;top:96px;max-height:calc(100svh - 116px);overflow:auto;scrollbar-width:thin;padding-right:6px}
+.gear-filter .filtro-buscar{display:flex;align-items:center;gap:10px;background:#fbf8f1;border:1px solid #d3cdbb;border-radius:999px;padding:11px 16px;margin-bottom:6px;color:#294334}
+.gear-filter .filtro-buscar:focus-within{border-color:#294334;box-shadow:0 0 0 3px rgba(41,67,52,.14)}
+.gear-filter .filtro-buscar input{font:500 13px Montserrat,sans-serif;color:#294334;outline:none}
+.filtro summary{display:none}
+.filtro nav{display:flex;flex-direction:column;gap:1px;padding-top:12px}
+.filtro-grupo{display:flex;flex-direction:column;gap:1px;margin-top:16px;padding-top:14px;border-top:1px solid #dad4c4}
+.filtro-grupo h3{display:flex;align-items:center;gap:9px;margin:0 0 6px 10px;font:700 16px/1.2 var(--display);font-variation-settings:"SOFT" 100,"WONK" 1;letter-spacing:-.01em;color:#294334}
+.filtro-grupo h3 svg{color:#b55332;flex:none}
+.gear-filter .filtro nav :is(button,a){display:flex;justify-content:space-between;align-items:baseline;gap:12px;width:100%;margin:0;padding:8px 10px;border:0;border-radius:9px;background:none;box-shadow:none;transform:none;min-height:0;color:#40523f;font:500 13px/1.35 Montserrat,sans-serif;letter-spacing:0;text-transform:none;text-align:left;text-decoration:none;cursor:pointer;transition:background-color .15s,color .15s}
+.gear-filter .filtro nav>:is(button,a):first-child{font-weight:700;color:#294334}
+.gear-filter .filtro nav :is(button,a):hover{background:#e6e0cf}
+.gear-filter .filtro nav :is(button,a):focus-visible{outline:2px solid #b55332;outline-offset:1px}
+.filtro-n{font-size:11px;font-weight:500;color:#8b8f7f;font-variant-numeric:tabular-nums}
+.gear-filter .filtro nav :is(button[aria-pressed=true],a[aria-current=page]){background:#294334;color:#fff}
+.gear-filter .filtro nav :is(button[aria-pressed=true],a[aria-current=page]) .filtro-n{color:rgba(255,255,255,.72)}
+@media(min-width:641px){.filtro::details-content{content-visibility:visible;display:block}}
+@media(max-width:640px){
+.gear-layout .gear-filter{position:static;max-height:none;overflow:visible;padding-right:0}
+.filtro summary{display:flex;align-items:center;gap:10px;list-style:none;cursor:pointer;margin-top:10px;padding:13px 16px;background:#294334;color:#fff;border-radius:14px;font:500 12px Montserrat,sans-serif}
+.filtro summary::-webkit-details-marker{display:none}
+.filtro summary strong{font:700 15px var(--display);font-variation-settings:"SOFT" 100,"WONK" 1;margin-right:auto}
+.filtro summary span{opacity:.75}
+.filtro summary::after{content:"";width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
+.filtro[open] summary::after{transform:translateY(2px) rotate(-135deg)}
+.filtro nav{margin-top:8px;padding:10px;background:#fbf8f1;border:1px solid #dad4c4;border-radius:14px}
+.gear-filter .filtro nav :is(button,a){padding:10px;font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){.filtro summary::after,.gear-filter .filtro nav :is(button,a){transition:none}}
