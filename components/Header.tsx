@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 export default function Header({ overlay=false }: { overlay?: boolean }) {
  const [open,setOpen]=useState(false);
- const links=[['El atlas','/#atlas'],['Rutas','/rutas/'],['Material','/material-para-bikepacking/'],['Historias','/blog/'],['Bikesunrise','/contacto/']];
+ const links=[['Inicio','/'],['Rutas','/rutas/'],['Material','/material-para-bikepacking/'],['Historias','/blog/'],['Bikesunrise','/contacto/']];
  return <header className={'site-header '+(overlay?'site-header--overlay':'site-header--solid')}>
    <Link href="/" className="wordmark" aria-label="Bikesunrise, inicio"><img src="/images/logo.png" alt="" width="48" height="48"/><span>Bikesunrise</span></Link>
    <nav className={'main-nav '+(open?'main-nav--open':'')} aria-label="Navegación principal">
