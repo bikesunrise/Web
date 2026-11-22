@@ -304,3 +304,5 @@ h2,.atlas-heading h2,.section-opening h2,.mission h2,.story-copy h2,.gear-item h
 .rich-block .bs-caja>ul{margin-top:0}
 /* lectura más cómoda en artículos y reseñas */
 .magazine-body .reading-column p,.magazine-body .reading-column li,.magazine-body .editorial-prose p{font-size:17px;line-height:1.75;color:#2f3b33}
+.bs-caja .bs-boton{display:inline-block;margin-top:6px;padding:12px 20px;border-radius:999px;background:#294334;color:#fff!important;font:600 14px Montserrat,sans-serif;text-decoration:none!important}
+.bs-caja .bs-boton:hover{background:#1d3226}

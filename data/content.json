@@ -2982,6 +2982,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>Unos 11.000 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Recorrido</span><strong>Costa atlántica, de Noruega a Portugal</strong></div><div><i class=\"bs-i\" data-i=\"bici\"></i><span>Países</span><strong>6</strong></div><div><i class=\"bs-i\" data-i=\"temporada\"></i><span>Época</span><strong>Según el tramo</strong></div></div>"
+      },
+      {
+        "type": "html",
         "value": "<h2>¿Qué es la Eurovelo 1?</h2>"
       },
       {
@@ -3140,6 +3144,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>Más de 6.000 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Recorrido</span><strong>De Noruega a Grecia</strong></div><div><i class=\"bs-i\" data-i=\"bici\"></i><span>Tramos</span><strong>Norte, Bálticos, Danubio y Balcanes</strong></div></div>"
+      },
+      {
+        "type": "html",
         "value": "<h2>¿Qué es la Eurovelo 11?</h2>"
       },
       {
@@ -3294,6 +3302,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>Unos 5.900 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Recorrido</span><strong>Costa del mar del Norte</strong></div><div><i class=\"bs-i\" data-i=\"bici\"></i><span>Países</span><strong>8</strong></div><div><i class=\"bs-i\" data-i=\"temporada\"></i><span>Época</span><strong>De mayo a septiembre</strong></div></div>"
+      },
+      {
+        "type": "html",
         "value": "<h2>¿Qué es la Eurovelo 12?\n</h2>"
       },
       {
@@ -3393,6 +3405,10 @@
       {
         "type": "html",
         "value": "<p>Imagina recorrer en bicicleta más de 10.000 kilómetros a través de 20 países, pedaleando por paisajes que alguna vez estuvieron divididos por el <strong><a href=\"https://es.wikipedia.org/wiki/Cortina_de_Hierro\" rel=\"noopener noreferrer\">Telón de Acero</a></strong>. <strong>Eso es la Eurovelo 13</strong>, una ruta ciclista que no solo conecta lugares, sino que también <strong>une historias, culturas y paisajes que cuentan la compleja historia de Europa durante la Guerra Fría</strong>. Ya sea que busques una aventura desafiante o un viaje para sumergirte en la memoria histórica del continente, la ruta Eurovelo 13 tiene algo que ofrecerte.</p>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>Más de 10.400 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Recorrido</span><strong>La línea del antiguo Telón de Acero</strong></div><div><i class=\"bs-i\" data-i=\"bici\"></i><span>Países</span><strong>20</strong></div></div>"
       },
       {
         "type": "html",
@@ -3566,6 +3582,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>Unos 5.000 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Recorrido</span><strong>De Dublín a Moscú</strong></div><div><i class=\"bs-i\" data-i=\"bici\"></i><span>Conocida como</span><strong>La ruta de las capitales</strong></div></div>"
+      },
+      {
+        "type": "html",
         "value": "<h2>¿Qué es la Eurovelo 2?</h2>"
       },
       {
@@ -3649,6 +3669,10 @@
       {
         "type": "html",
         "value": "<p>El Eurovelo 3, también llamado la Ruta de los Peregrinos, es uno de los itinerarios ciclistas más destacados de Europa. Este trayecto cruza diversos países, uniendo sitios históricos, culturales y naturales de gran importancia. A continuación, <strong>te ofrecemos toda la información necesaria sobre la ruta, sus etapas, mapas y consejos prácticos para disfrutarla</strong>.</p>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>Unos 5.100 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Recorrido</span><strong>De Noruega a Santiago</strong></div><div><i class=\"bs-i\" data-i=\"dias\"></i><span>Duración</span><strong>De 2 a 3 meses</strong></div><div><i class=\"bs-i\" data-i=\"temporada\"></i><span>Época</span><strong>Primavera y verano</strong></div></div>"
       },
       {
         "type": "html",
@@ -3771,6 +3795,10 @@
       {
         "type": "html",
         "value": "<p>Si deseas explorar una de las rutas cicloturísticas más impresionantes de Europa, la Eurovelo 4 es ideal para ti. <strong>Desde las costas del Atlántico hasta el corazón de Europa Central y Oriental, esta ruta ofrece una mezcla única de paisajes marítimos, rurales y urbanos</strong>.</p>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>Unos 4.000 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Recorrido</span><strong>De Roscoff (Francia) a Ucrania</strong></div><div><i class=\"bs-i\" data-i=\"bici\"></i><span>Países</span><strong>7</strong></div></div>"
       },
       {
         "type": "html",
@@ -3909,6 +3937,10 @@
       {
         "type": "html",
         "value": "<p>¿Alguna vez has soñado con recorrer Europa en bicicleta y descubrir ciudades históricas, paisajes hermosos y rutas llenas de historia? La Eurovelo 5 es mucho más que un simple recorrido: <strong>es <a href=\"/\">un viaje en bicicleta</a> que te llevará desde el norte de Europa hasta el corazón de Italia, atravesando 7 países repletos de cultura y belleza</strong>.</p>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>Unos 3.900 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Recorrido</span><strong>De Londres a Italia</strong></div><div><i class=\"bs-i\" data-i=\"temporada\"></i><span>Época</span><strong>De abril a octubre</strong></div></div>"
       },
       {
         "type": "html",
@@ -4110,6 +4142,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>Más de 4.400 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Recorrido</span><strong>Del Atlántico al mar Negro</strong></div><div><i class=\"bs-i\" data-i=\"bici\"></i><span>Sigue</span><strong>Loira, Rin y Danubio</strong></div></div>"
+      },
+      {
+        "type": "html",
         "value": "<h2>¿Qué es la Eurovelo 6?</h2>"
       },
       {
@@ -4248,6 +4284,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>Unos 7.400 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Recorrido</span><strong>Del Cabo Norte a Malta</strong></div><div><i class=\"bs-i\" data-i=\"temporada\"></i><span>Época</span><strong>Según el tramo</strong></div></div>"
+      },
+      {
+        "type": "html",
         "value": "<p>En este artículo, <strong>te proporcionaremos toda la información que necesitas para recorrer la Eurovelo 7:</strong> desde un mapa detallado y los mejores tramos, hasta consejos prácticos sobre alojamiento, equipo y seguridad en el camino.</p>"
       },
       {
@@ -4383,6 +4423,10 @@
       {
         "type": "html",
         "value": "<p>El <strong>Eurovelo 8</strong> es una ruta cicloturista de larga distancia que forma parte de la red de rutas Eurovelo, un proyecto diseñado por la Federación Europea de Ciclistas (ECF). <strong>Con una longitud de más de 7.500 km, esta ruta atraviesa 11 países desde Cádiz, en el sur de España, hasta Chipre, pasando por Francia, Italia, Eslovenia, Croacia, Montenegro, Albania, Grecia y más</strong>. La ruta Eurovelo 8 combina costas soleadas, paisajes montañosos y riqueza cultural, lo que la convierte en una de las rutas favoritas de los cicloturistas.</p>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>Más de 7.500 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Recorrido</span><strong>De Cádiz a Chipre por el Mediterráneo</strong></div><div><i class=\"bs-i\" data-i=\"bici\"></i><span>Países</span><strong>11</strong></div><div><i class=\"bs-i\" data-i=\"temporada\"></i><span>Época</span><strong>Primavera y otoño</strong></div></div>"
       },
       {
         "type": "html",
@@ -4533,6 +4577,10 @@
       {
         "type": "html",
         "value": "<p>Si estás buscando explorar Europa en bicicleta, la red de rutas <b>Eurovelo</b> es tu mejor opción. <strong>Esta impresionante infraestructura conecta todo el continente a través de miles de kilómetros de carriles bici</strong>, ideales para cicloturistas de todos los niveles. En este artículo encontrarás el <b>mapa completo de Eurovelo</b>, cómo descargar los tracks y una guía detallada de todas las rutas, desde la Ruta del Atlántico hasta la Ruta del Telón de Acero.<br></p>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Red planificada</span><strong>Casi 90.000 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Señalizados</span><strong>Cerca de 50.000 km</strong></div><div><i class=\"bs-i\" data-i=\"bici\"></i><span>Países</span><strong>Más de 40</strong></div></div>"
       },
       {
         "type": "html",
@@ -4812,6 +4860,10 @@
       {
         "type": "html",
         "value": "<p>¿Te ha pasado que aterrizas en un país nuevo y te encuentras incomunicado, sin datos, y sin saber dónde conseguir una SIM local? O peor aún, ¿has acabado pagando roaming sin darte cuenta y te llega luego una factura que duele más que el jet lag? A mí sí, y por eso hace tiempo que encontré una solución simple y eficaz: <b>Holafly</b>. En este artículo te voy a contar <b>cómo usar mi <a href=\"https://holafly.sjv.io/9L2k4j\" rel=\"noopener noreferrer\">código descuento Holafly para obtener un 5% de descuento</a> en tu eSIM internacional</b>, cómo funciona exactamente, en qué países puedes usarla y mi experiencia personal usándola en mis viajes.</p>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-caja bs-caja--precio\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"precio\"></i>5 % de descuento en Holafly</p><p>Uso Holafly para tener datos al llegar a cada país. Con este enlace tienes un 5 % de descuento.</p><p><a class='bs-boton' href='https://holafly.sjv.io/9L2k4j' target='_blank' rel='sponsored nofollow noopener noreferrer'>Comprar la eSIM con descuento</a></p></div>"
       },
       {
         "type": "html",
@@ -5143,6 +5195,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-producto\"><a class=\"bs-producto-foto\" href=\"https://www.amazon.es/dp/B07DVV2JNC?tag=bikesunrise02-21\" target=\"_blank\" rel=\"sponsored nofollow noopener noreferrer\"><img src=\"https://m.media-amazon.com/images/I/81cKKIH4iWL._AC_SL500_.jpg\" alt=\"Fixplus Strap (pack de 4)\" loading=\"lazy\"></a><div class=\"bs-producto-txt\"><p class=\"bs-producto-k\"><i class=\"bs-i\" data-i=\"ficha\"></i>El producto</p><p class=\"bs-producto-n\">Fixplus Strap (pack de 4)</p><ul><li>Correas de goma con hebilla de aluminio</li><li>Aguantan mucha tensión</li><li>Para bolsas, portabultos y cargo cages</li></ul><a class=\"bs-boton\" href=\"https://www.amazon.es/dp/B07DVV2JNC?tag=bikesunrise02-21\" target=\"_blank\" rel=\"sponsored nofollow noopener noreferrer\">Ver producto en Amazon</a><p class=\"bs-producto-nota\">Enlace de afiliado: si compras a través de él, recibo una pequeña comisión sin coste extra para ti.</p></div></div>"
+      },
+      {
+        "type": "html",
         "value": "<h2> ¿Qué son las correas Fixplus  y por qué son populares en el bikepacking?</h2>"
       },
       {
@@ -5421,6 +5477,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-producto\"><a class=\"bs-producto-foto\" href=\"https://www.amazon.es/dp/B075X5R67T?tag=bikesunrise02-21\" target=\"_blank\" rel=\"sponsored nofollow noopener noreferrer\"><img src=\"https://m.media-amazon.com/images/I/61DGPvYjZxL._AC_SL500_.jpg\" alt=\"Katadyn BeFree 0,6 L\" loading=\"lazy\"></a><div class=\"bs-producto-txt\"><p class=\"bs-producto-k\"><i class=\"bs-i\" data-i=\"ficha\"></i>El producto</p><p class=\"bs-producto-n\">Katadyn BeFree 0,6 L</p><ul><li>Unos 63 g</li><li>Hasta 2 litros por minuto</li><li>Botella blanda que se pliega</li></ul><a class=\"bs-boton\" href=\"https://www.amazon.es/dp/B075X5R67T?tag=bikesunrise02-21\" target=\"_blank\" rel=\"sponsored nofollow noopener noreferrer\">Ver producto en Amazon</a><p class=\"bs-producto-nota\">Enlace de afiliado: si compras a través de él, recibo una pequeña comisión sin coste extra para ti.</p></div></div>"
+      },
+      {
+        "type": "html",
         "value": "<p>Filtro de fibra hueca con excelente flujo de agua y diseño plegable. Perfecto para quienes buscan rapidez y portabilidad. <strong>Mi recomendado para viajar en bicicleta por el mundo (en especial el de 3L)</strong></p>"
       },
       {
@@ -5430,6 +5490,10 @@
       {
         "type": "html",
         "value": "<h3>MSR Trailshot</h3>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-producto\"><a class=\"bs-producto-foto\" href=\"https://www.amazon.es/dp/B01N7GC9Z6?tag=bikesunrise02-21\" target=\"_blank\" rel=\"sponsored nofollow noopener noreferrer\"><img src=\"https://m.media-amazon.com/images/I/61jUD3xMAIL._AC_SL500_.jpg\" alt=\"MSR TrailShot\" loading=\"lazy\"></a><div class=\"bs-producto-txt\"><p class=\"bs-producto-k\"><i class=\"bs-i\" data-i=\"ficha\"></i>El producto</p><p class=\"bs-producto-n\">MSR TrailShot</p><ul><li>Unos 142 g</li><li>Se usa con una mano</li><li>Para beber directamente de la fuente</li></ul><a class=\"bs-boton\" href=\"https://www.amazon.es/dp/B01N7GC9Z6?tag=bikesunrise02-21\" target=\"_blank\" rel=\"sponsored nofollow noopener noreferrer\">Ver producto en Amazon</a><p class=\"bs-producto-nota\">Enlace de afiliado: si compras a través de él, recibo una pequeña comisión sin coste extra para ti.</p></div></div>"
       },
       {
         "type": "html",
@@ -5461,7 +5525,7 @@
       },
       {
         "type": "html",
-        "value": "<div class=\"bs-procon\"><div class=\"bs-caja bs-caja--pros\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"pros\"></i>Lo mejor</p><ul><li>Sawyer Squeeze</li><li>Katadyn BeFree</li><li>MSR TrailShot</li><li>LifeStraw</li></ul></div><div class=\"bs-caja bs-caja--contras\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"contras\"></i>Lo peor</p><ul><li>Fibra hueca</li><li>Fibra hueca</li><li>Bomba mecánica</li><li>Succión directa</li></ul></div></div>"
+        "value": "<div class=\"bs-procon\"><div class=\"bs-caja bs-caja--pros\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"pros\"></i>Lo mejor</p><ul><li><strong>Sawyer Squeeze</strong>: Ligero, fácil de usar</li><li><strong>Katadyn BeFree</strong>: Compacto, sin bombas</li><li><strong>MSR TrailShot</strong>: Fácil de usar, portátil</li><li><strong>LifeStraw</strong>: Barato, sin piezas móviles</li></ul></div><div class=\"bs-caja bs-caja--contras\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"contras\"></i>Lo peor</p><ul><li><strong>Sawyer Squeeze</strong>: No filtra virus</li><li><strong>Katadyn BeFree</strong>: Durabilidad media</li><li><strong>MSR TrailShot</strong>: Requiere bombeo manual</li><li><strong>LifeStraw</strong>: Flujo de agua bajo</li></ul></div></div>"
       },
       {
         "type": "html",
@@ -5473,7 +5537,7 @@
       },
       {
         "type": "html",
-        "value": "<div class=\"bs-caja bs-caja--pros\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"pros\"></i>A favor</p><ul><li><strong>Peso y tamaño:</strong> Si buscas ligereza, elige opciones compactas como Sawyer Squeeze o Katadyn BeFree</li><li><strong>Velocidad de filtrado:</strong> Un flujo de agua rápido es clave en viajes largos</li><li><strong>Eficacia contra microorganismos:</strong> Asegúrate de que el filtro elimina bacterias y protozoos. Si viajas a zonas de alto riesgo, considera un purificador UV o químico</li><li><strong>Durabilidad y mantenimiento:</strong> Algunos modelos requieren más cuidado que otros</li></ul></div>"
+        "value": "<div class=\"bs-caja bs-caja--consejo\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"consejo\"></i>Consejos</p><ul><li><strong>Peso y tamaño:</strong> Si buscas ligereza, elige opciones compactas como Sawyer Squeeze o Katadyn BeFree</li><li><strong>Velocidad de filtrado:</strong> Un flujo de agua rápido es clave en viajes largos</li><li><strong>Eficacia contra microorganismos:</strong> Asegúrate de que el filtro elimina bacterias y protozoos. Si viajas a zonas de alto riesgo, considera un purificador UV o químico</li><li><strong>Durabilidad y mantenimiento:</strong> Algunos modelos requieren más cuidado que otros</li></ul></div>"
       },
       {
         "type": "html",
@@ -8906,7 +8970,7 @@
       },
       {
         "type": "html",
-        "value": "<div class=\"bs-procon\"><div class=\"bs-caja bs-caja--pros\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"pros\"></i>Lo mejor</p><ul><li>Rohloff</li><li>Pinion</li></ul></div><div class=\"bs-caja bs-caja--contras\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"contras\"></i>Lo peor</p><ul><li>\n          <ul>\n            <li>Diseño probado y fiable.</li>\n            <li>Compatible con una amplia variedad de cuadros.</li>\n            <li>Mantenimiento simple y económico.</li>\n          </ul>\n        </li><li>\n          <ul>\n            <li>Excelente distribución del peso.</li>\n            <li>Rango de marchas más amplio en algunos modelos.</li>\n            <li>Integración estética en el cuadro.</li>\n          </ul>\n        </li></ul></div></div>"
+        "value": "<div class=\"bs-procon\"><div class=\"bs-caja bs-caja--pros\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"pros\"></i>Lo mejor</p><ul><li><strong>Rohloff</strong>: \n          <ul>\n            <li>Diseño probado y fiable.</li>\n            <li>Compatible con una amplia variedad de cuadros.</li>\n            <li>Mantenimiento simple y económico.</li>\n          </ul>\n        </li><li><strong>Pinion</strong>: \n          <ul>\n            <li>Excelente distribución del peso.</li>\n            <li>Rango de marchas más amplio en algunos modelos.</li>\n            <li>Integración estética en el cuadro.</li>\n          </ul>\n        </li></ul></div><div class=\"bs-caja bs-caja--contras\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"contras\"></i>Lo peor</p><ul><li><strong>Rohloff</strong>: \n          <ul>\n            <li>Mayor peso trasero.</li>\n            <li>Precio elevado.</li>\n          </ul>\n        </li><li><strong>Pinion</strong>: \n          <ul>\n            <li>Requiere cuadros específicos.</li>\n            <li>Coste más elevado en bicicletas completas.</li>\n          </ul>\n        </li></ul></div></div>"
       },
       {
         "type": "html",
@@ -11050,7 +11114,11 @@
       },
       {
         "type": "html",
-        "value": "<div class=\"bs-procon\"><div class=\"bs-caja bs-caja--pros\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"pros\"></i>¿Para qué tipo de ciclistas está diseñado?</p><ul><li>Cicloturistas que buscan comodidad para <strong><a href=\"/viajar-en-bicicleta/\">viajar en bicicleta</a></strong></li><li>Aficionados al gravel y bikepacking</li><li>Ciclistas urbanos que quieren un sillín sin mantenimiento</li><li>Quienes buscan un sillín de calidad sin recurrir al cuero</li></ul></div><div class=\"bs-caja bs-caja--contras\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"contras\"></i>En contra</p><ul><li>No es ideal si buscas <b>un sillín ultraligero para competición</b></li><li>Puede no ser la mejor opción si prefieres <b>una superficie más mullida</b></li></ul></div></div>"
+        "value": "<div class=\"bs-caja bs-caja--consejo\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"consejo\"></i>¿Para qué tipo de ciclistas está diseñado?</p><ul><li>Cicloturistas que buscan comodidad para <strong><a href=\"/viajar-en-bicicleta/\">viajar en bicicleta</a></strong></li><li>Aficionados al gravel y bikepacking</li><li>Ciclistas urbanos que quieren un sillín sin mantenimiento</li><li>Quienes buscan un sillín de calidad sin recurrir al cuero</li></ul></div>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-caja bs-caja--contras\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"contras\"></i>En contra</p><ul><li>No es ideal si buscas <b>un sillín ultraligero para competición</b></li><li>Puede no ser la mejor opción si prefieres <b>una superficie más mullida</b></li></ul></div>"
       },
       {
         "type": "html",
@@ -11493,6 +11561,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>Unos 1.400 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Empieza en</span><strong>Burgos</strong></div><div><i class=\"bs-i\" data-i=\"temporada\"></i><span>Época</span><strong>Primavera y otoño</strong></div></div>"
+      },
+      {
+        "type": "html",
         "value": "<p>En este artículo, <strong>te presento una guía completa que incluye todas las etapas del camino del cid en bicicleta, mapas, consejos sobre el equipo y experiencias reales</strong>, para que puedas disfrutar al máximo de este increíble recorrido.</p>"
       },
       {
@@ -11632,6 +11704,10 @@
       {
         "type": "html",
         "value": "<p>Si estás buscando una experiencia de cicloturismo inolvidable, la <strong>Pirinexus</strong> es una de las mejores opciones en Europa. Este circuito de 360 km, que combina la belleza natural de Cataluña y el sur de Francia, se ha convertido en una ruta imprescindible para ciclistas. En este artículo te explicaremos <strong>todo sobre las etapas de la Pirinexus</strong>, cómo planificarla, qué equipamiento necesitas, y hasta un desafío especial que no te querrás perder: la <strong>Canyon Pirinexus Challenge</strong>.</p>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>360 km, circular</strong></div><div><i class=\"bs-i\" data-i=\"desnivel\"></i><span>Desnivel</span><strong>Unos 3.600 m</strong></div><div><i class=\"bs-i\" data-i=\"dias\"></i><span>Días</span><strong>De 3 a 8</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Países</span><strong>España y Francia</strong></div></div>"
       },
       {
         "type": "html",
@@ -12127,6 +12203,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>93,7 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Recorrido</span><strong>Olot – Girona – Sant Feliu de Guíxols</strong></div><div><i class=\"bs-i\" data-i=\"desnivel\"></i><span>Desnivel</span><strong>620 m de Olot a Girona, de bajada</strong></div><div><i class=\"bs-i\" data-i=\"temporada\"></i><span>Época</span><strong>Primavera, verano y otoño</strong></div></div>"
+      },
+      {
+        "type": "html",
         "value": "<p>En este artículo comparto <strong>todo lo que aprendí y viví pedaleando por una de las Vías Verdes más emblemáticas de España.</strong></p>"
       },
       {
@@ -12302,6 +12382,10 @@
       {
         "type": "html",
         "value": "<p><strong>La ruta Montañas Vacías</strong> es una de las aventuras más emblemáticas para los entusiastas del bikepacking y el cicloturismo en España. Situada en la región de Teruel, conocida como la “Laponia del sur”, <strong>esta ruta ofrece paisajes espectaculares, una baja densidad de población y una experiencia única de conexión con la naturaleza y la historia rural.</strong> Si estás pensando en recorrerla, aquí encontrarás toda la información práctica que necesitas: <strong>etapas, alojamiento, mapas y consejos para que tu aventura sea un éxito</strong>.</p>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>Unos 680 km, circular</strong></div><div><i class=\"bs-i\" data-i=\"desnivel\"></i><span>Desnivel</span><strong>Unos 13.000 m</strong></div><div><i class=\"bs-i\" data-i=\"dias\"></i><span>Días</span><strong>De 4 a 10</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Empieza en</span><strong>Teruel</strong></div></div>"
       },
       {
         "type": "html",
@@ -13559,6 +13643,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>Unos 1.000 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Recorrido</span><strong>De Sevilla a Santiago</strong></div></div>"
+      },
+      {
+        "type": "html",
         "value": "<h2>¿Qué es la Vía de la Plata y por qué recorrerla en bicicleta?</h2>"
       },
       {
@@ -14183,6 +14271,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>Unos 221 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Recorrido</span><strong>De Ojos Negros a Sagunto</strong></div><div><i class=\"bs-i\" data-i=\"dias\"></i><span>Etapas</span><strong>2 o 3</strong></div><div><i class=\"bs-i\" data-i=\"temporada\"></i><span>Época</span><strong>Primavera y otoño</strong></div></div>"
+      },
+      {
+        "type": "html",
         "value": "<p>Si estás buscando una aventura sobre ruedas que<strong> combine naturaleza, historia y comodidad, sigue leyendo, porque aquí te voy a contar absolutamente todo</strong>.</p>"
       },
       {
@@ -14774,6 +14866,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-caja bs-caja--seguro\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"seguro\"></i>5 % de descuento en Heymondo</p><p>Con el enlace de esta página el descuento se aplica solo al contratar.</p><p><a class='bs-boton' href='https://heymondo.es/?utm_medium=Afiliado&amp;utm_source=BIKESUNRISE&amp;utm_campaign=PRINCIPAL&amp;cod_descuento=BIKESUNRISE&amp;ag_campaign=ENTRADA&amp;agencia=DaQLiW0Gio45zRnHLtIoM8FDexWJ4UOm5u5Gjis1&amp;redirect=TEMPORAL' target='_blank' rel='sponsored nofollow noopener noreferrer'>Contratar Heymondo con descuento</a></p></div>"
+      },
+      {
+        "type": "html",
         "value": "<h2> ¿Qué es Heymondo  y por qué tantos viajeros lo eligen?</h2>"
       },
       {
@@ -14932,6 +15028,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-caja bs-caja--seguro\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"seguro\"></i>Descuento en Intermundial</p><p>Entra desde el enlace de esta página para que se aplique el descuento al contratar.</p><p><a class='bs-boton' href='https://www.intermundial.es/afiliados/seguros-de-viaje-recomendado?utm_source=Affiliates&amp;utm_medium=Affiliates&amp;utm_campaign=General&amp;utm_term=67fb71c495576&amp;utm_content=67fb71c495576' target='_blank' rel='sponsored nofollow noopener noreferrer'>Ver Intermundial con descuento</a></p></div>"
+      },
+      {
+        "type": "html",
         "value": "<h2> ¿Qué es Intermundial  y por qué elegirlo para tu seguro de viaje?</h2>"
       },
       {
@@ -15083,6 +15183,10 @@
       {
         "type": "html",
         "value": "<p>Planificar un viaje es emocionante, pero también puede ser un quebradero de cabeza cuando empiezan a aparecer los gastos: vuelos, alojamiento, equipo… y sí, <strong>el seguro de viaje</strong>. Por eso, si estás buscando un <strong>descuento IATI seguros</strong> para protegerte sin gastar de más, te entiendo perfectamente. Yo también he estado ahí, y <strong>te cuento cómo conseguirlo fácil, rápido y con todas las garantías</strong>.</p>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-caja bs-caja--seguro\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"seguro\"></i>5 % de descuento en IATI</p><p>Es el seguro que uso en mis viajes en bici. Con el enlace de esta página tienes un 5 % de descuento al contratar.</p><p><a class='bs-boton' href='https://www.iatiseguros.com?r=66910236140598&amp;cmp=bikesunrise' target='_blank' rel='sponsored nofollow noopener noreferrer'>Contratar IATI con descuento</a></p></div>"
       },
       {
         "type": "html",
@@ -15446,6 +15550,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-caja bs-caja--resumen\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"resumen\"></i>Mi recomendación</p><p>Para un viaje activo o en bici por Europa, Heymondo e IATI son apuestas seguras. Comprueba que el seguro cubre el ciclismo y, si viajas varias veces al año, mira un seguro anual.</p></div>"
+      },
+      {
+        "type": "html",
         "value": "<h2> ¿Es obligatorio un seguro de viaje para Europa?\n</h2>"
       },
       {
@@ -15574,7 +15682,7 @@
       },
       {
         "type": "html",
-        "value": "<div class=\"bs-caja bs-caja--pros\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"pros\"></i>A favor</p><ul><li>Revisa que tenga al menos 300.000 € en cobertura médica</li><li>Asegúrate de que incluya deportes o aventura si lo necesitas</li><li>Comprueba si tiene atención en español y 24/7</li><li>Revisa si incluye o puedes añadir cancelación de viaje</li><li>Compara precios por días, no solo la cifra total</li></ul></div>"
+        "value": "<div class=\"bs-caja bs-caja--consejo\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"consejo\"></i>Consejos</p><ul><li>Revisa que tenga al menos 300.000 € en cobertura médica</li><li>Asegúrate de que incluya deportes o aventura si lo necesitas</li><li>Comprueba si tiene atención en español y 24/7</li><li>Revisa si incluye o puedes añadir cancelación de viaje</li><li>Compara precios por días, no solo la cifra total</li></ul></div>"
       },
       {
         "type": "html",
@@ -15605,6 +15713,10 @@
       {
         "type": "html",
         "value": "<p>Viajar a Japón es el sueño de muchos, pero enfrentarse al sistema médico nipón sin protección puede convertirse en una auténtica pesadilla.<strong> Los costes sanitarios son elevados, el idioma es una barrera y una simple visita al hospital puede superar los 300 €</strong>. Por eso, si estás organizando tu aventura nipona, necesitas saber cuál es el <strong>mejor seguro de viaje para Japón</strong> para viajar con total tranquilidad.</p>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-caja bs-caja--resumen\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"resumen\"></i>Mi recomendación</p><p>Heymondo Tranquilidad si quieres un seguro completo con app médica; IATI Mochilero si haces actividades al aire libre. Yo uso siempre IATI.</p></div>"
       },
       {
         "type": "html",
@@ -15768,7 +15880,7 @@
       },
       {
         "type": "html",
-        "value": "<div class=\"bs-caja bs-caja--experiencia\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"experiencia\"></i>Mi conclusión</p><p>Japón es un país fascinante, pero también puede ser desafiante si algo no va como esperas. No dejes que un imprevisto arruine tu aventura. Tras comparar y analizar a fondo, mi recomendación es:</p></div>"
+        "value": "<div class=\"bs-caja bs-caja--experiencia\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"experiencia\"></i>Mi conclusión</p><p>Japón es un país fascinante, pero también puede ser desafiante si algo no va como esperas. No dejes que un imprevisto arruine tu aventura. Tras comparar y analizar a fondo, mi recomendación es:</p><ul><li><p><strong>Heymondo Tranquilidad</strong> si quieres un seguro completo y con app médica.</p></li><li><p><strong>IATI Mochilero</strong> si buscas aventura y actividades al aire libre.</p></li><li><p><strong>Intermundial Totaltravel</strong> si valoras coberturas amplias y sin límites sorpresas.</p></li></ul><p><strong>Y recuerda: usa los enlaces con descuento para ahorrar dinero sin perder protección.</strong></p></div>"
       },
       {
         "type": "html",
@@ -15777,14 +15889,6 @@
       {
         "type": "html",
         "value": "<div class=\"bs-faq\"><details><summary>¿Es obligatorio tener seguro para entrar a Japón?</summary><div><p>No, pero es altamente recomendable. La sanidad japonesa es cara y no acepta turistas sin seguro.</p></div></details><details><summary>¿Qué pasa si necesito hospitalización en Japón?</summary><div><p>Con un buen seguro, no tendrás que adelantar dinero. Contactas con la aseguradora y ellos gestionan todo.</p></div></details><details><summary>¿Qué pasa si pierdo el equipaje?</summary><div><p>Todos los seguros de este artículo cubren pérdidas, robos o daños en el equipaje facturado.</p></div></details><details><summary>¿Puedo contratar el seguro estando ya en Japón?</summary><div><p>Algunas compañías lo permiten, pero la mayoría exigen contratarlo antes de salir de tu país.</p></div></details></div>"
-      },
-      {
-        "type": "html",
-        "value": "<ul><li><p><strong>Heymondo Tranquilidad</strong> si quieres un seguro completo y con app médica.</p></li><li><p><strong>IATI Mochilero</strong> si buscas aventura y actividades al aire libre.</p></li><li><p><strong>Intermundial Totaltravel</strong> si valoras coberturas amplias y sin límites sorpresas.</p></li></ul>"
-      },
-      {
-        "type": "html",
-        "value": "<p><strong>Y recuerda: usa los enlaces con descuento para ahorrar dinero sin perder protección.</strong></p>"
       }
     ]
   },
@@ -15803,6 +15907,10 @@
       {
         "type": "html",
         "value": "<p>Viajar a la India puede ser una de las experiencias más enriquecedoras de tu vida, pero también una de las más impredecibles. Un simple problema estomacal me llevó a una clínica privada y la factura me dejó claro que jamás volvería a pisar India sin estar cubierto. En este artículo te voy a contar cuál es el <strong>mejor seguro de viaje para la India</strong>, comparando las opciones más fiables y recomendadas, con consejos basados en mi experiencia <a href=\"/viajes/viajar-en-bicicleta-por-la-india/\"><strong>viajando en bicicleta por la India</strong></a>.</p>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-caja bs-caja--resumen\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"resumen\"></i>Mi recomendación</p><p>Crucé la India en bicicleta y no iría sin seguro. IATI y Heymondo son las dos opciones que recomiendo.</p></div>"
       },
       {
         "type": "html",
@@ -16190,6 +16298,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-caja bs-caja--resumen\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"resumen\"></i>Mi recomendación</p><p>IATI Mochilero o Heymondo Viaje Tranquilidad: los dos equilibran bien el precio y la cobertura.</p></div>"
+      },
+      {
+        "type": "html",
         "value": "<h2> ¿Por qué es importante   contratar un seguro de viaje para Tailandia?</h2>"
       },
       {
@@ -16405,6 +16517,10 @@
       {
         "type": "html",
         "value": "<p>Si viajas varias veces al año, contratar un seguro para cada escapada puede salir caro y resultar poco práctico. Por eso, cada vez más viajeros optan por uno de los <strong>mejores seguros de viaje anuales</strong>, una solución pensada para quienes no paran quietos. En este artículo te presento las mejores opciones disponibles en 2025 de la mano de tres aseguradoras fiables y con experiencia: <strong>IATI, Heymondo e Intermundial</strong>. Te cuento cuál se adapta mejor a tu estilo de viaje, qué coberturas ofrece cada una y cómo ahorrar a largo plazo.</p>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-caja bs-caja--resumen\"><p class=\"bs-caja-t\"><i class=\"bs-i\" data-i=\"resumen\"></i>Mi recomendación</p><p>IATI si quieres una póliza fiable y económica para viajes activos; Heymondo si prefieres gestionarlo todo desde el móvil.</p></div>"
       },
       {
         "type": "html",
