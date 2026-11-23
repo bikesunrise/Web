@@ -1,9 +1,11 @@
 'use client';
-// Mapa interactivo para artículos de ruta (Leaflet + OpenTopoMap): varios tramos con su color y leyenda,
+// Mapa interactivo para artículos de ruta (Leaflet con fondo Positron de OpenFreeMap, ver lib/mapaBase.ts): varios tramos con su color y leyenda,
 // puntos con su kilómetro y, si hay datos, el perfil de altitud enlazado al mapa.
 // Se inserta en el contenido con <div class="bs-mapa-ruta" data-mapa="…"></div> (lib/mapas.ts).
 import { useEffect, useRef, useState } from 'react';
 import 'leaflet/dist/leaflet.css';
+import 'maplibre-gl/dist/maplibre-gl.css';
+import { fondoMapa } from '@/lib/mapaBase';
 import { Perfil, type Punto, type Poi } from '@/components/GuiaRuta';
 
 export type DatosMapa = {
@@ -23,11 +25,9 @@ export default function MapaRuta({ datos }: { datos: DatosMapa }) {
     (async () => {
       const L = (await import('leaflet')).default;
       if (!ref.current || (ref.current as any)._leaflet_id) return;
-      mapa = L.map(ref.current, { scrollWheelZoom: false });
-      L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-        maxZoom: 16,
-        attribution: 'Mapa: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, SRTM | Estilo: © <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)',
-      }).addTo(mapa);
+      mapa = L.map(ref.current, { scrollWheelZoom: false, zoomSnap: 0.25 });
+      await fondoMapa(L, mapa);
+      for (const s of datos.segmentos) L.polyline(s.puntos, { color: '#fff', weight: 9, opacity: 0.9 }).addTo(mapa);
       const capas = datos.segmentos.map((s) => L.polyline(s.puntos, { color: s.color, weight: 5, opacity: 0.95, dashArray: s.discontinuo ? '8 8' : undefined }).bindTooltip(s.nombre).addTo(mapa));
       mapa.fitBounds(L.featureGroup(capas).getBounds(), { padding: [20, 20] });
       for (const p of datos.pois) {

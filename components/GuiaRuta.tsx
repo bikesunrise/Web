@@ -3,10 +3,12 @@
 // portada a sangre con el título · franja de datos con iconos y tarjeta de dificultad · entradilla
 // destacada y texto en columna · mosaico de fotos · caja de dificultad · galería oscura · «Mapa y GPS»
 // con perfil y descarga del GPX · pestañas · aviso de uso · más rutas · preguntas frecuentes.
-// Datos en data/guias/<ruta>.json; mapa con Leaflet + OpenTopoMap.
+// Datos en data/guias/<ruta>.json; mapa con Leaflet y fondo Positron de OpenFreeMap (lib/mapaBase.ts).
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import 'leaflet/dist/leaflet.css';
+import 'maplibre-gl/dist/maplibre-gl.css';
+import { fondoMapa } from '@/lib/mapaBase';
 import { ICONOS, conIconos } from '@/lib/iconos';
 
 export type Punto = [number, number, number, number]; // lat, lon, km, altitud
@@ -147,13 +149,28 @@ export default function GuiaRuta({ guia, titulo, portada, faqHtml, conclusionHtm
     (async () => {
       const L = (await import('leaflet')).default;
       if (!mapaRef.current || (mapaRef.current as any)._leaflet_id) return;
-      mapa = L.map(mapaRef.current, { scrollWheelZoom: false });
-      L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-        maxZoom: 16,
-        attribution: 'Mapa: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, SRTM | Estilo: © <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)',
-      }).addTo(mapa);
-      const linea = L.polyline(track.map((p) => [p[0], p[1]]), { color: '#b55332', weight: 5, opacity: 0.95 }).addTo(mapa);
+      mapa = L.map(mapaRef.current, { scrollWheelZoom: false, zoomSnap: 0.25 });
+      await fondoMapa(L, mapa);
+      const traza = track.map((p) => [p[0], p[1]] as [number, number]);
+      L.polyline(traza, { color: '#fff', weight: 9, opacity: 0.95 }).addTo(mapa);
+      const linea = L.polyline(traza, { color: '#b55332', weight: 5, opacity: 1 }).addTo(mapa);
       mapa.fitBounds(linea.getBounds(), { padding: [24, 24] });
+      // Marcas de kilómetro, como en las apps de rutas: cada 10 km, o cada 20/50 km si con el zoom
+      // actual quedarían montadas unas sobre otras.
+      const marcas = new Map<number, any>();
+      for (let k = 10; k < track[track.length - 1][2]; k += 10) {
+        const p = track.reduce((a, b) => (Math.abs(b[2] - k) < Math.abs(a[2] - k) ? b : a));
+        marcas.set(k, L.marker([p[0], p[1]], { icon: L.divIcon({ className: 'gr-km', html: String(k), iconSize: [24, 24] }), keyboard: false, interactive: false }));
+      }
+      const repartir = () => {
+        const pasos = [10, 20, 50].filter((paso) => {
+          const pts = [...marcas].filter(([k]) => k % paso === 0).map(([, m]) => mapa.latLngToContainerPoint(m.getLatLng()));
+          return pts.every((pt, i) => i === 0 || pt.distanceTo(pts[i - 1]) >= 34);
+        });
+        for (const [k, m] of marcas) { if (pasos.length && k % pasos[0] === 0) m.addTo(mapa); else m.remove(); }
+      };
+      repartir();
+      mapa.on('zoomend', repartir);
       L.circleMarker([track[0][0], track[0][1]], { radius: 8, color: '#fff', weight: 3, fillColor: '#1f3328', fillOpacity: 1 }).bindTooltip('Salida').addTo(mapa);
       L.circleMarker([track[track.length - 1][0], track[track.length - 1][1]], { radius: 8, color: '#fff', weight: 3, fillColor: '#b55332', fillOpacity: 1 }).bindTooltip('Llegada').addTo(mapa);
       for (const t of Object.keys(TIPO)) {

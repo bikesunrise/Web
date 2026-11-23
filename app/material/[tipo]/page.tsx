@@ -7,7 +7,7 @@ import { notFound } from 'next/navigation';
 import { Backpack, Camera, Tent, Bike } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import gear from '@/data/gear.json';
+import { catalogo as gear } from '@/lib/material';
 import tipos from '@/data/material-tipos.json';
 import { byPath } from '@/lib/content';
 import FiltroMaterial from '@/components/FiltroMaterial';

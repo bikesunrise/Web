@@ -465,3 +465,8 @@ h2,.atlas-heading h2,.section-opening h2,.mission h2,.story-copy h2,.gear-item h
 .bs-mapa-ruta-fig .gr-perfil-datos,.bs-mapa-ruta-fig .gr-perfil-datos span{color:#33473b!important;font:500 14px Montserrat,sans-serif}
 .bs-mapa-ruta-fig .gr-perfil-datos b{color:#294334!important}
 .leaflet-container .leaflet-tile{mix-blend-mode:normal!important}
+
+/* Marcas de kilómetro sobre la ruta (guías) */
+.gr-km{display:flex;align-items:center;justify-content:center;border-radius:50%;background:#fff;border:2px solid #b55332;color:#1f3328;font:700 10px/1 var(--font-sans,system-ui,sans-serif);box-shadow:0 1px 3px rgba(0,0,0,.25)}
+/* El fondo vectorial va en un canvas: que las reglas de imágenes de los artículos no lo toquen */
+.leaflet-container .leaflet-gl-layer,.leaflet-container canvas{max-width:none!important;filter:none!important}
