@@ -12655,15 +12655,11 @@
       },
       {
         "type": "html",
-        "value": "<p>Las tres ramas, con los puntos principales y su kilómetro desde el Monumento al Oso. Toca un punto de la lista para verlo en el mapa.</p>"
+        "value": "<p>Las tres ramas, con los puntos principales y su kilómetro desde el Monumento al Oso. Toca un punto o un tramo del mapa para ver su nombre. y su kilómetro desde el Monumento al Oso. Toca un punto de la lista para verlo en el mapa.</p>"
       },
       {
         "type": "html",
-        "value": "<ul><li><li><li><li><li><li><li><li><li><li><li><li></ul>"
-      },
-      {
-        "type": "html",
-        "value": "<ul><li><i></i>Tronco común: Tuñón – Caranga</li><li><i></i>Ramal de Teverga: Caranga – Entrago</li><li><i></i>Ramal de Quirós: Caranga – Santa Marina</li><li><i></i>Enlace Trubia – Tuñón (no es vía verde)</li></ul>"
+        "value": "<div class=\"bs-mapa-ruta\" data-mapa=\"senda-del-oso\"></div>"
       },
       {
         "type": "html",
@@ -13205,10 +13201,6 @@
       },
       {
         "type": "html",
-        "value": "<ul><li><i></i>Vertiente sur (S1–S6)</li><li><i></i>Ruta de los Cols (N0–N5)</li><li><i></i>Puertos</li><li><i></i>Pueblos citados</li><li><i></i>Mares</li></ul>"
-      },
-      {
-        "type": "html",
         "value": "<p>S1–S6 y N1–N5 marcan el final de cada etapa; N0 es Portbou, la salida de la vertiente norte. Mapa base: OpenStreetMap, CyclOSM y OpenTopoMap. Las coordenadas salen de Wikidata. Esta guía no incluye un GPX propio: no hay track oficial y no se quiere pasar por válido un trazado inventado. En «<a href=\"#tp-gpx\">Dónde conseguir el track</a>» están las fuentes.</p>"
       },
       {
@@ -13306,10 +13298,6 @@
       {
         "type": "html",
         "value": "<ul><li>Col du Tourmalet<i></i>2.115 m</li><li>Col de Puymorens<i></i>1.915 m</li><li>Font-Romeu (col del Calvario)<i></i>1.836 m</li><li>Col d’Aubisque<i></i>1.709 m</li><li>Col de Peyresourde<i></i>1.569 m</li><li>Col d’Aspin<i></i>1.489 m</li><li>Col du Soulor<i></i>1.471 m</li><li>Col de Port<i></i>1.249 m</li><li>Col des Ares<i></i>799 m</li><li>Col d’en Xatard<i></i>751 m</li><li>Col d’Osquich<i></i>495 m</li></ul>"
-      },
-      {
-        "type": "html",
-        "value": "<ul><li><i></i>Más de 2.000 m</li><li><i></i>1.500 a 2.000 m</li><li><i></i>Menos de 1.500 m</li></ul>"
       },
       {
         "type": "html",
@@ -13877,15 +13865,7 @@
       },
       {
         "type": "html",
-        "value": "<ul><li><i></i>Tramo abierto</li><li><i></i>Tramo cerrado</li><li><i></i>Túnel</li><li><i></i>Viaducto</li></ul>"
-      },
-      {
-        "type": "html",
-        "value": "<h3>Perfil de altitud de la Vía Verde de la Sierra</h3>"
-      },
-      {
-        "type": "html",
-        "value": "<p>Desliza el perfil hacia los lados para verlo entero.</p>"
+        "value": "<div class=\"bs-mapa-ruta\" data-mapa=\"via-verde-de-la-sierra\"></div>"
       },
       {
         "type": "html",

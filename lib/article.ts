@@ -4,6 +4,7 @@ export function heading(b:Block,n:number){return b.type===`h${n}`||(b.type==='ht
 export function hasContent(b:Block){
  const value=Array.isArray(b.value)?b.value.join(' '):b.value;
  if(b.type==='destinations')return true;
+ if(/class="bs-mapa-ruta"/.test(value))return true;
  if(b.type==='figure')return /^\/images\/\S+/.test(value);
  if(/lorem ipsum/i.test(value))return false;
  return !!plain(value).replace(/&#160;|&#8203;|&ZeroWidthSpace;/g,'').trim()||/<(?:img|iframe|video)\b[^>]+(?:src)=/i.test(value);

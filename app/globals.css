@@ -446,3 +446,22 @@ h2,.atlas-heading h2,.section-opening h2,.mission h2,.story-copy h2,.gear-item h
 .gr-perfil-datos{display:flex;flex-wrap:wrap;gap:8px 26px;padding:4px 8px 0 64px;font:500 14px Montserrat,sans-serif;color:#33473b}
 .gr-perfil-datos b{font:800 18px var(--display);color:var(--gr-verde);margin-right:4px}
 @media(max-width:640px){.gr-st-v .gr-ico{width:44px;height:44px;padding:9px}.gr-st-v strong{font-size:21px}.gr-perfil-datos{padding-left:4px;gap:6px 16px;font-size:13px}.gr-p-pueblo text{font-size:15px}.gr-perfil text{font-size:15px}}
+.bs-mapa-ruta-fig{margin:30px 0}
+.bs-mapa-ruta-map{height:520px;border:1px solid #d3ccba;z-index:0}
+.bs-mapa-ruta-fig figcaption{margin-top:10px}
+.bs-mapa-ruta-fig ul{list-style:none;margin:0 0 6px;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px}
+.bs-mapa-ruta-fig li{display:flex;align-items:center;gap:8px;font:600 13.5px Montserrat,sans-serif;color:#1f3328}
+.bs-mapa-ruta-fig li i{width:22px;height:5px;border-radius:3px;display:inline-block}
+.bs-mapa-ruta-fig p{margin:0;font:13px/1.5 Montserrat,sans-serif;color:#3d4a40}
+@media(max-width:640px){.bs-mapa-ruta-map{height:400px}}
+.bs-mapa-ruta-fig li b{width:10px;height:10px;border-radius:50%;display:inline-block}
+.bs-mapa-ruta-fig.guia-ruta{display:block;gap:0}
+.bs-mapa-ruta-fig .gr-perfil-fig{border:1px solid #d3ccba;border-top:0}
+.bs-mapa-ruta-fig{background:#fbf8f1;padding:12px 12px 14px;border:1px solid #d3ccba;color:#1f3328}
+.bs-mapa-ruta-fig .gr-perfil-fig{border:0;padding:8px 0 4px;background:none}
+.bs-mapa-ruta-fig figcaption p,.bs-mapa-ruta-fig li{color:#1f3328}
+/* Leaflet dentro de artículos: que los estilos de las fotos no toquen las teselas del mapa */
+.leaflet-container img{max-width:none!important;max-height:none!important;filter:none!important;box-shadow:none!important;border-radius:0!important;margin:0!important}
+.bs-mapa-ruta-fig .gr-perfil-datos,.bs-mapa-ruta-fig .gr-perfil-datos span{color:#33473b!important;font:500 14px Montserrat,sans-serif}
+.bs-mapa-ruta-fig .gr-perfil-datos b{color:#294334!important}
+.leaflet-container .leaflet-tile{mix-blend-mode:normal!important}

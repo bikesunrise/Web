@@ -3,12 +3,15 @@ import Link from 'next/link';
 import {BookOpen, ListChecks, ArrowUpRight} from 'lucide-react';
 import {plain,heading,chaptersFor,hasContent} from '@/lib/article';
 import {conIconos} from '@/lib/iconos';
+import MapaRuta from '@/components/MapaRuta';
+import {MAPAS} from '@/lib/mapas';
 export default function ArticleBody({blocks,title,guide=false,cover}:{blocks:Block[];title:string;guide?:boolean;cover?:string}){
  const chapters=chaptersFor(blocks,guide);
  const destinations=entries.filter(e=>e.kind==='journey').slice(0,6);
- function render(b:Block,key:number){const v=b.value;if(!hasContent(b))return null;
+ function render(b:Block,key:number){const v=b.value;const mr0=typeof v==='string'&&v.match(/class="bs-mapa-ruta" data-mapa="([a-z-]+)"/);if(mr0&&MAPAS[mr0[1]])return <MapaRuta datos={MAPAS[mr0[1]]} key={key}/>;if(!hasContent(b))return null;
   if(b.type==='destinations')return <div className="guide-destinations" key={key}>{destinations.map(e=><Link href={e.path+'/'} key={e.path}><img src={imageFor(e)} alt="" loading="lazy"/><span>{e.title.replace('Viajar en bicicleta por ','')}<b aria-hidden="true">↗</b></span></Link>)}</div>;
   if(b.type==='html'&&typeof v==='string'){
+   const mr=v.match(/class="bs-mapa-ruta" data-mapa="([a-z-]+)"/);if(mr&&MAPAS[mr[1]])return <MapaRuta datos={MAPAS[mr[1]]} key={key}/>;
    if(/^\s*<(ul|ol)[ >]/.test(v))return <div className="editorial-interest" key={key}><span className="interest-label"><ListChecks size={17} aria-hidden="true"/> En detalle</span><div dangerouslySetInnerHTML={{__html:v}}/></div>;
    return <div className={'rich-block '+(/<table[ >]/.test(v)?'table-scroll':'')+(/class="bs-/.test(v)?' bs-bloque':'')} key={key} dangerouslySetInnerHTML={{__html:conIconos(v)}}/>;
   }

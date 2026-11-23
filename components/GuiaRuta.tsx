@@ -9,8 +9,8 @@ import Link from 'next/link';
 import 'leaflet/dist/leaflet.css';
 import { ICONOS, conIconos } from '@/lib/iconos';
 
-type Punto = [number, number, number, number]; // lat, lon, km, altitud
-type Poi = { tipo: string; nombre: string; km: number; lat: number; lon: number };
+export type Punto = [number, number, number, number]; // lat, lon, km, altitud
+export type Poi = { tipo: string; nombre: string; km: number; lat: number; lon: number };
 type Foto = { src: string; alt: string; credito: string; enlace?: string };
 export type Guia = {
   track: Punto[];
@@ -43,7 +43,7 @@ const Icono = ({ n }: { n: string }) => <span className="gr-ico" dangerouslySetI
 const Cinta = ({ children }: { children: string }) => <div className="gr-cinta"><span>{children}</span></div>;
 const Html = ({ html, className }: { html: string; className?: string }) => <div className={className} dangerouslySetInnerHTML={{ __html: conIconos(html) }} />;
 
-function Perfil({ track, pueblos, onKm, km }: { track: Punto[]; pueblos: Poi[]; onKm: (km: number | null) => void; km: number | null }) {
+export function Perfil({ track, pueblos, onKm, km }: { track: Punto[]; pueblos: Poi[]; onKm: (km: number | null) => void; km: number | null }) {
   const W = 1100, H = 320, IZ = 64, DE = 60, AR = 86, AB = 46; // márgenes: izquierda, derecha, arriba (pueblos), abajo (km)
   const alts = track.map((p) => p[3]);
   const max = Math.max(...alts), min = Math.min(...alts);
