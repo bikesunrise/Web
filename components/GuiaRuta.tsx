@@ -53,6 +53,58 @@ const Icono = ({ n }: { n: string }) => <span className="gr-ico" dangerouslySetI
 const Cinta = ({ children }: { children: string }) => <div className="gr-cinta"><span>{children}</span></div>;
 const Html = ({ html, className }: { html: string; className?: string }) => <div className={className} dangerouslySetInnerHTML={{ __html: conIconos(html) }} />;
 
+// Barra de pestañas en una sola fila, sin desplazamiento lateral: columnas iguales (el título puede ir
+// en dos líneas) y, si no caben todas, la última columna es «Más», un menú con el resto.
+function Pestanas({ lista, activa, onElegir }: { lista: { id: string; titulo: string }[]; activa?: string; onElegir: (id: string) => void }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [cabe, setCabe] = useState(8);
+  const [abierto, setAbierto] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const medir = () => setCabe(Math.max(3, Math.floor(el.clientWidth / (el.clientWidth < 640 ? 84 : 102))));
+    medir();
+    const ro = new ResizeObserver(medir);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  useEffect(() => {
+    if (!abierto) return;
+    const cerrar = (e: MouseEvent | KeyboardEvent) => {
+      if (e instanceof KeyboardEvent ? e.key === 'Escape' : !ref.current?.contains(e.target as Node)) setAbierto(false);
+    };
+    document.addEventListener('mousedown', cerrar);
+    document.addEventListener('keydown', cerrar);
+    return () => { document.removeEventListener('mousedown', cerrar); document.removeEventListener('keydown', cerrar); };
+  }, [abierto]);
+  const todas = lista.length <= cabe;
+  const vistas = todas ? lista : lista.slice(0, cabe - 1);
+  const resto = todas ? [] : lista.slice(cabe - 1);
+  const enResto = resto.find((p) => p.id === activa);
+  const columnas = vistas.length + (resto.length ? 1 : 0);
+  return (
+    <div ref={ref} className="gr-tabs" role="tablist" style={{ gridTemplateColumns: `repeat(${columnas}, minmax(0, 1fr))` }}>
+      {vistas.map((p) => (
+        <button key={p.id} type="button" role="tab" id={`tab-${p.id}`} aria-selected={activa === p.id} aria-controls={`panel-${p.id}`} onClick={() => onElegir(p.id)}>{p.titulo}</button>
+      ))}
+      {resto.length > 0 && (
+        <div className="gr-tabs-mas">
+          <button type="button" aria-haspopup="true" aria-expanded={abierto} aria-selected={!!enResto} className={enResto ? 'activa' : undefined} onClick={() => setAbierto((v) => !v)}>
+            {enResto ? enResto.titulo : `Más (${resto.length})`}<svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" strokeWidth="1.6" /></svg>
+          </button>
+          {abierto && (
+            <ul className="gr-tabs-menu">
+              {resto.map((p) => (
+                <li key={p.id}><button type="button" role="tab" id={`tab-${p.id}`} aria-selected={activa === p.id} aria-controls={`panel-${p.id}`} onClick={() => { onElegir(p.id); setAbierto(false); }}>{p.titulo}</button></li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function Perfil({ track, pueblos, onKm, km }: { track: Punto[]; pueblos: Poi[]; onKm: (km: number | null) => void; km: number | null }) {
   const W = 1100, H = 320, IZ = 64, DE = 60, AR = 86, AB = 46; // márgenes: izquierda, derecha, arriba (pueblos), abajo (km)
   const alts = track.map((p) => p[3]);
@@ -301,11 +353,7 @@ export default function GuiaRuta({ guia, titulo, portada, faqHtml, conclusionHtm
       </section>
 
       <section className="gr-pestanas" aria-label="Información práctica">
-        <div className="gr-tabs" role="tablist">
-          {[...ficha.pestanas, { id: 'lugares', titulo: 'Lugares', icono: 'mapa', html: '' }].map((p) => (
-            <button key={p.id} role="tab" id={`tab-${p.id}`} aria-selected={tab === p.id} aria-controls={`panel-${p.id}`} onClick={() => setTab(p.id)}><Icono n={p.icono} />{p.titulo}</button>
-          ))}
-        </div>
+        <Pestanas lista={[...ficha.pestanas, { id: 'lugares', titulo: 'Lugares' }]} activa={tab} onElegir={setTab} />
         <div className="gr-paneles">
           {ficha.pestanas.map((p) => <div key={p.id} role="tabpanel" id={`panel-${p.id}`} aria-labelledby={`tab-${p.id}`} hidden={tab !== p.id} className={'gr-panel rich-block ' + (p.id === 'lo-mejor' ? 'gr-panel--dos' : '')} dangerouslySetInnerHTML={{ __html: conIconos(p.html) }} />)}
           <div role="tabpanel" id="panel-lugares" aria-labelledby="tab-lugares" hidden={tab !== 'lugares'} className="gr-panel">
