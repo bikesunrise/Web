@@ -483,36 +483,44 @@ h2,.atlas-heading h2,.section-opening h2,.mission h2,.story-copy h2,.gear-item h
 .gr-st-v strong{min-width:0;overflow-wrap:break-word;hyphens:auto}
 .gr-st-v strong.largo{font-size:20px;line-height:1.1}
 
-/* Pestañas de la guía: una fila de columnas iguales, como el índice de una carpeta. La activa se une
-   al panel (mismo papel) y lleva un filete de óxido arriba. Sin píldoras, iconos ni sombras. */
+/* Pestañas de la guía como un tramo de ruta en el mapa: una línea discontinua (sendero) bajo la fila,
+   los nombres con la letra de los títulos y, en la activa, un tramo de óxido continuo con un punto de paso,
+   igual que la traza del mapa. Sin cajas, píldoras, iconos ni sombras. Todo en una fila; si no cabe, «Más». */
 .gr-pestanas{padding:64px 0 56px}
-.gr-tabs{display:grid;gap:0;max-width:992px;width:calc(100% - 48px);margin:0 auto;padding:0;overflow:visible;background:transparent;border-top:2px solid var(--gr-tinta);justify-content:stretch}
-.gr-tabs > button,.gr-tabs-mas > button{position:relative;display:flex;align-items:center;justify-content:center;gap:6px;width:100%;height:100%;min-height:60px;padding:10px 12px;border:0;border-right:1px solid rgba(31,51,40,.16);border-radius:0;background:transparent;box-shadow:none;color:var(--gr-tinta);font:600 14px/1.25 Montserrat,sans-serif;letter-spacing:0;text-transform:none;text-align:center;text-wrap:balance;cursor:pointer;transition:background-color .15s ease-out,color .15s ease-out}
-.gr-tabs > :last-child,.gr-tabs > .gr-tabs-mas > button{border-right:0}
-.gr-tabs > button:hover,.gr-tabs-mas > button:hover{background:rgba(255,253,248,.55)}
-.gr-tabs > button[aria-selected=true],.gr-tabs-mas > button.activa{background:#fffdf8;color:var(--gr-tinta);font-weight:700}
-.gr-tabs > button[aria-selected=true]::before,.gr-tabs-mas > button.activa::before{content:"";position:absolute;left:0;right:0;top:-2px;height:4px;background:#b55332}
-.gr-tabs > button[aria-selected=true]::after{content:none}
-.gr-tabs button:focus-visible{outline:2px solid #b55332;outline-offset:-3px}
+.gr-tabs{position:relative;display:grid;gap:0;max-width:992px;width:calc(100% - 48px);margin:0 auto;padding:0;overflow:visible;background:transparent;border:0;justify-content:stretch;
+  background-image:linear-gradient(90deg,rgba(31,51,40,.42) 0 7px,transparent 7px 13px);background-size:13px 2px;background-repeat:repeat-x;background-position:0 100%}
+.gr-tabs > button,.gr-tabs-mas > button{position:relative;display:flex;align-items:flex-end;justify-content:center;gap:6px;width:100%;height:100%;min-height:0;padding:6px 8px 20px;border:0;border-radius:0;background:transparent;box-shadow:none;
+  color:rgba(31,51,40,.78);font:600 17px/1.15 var(--display),Georgia,serif;font-variation-settings:"SOFT" 100,"WONK" 1;letter-spacing:-.01em;text-transform:none;text-align:center;text-wrap:balance;cursor:pointer;transition:color .2s ease-out}
+.gr-tabs > button:hover,.gr-tabs-mas > button:hover{color:var(--gr-tinta);background:transparent}
+/* tramo continuo bajo la pestaña activa (y uno tenue al pasar el ratón) */
+.gr-tabs > button::after,.gr-tabs-mas > button::after{content:"";position:absolute;left:10%;right:10%;bottom:0;height:3px;margin:0;border:0;border-radius:2px;background:#b55332;transform:scaleX(0);transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.gr-tabs > button:hover::after,.gr-tabs-mas > button:hover::after{transform:scaleX(.35);background:rgba(31,51,40,.45)}
+.gr-tabs > button[aria-selected=true],.gr-tabs-mas > button.activa{color:var(--gr-tinta);font-weight:800;background:transparent}
+.gr-tabs > button[aria-selected=true]::after,.gr-tabs-mas > button.activa::after{left:10%;right:10%;bottom:0;width:auto;margin:0;border:0;transform:scaleX(1);background:#b55332}
+/* punto de paso en el centro del tramo, como los marcadores del mapa */
+.gr-tabs > button::before,.gr-tabs-mas > button::before{content:"";position:absolute;left:50%;right:auto;top:auto;bottom:-4px;border:0;width:11px;height:11px;margin-left:-5.5px;border-radius:50%;background:#b55332;box-shadow:0 0 0 2.5px #e4ebe2;opacity:0;transform:scale(.4);transition:opacity .2s ease-out,transform .35s cubic-bezier(.16,1,.3,1)}
+.gr-tabs > button[aria-selected=true]::before,.gr-tabs-mas > button.activa::before{opacity:1;transform:scale(1)}
+.gr-tabs button:focus-visible{outline:2px solid #b55332;outline-offset:2px}
 .gr-tabs-mas{position:relative}
-.gr-tabs-mas svg{width:10px;height:7px;flex:none}
-.gr-tabs-menu{position:absolute;right:0;top:100%;z-index:30;min-width:260px;margin:0;padding:6px 0;list-style:none;background:#fffdf8;border:1px solid var(--gr-tinta);box-shadow:0 12px 28px rgba(31,51,40,.16)}
+.gr-tabs-mas svg{width:10px;height:7px;flex:none;margin-bottom:5px}
+.gr-tabs-menu{position:absolute;right:0;top:calc(100% + 10px);z-index:30;min-width:260px;margin:0;padding:8px 0;list-style:none;background:#fffdf8;border:1px solid rgba(31,51,40,.35);box-shadow:0 14px 30px rgba(31,51,40,.16)}
 .gr-tabs-menu li{margin:0;padding:0}
 .gr-tabs-menu li::before{content:none}
-.gr-tabs-menu button{display:block;width:100%;height:auto;min-height:0;padding:11px 18px;border:0;border-radius:0;box-shadow:none;background:transparent;text-transform:none;letter-spacing:0;color:var(--gr-tinta);font:600 14.5px/1.3 Montserrat,sans-serif;text-align:left;cursor:pointer}
-.gr-tabs-menu button:hover{background:#f2ede2}
-.gr-tabs-menu button[aria-selected=true]{color:#b55332;font-weight:700}
-.gr-paneles{margin-top:0;padding:0 24px}
-.gr-panel{background:#fffdf8;border:0;border-bottom:1px solid rgba(31,51,40,.18);border-radius:0;box-shadow:none;padding:44px 52px 48px}
+.gr-tabs .gr-tabs-menu button{display:block;width:100%;height:auto;min-height:0;padding:10px 20px;border:0;border-radius:0;box-shadow:none;background:transparent;color:var(--gr-tinta);font:600 16px/1.3 var(--display),Georgia,serif;font-variation-settings:"SOFT" 100,"WONK" 1;text-transform:none;letter-spacing:0;text-align:left;cursor:pointer}
+.gr-tabs .gr-tabs-menu button:hover{background:#f2ede2}
+.gr-tabs .gr-tabs-menu button[aria-selected=true]{background:transparent;color:#b55332;font-weight:800}
+.gr-tabs .gr-tabs-menu button::before,.gr-tabs .gr-tabs-menu button::after{content:none}
+.gr-paneles{margin-top:34px;padding:0 24px}
+.gr-panel{background:#fffdf8;border:0;border-radius:0;box-shadow:none;padding:44px 52px 48px}
 .gr-panel > h2:first-child{margin-top:0}
 @media(max-width:640px){
   .gr-pestanas{padding:44px 0 40px}
   .gr-tabs{width:calc(100% - 32px)}
-  .gr-tabs > button,.gr-tabs-mas > button{min-height:54px;padding:8px 6px;font-size:13px}
+  .gr-tabs > button,.gr-tabs-mas > button{padding:4px 4px 17px;font-size:15px}
   .gr-tabs-menu{min-width:220px}
-  .gr-paneles{padding:0 16px}
+  .gr-paneles{margin-top:26px;padding:0 16px}
   .gr-panel{padding:26px 20px 30px}
 }
-@media (prefers-reduced-motion:reduce){.gr-tabs button{transition:none}}
-.gr-tabs .gr-tabs-menu button[aria-selected=true]{background:#f2ede2;color:#b55332;font-weight:700;box-shadow:none}
-.gr-tabs .gr-tabs-menu button::before,.gr-tabs .gr-tabs-menu button::after{content:none}
+@media (prefers-reduced-motion:reduce){.gr-tabs button,.gr-tabs button::before,.gr-tabs button::after{transition:none}}
+/* El fondo vectorial (MapLibre) dibuja un lienzo algo mayor que el mapa: que no ensanche la página */
+.gr-mapa,.bs-mapa-ruta-map{overflow:hidden;contain:paint}
