@@ -195,8 +195,8 @@ function Galeria({ fotos }: { fotos: Foto[] }) {
   );
 }
 
-export default function GuiaRuta({ guia, titulo, portada, faqHtml, conclusionHtml, relacionadas }: {
-  guia: Guia; titulo: string; portada: string; faqHtml?: string; conclusionHtml?: string; relacionadas: Relacionada[];
+export default function GuiaRuta({ guia, titulo, portada, portadaCredito, faqHtml, conclusionHtml, relacionadas }: {
+  guia: Guia; titulo: string; portada: string; portadaCredito?: { credito: string; enlace: string; alt: string }; faqHtml?: string; conclusionHtml?: string; relacionadas: Relacionada[];
 }) {
   const { track, pois, ficha } = guia;
   const segmentos = guia.segmentos ?? [];
@@ -295,6 +295,7 @@ export default function GuiaRuta({ guia, titulo, portada, faqHtml, conclusionHtm
           <h1>{titulo}</h1>
           <p className="gr-lugar"><Icono n="mapa" />{ficha.lugar}</p>
         </div>
+        {portadaCredito && <a className="hero-credito" href={portadaCredito.enlace} target="_blank" rel="noopener">Foto: {portadaCredito.credito}</a>}
       </header>
 
       <section className="gr-franja" aria-label="Datos de la ruta">

@@ -3,7 +3,16 @@ export type Block = { type: string; value: string | string[] };
 export type Entry = { path: string; title: string; excerpt: string; image: string; date: string; kind: 'article' | 'page' | 'journey' | 'archive'; blocks: Block[]; summary?: string[]; coverage?: string };
 export const entries = items as Entry[];
 export const byPath = new Map(entries.map(e => [e.path, e]));
+// Portadas de máxima calidad elegidas para cada artículo (contenido/heroes/heroes.py), con su crédito.
+import heroes from '@/data/heroes.json';
+type Hero = { src: string; credito: string; enlace: string; alt: string };
+export function heroFor(entry: Entry): Hero | undefined {
+  return (heroes as Record<string, Hero>)[entry.path];
+}
+
 export function imageFor(entry: Entry) {
+  const hero = heroFor(entry);
+  if (hero) return hero.src;
   if (entry.image?.startsWith('/images/') || entry.image?.startsWith('https://bikesunrise.com/')) return entry.image;
   const key = entry.path.toLowerCase();
   if (key.includes('nepal')) return '/images/nepal.jpg';
