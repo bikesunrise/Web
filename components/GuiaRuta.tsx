@@ -303,7 +303,7 @@ export default function GuiaRuta({ guia, titulo, portada, faqHtml, conclusionHtm
       <section className="gr-pestanas" aria-label="Información práctica">
         <div className="gr-tabs" role="tablist">
           {[...ficha.pestanas, { id: 'lugares', titulo: 'Lugares', icono: 'mapa', html: '' }].map((p) => (
-            <button key={p.id} role="tab" id={`tab-${p.id}`} aria-selected={tab === p.id} aria-controls={`panel-${p.id}`} onClick={() => setTab(p.id)}>{p.titulo}</button>
+            <button key={p.id} role="tab" id={`tab-${p.id}`} aria-selected={tab === p.id} aria-controls={`panel-${p.id}`} onClick={() => setTab(p.id)}><Icono n={p.icono} />{p.titulo}</button>
           ))}
         </div>
         <div className="gr-paneles">

@@ -482,3 +482,26 @@ h2,.atlas-heading h2,.section-opening h2,.mission h2,.story-copy h2,.gear-item h
 .gr-st-v{min-width:0}
 .gr-st-v strong{min-width:0;overflow-wrap:break-word;hyphens:auto}
 .gr-st-v strong.largo{font-size:20px;line-height:1.1}
+
+/* Pestañas de la guía como botones: separadas del mapa, en varias líneas si no caben y con su icono */
+.gr-pestanas{padding:64px 0 56px}
+.gr-tabs{flex-wrap:wrap;justify-content:center;gap:10px 12px;overflow:visible;background:transparent;padding:0 24px;max-width:1080px}
+.gr-tabs button{display:inline-flex;align-items:center;gap:9px;padding:10px 20px 10px 14px;border-radius:999px;background:#fffdf8;border:1.5px solid #b9cbbd;color:var(--gr-verde);font:600 15px/1.2 Montserrat,sans-serif;letter-spacing:0;text-transform:none;box-shadow:0 1px 0 rgba(31,51,40,.06);transition:background .15s,border-color .15s,box-shadow .15s,transform .15s}
+.gr-tabs button .gr-ico{width:20px;height:20px;flex:none;color:var(--gr-verde);--bs-acento:#b55332}
+.gr-tabs button .gr-ico svg{width:100%;height:100%}
+.gr-tabs button:hover{border-color:var(--gr-verde);box-shadow:0 3px 10px rgba(31,51,40,.10);transform:translateY(-1px)}
+.gr-tabs button[aria-selected=true]{background:var(--gr-verde);border-color:var(--gr-verde);color:#fff;box-shadow:0 4px 14px rgba(31,51,40,.22)}
+.gr-tabs button[aria-selected=true] .gr-ico{color:#fff;--bs-acento:#f0b69a}
+.gr-tabs button[aria-selected=true]::after{content:none}
+.gr-paneles{margin-top:30px;padding:0 24px}
+.gr-panel{background:#fffdf8;border:1px solid #d9e2d8;border-radius:18px;padding:36px 40px;box-shadow:0 8px 28px rgba(31,51,40,.07)}
+.gr-panel > h2:first-child{margin-top:0}
+@media(max-width:640px){
+  .gr-pestanas{padding:44px 0 40px}
+  .gr-tabs{gap:8px;padding:0 16px}
+  .gr-tabs button{padding:8px 14px 8px 11px;font-size:14px}
+  .gr-tabs button .gr-ico{width:18px;height:18px}
+  .gr-paneles{margin-top:22px;padding:0 16px}
+  .gr-panel{padding:24px 20px;border-radius:14px}
+}
+@media (prefers-reduced-motion:reduce){.gr-tabs button{transition:none}.gr-tabs button:hover{transform:none}}
