@@ -12,21 +12,29 @@ import { fondoMapa } from '@/lib/mapaBase';
 import { ICONOS, conIconos } from '@/lib/iconos';
 
 export type Punto = [number, number, number, number]; // lat, lon, km, altitud
-export type Poi = { tipo: string; nombre: string; km: number; lat: number; lon: number };
+export type Poi = { tipo: string; nombre: string; km: number; // en guías sin traza puede venir null
+  lat: number; lon: number; fijo?: boolean };
 type Foto = { src: string; alt: string; credito: string; enlace?: string };
+export type Segmento = { nombre: string; color: string; discontinuo?: boolean; puntos: [number, number][] };
 export type Guia = {
+  // track: traza continua con altitudes (mapa, perfil y marcas de km). Puede ir vacía en rutas sin
+  // traza abierta en OpenStreetMap; entonces el mapa muestra solo los segmentos y los lugares.
   track: Punto[];
+  segmentos?: Segmento[];
   pois: Poi[];
   ficha: {
     lugar: string;
-    gpx: string;
+    gpx?: string;
+    track_oficial?: { texto: string; url: string };
     stats: [string, string, string, string][];
-    dificultad: { total: number; partes: [string, number, string][] };
+    // nota: de dónde sale la valoración (por defecto, «Valoración de Bikesunrise»)
+    dificultad?: { total: number; partes: [string, number, string][]; nota?: string };
     entradilla: string;
-    cuerpo_1: string;
-    cuerpo_2: string;
-    dificultad_html: string;
-    desarrollo_html: string;
+    // Bloques de texto opcionales: las guías generadas desde el artículo llevan su texto en las pestañas.
+    cuerpo_1?: string;
+    cuerpo_2?: string;
+    dificultad_html?: string;
+    desarrollo_html?: string;
     pestanas: { id: string; titulo: string; icono: string; html: string }[];
     fotos: Foto[];
   };
@@ -53,16 +61,17 @@ export function Perfil({ track, pueblos, onKm, km }: { track: Punto[]; pueblos: 
   const total = track[track.length - 1][2];
   const x = (k: number) => IZ + (k / total) * (W - IZ - DE);
   const y = (a: number) => AR + (1 - (a - base) / (top - base)) * (H - AR - AB);
-  const linea = track.map((p, i) => `${i ? 'L' : 'M'}${x(p[2]).toFixed(1)},${y(p[3]).toFixed(1)}`).join('');
+  const linea = track.map((p, i) => `${i && !(p[2] === track[i - 1][2] && p[0] !== track[i - 1][0]) ? 'L' : 'M'}${x(p[2]).toFixed(1)},${y(p[3]).toFixed(1)}`).join('');
   const area = `${linea}L${x(total).toFixed(1)},${H - AB}L${x(0)},${H - AB}Z`;
   const alto = track.reduce((a, b) => (b[3] > a[3] ? b : a));
   const cerca = km == null ? null : track.reduce((a, b) => (Math.abs(b[2] - km) < Math.abs(a[2] - km) ? b : a));
   const pueblo = cerca ? pueblos.reduce((a, b) => (Math.abs(b.km - cerca[2]) < Math.abs(a.km - cerca[2]) ? b : a), pueblos[0]) : null;
-  // pueblos que se rotulan: separados al menos 9 km para que no se pisen
-  // pueblos que se rotulan: salida, llegada y Girona siempre; el resto, separados al menos 9 km
-  const fijos = pueblos.filter((p, i) => i === 0 || i === pueblos.length - 1 || p.nombre === 'Girona');
+  // pueblos que se rotulan: salida, llegada y los marcados como fijos (o Girona) siempre; el resto,
+  // separados al menos 9 km, o una undécima parte de la ruta en las largas, para que no se pisen
+  const hueco = Math.max(9, total / 11);
+  const fijos = pueblos.filter((p, i) => i === 0 || i === pueblos.length - 1 || p.fijo || p.nombre === 'Girona');
   const rotulos: Poi[] = [...fijos];
-  for (const p of pueblos) if (rotulos.every((r) => Math.abs(r.km - p.km) >= 9)) rotulos.push(p);
+  for (const p of pueblos) if (rotulos.every((r) => Math.abs(r.km - p.km) >= hueco)) rotulos.push(p);
   rotulos.sort((a, b) => a.km - b.km);
   const corto = (n: string) => n.replace(/^Sant /, 'St. ');
   const ref = useRef<SVGSVGElement>(null);
@@ -72,8 +81,11 @@ export function Perfil({ track, pueblos, onKm, km }: { track: Punto[]; pueblos: 
   };
   const marcas: number[] = [];
   for (let a = base; a <= top; a += top - base > 600 ? 200 : 100) marcas.push(a);
+  // rayas del eje cada 10 km y rótulos cada 20 km; en rutas largas, más espaciados (máximo ~12 rótulos)
+  const rotulo = [20, 50, 100, 200, 500].find((r) => total / r <= 12) ?? 500;
+  const raya = rotulo / 2;
   const kms: number[] = [];
-  for (let k = 0; k <= total; k += 10) kms.push(k);
+  for (let k = 0; k <= total; k += raya) kms.push(k);
   const tx = cerca ? Math.min(Math.max(x(cerca[2]) - 95, IZ), W - DE - 190) : 0;
   return (
     <figure className="gr-perfil-fig">
@@ -82,7 +94,7 @@ export function Perfil({ track, pueblos, onKm, km }: { track: Punto[]; pueblos: 
           <linearGradient id="gr-relleno" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor="#b55332" stopOpacity=".42" /><stop offset="1" stopColor="#b55332" stopOpacity=".04" /></linearGradient>
         </defs>
         {marcas.map((a) => <g key={a} className="gr-p-rej"><line x1={IZ} x2={W - DE} y1={y(a)} y2={y(a)} /><text x={IZ - 10} y={y(a) + 4} textAnchor="end">{a} m</text></g>)}
-        {kms.map((k) => <g key={k} className="gr-p-km"><line x1={x(k)} x2={x(k)} y1={H - AB} y2={H - AB + 6} />{k % 20 === 0 && <text x={x(k)} y={H - AB + 22} textAnchor="middle">{k} km</text>}</g>)}
+        {kms.map((k) => <g key={k} className="gr-p-km"><line x1={x(k)} x2={x(k)} y1={H - AB} y2={H - AB + 6} />{k % rotulo === 0 && <text x={x(k)} y={H - AB + 22} textAnchor="middle">{k} km</text>}</g>)}
         {rotulos.map((p) => (
           <g key={p.nombre} className="gr-p-pueblo">
             <line x1={x(p.km)} x2={x(p.km)} y1={AR - 6} y2={H - AB} />
@@ -135,6 +147,8 @@ export default function GuiaRuta({ guia, titulo, portada, faqHtml, conclusionHtm
   guia: Guia; titulo: string; portada: string; faqHtml?: string; conclusionHtml?: string; relacionadas: Relacionada[];
 }) {
   const { track, pois, ficha } = guia;
+  const segmentos = guia.segmentos ?? [];
+  const hayTraza = track.length > 1;
   const mapaRef = useRef<HTMLDivElement>(null);
   const marcador = useRef<any>(null);
   const capas = useRef<Record<string, any>>({});
@@ -151,19 +165,33 @@ export default function GuiaRuta({ guia, titulo, portada, faqHtml, conclusionHtm
       if (!mapaRef.current || (mapaRef.current as any)._leaflet_id) return;
       mapa = L.map(mapaRef.current, { scrollWheelZoom: false, zoomSnap: 0.25 });
       await fondoMapa(L, mapa);
-      const traza = track.map((p) => [p[0], p[1]] as [number, number]);
-      L.polyline(traza, { color: '#fff', weight: 9, opacity: 0.95 }).addTo(mapa);
-      const linea = L.polyline(traza, { color: '#b55332', weight: 5, opacity: 1 }).addTo(mapa);
-      mapa.fitBounds(linea.getBounds(), { padding: [24, 24] });
-      // Marcas de kilómetro, como en las apps de rutas: cada 10 km, o cada 20/50 km si con el zoom
+      const encuadre: any[] = [];
+      for (const sg of segmentos) {
+        L.polyline(sg.puntos, { color: '#fff', weight: 9, opacity: 0.9 }).addTo(mapa);
+        encuadre.push(L.polyline(sg.puntos, { color: sg.color, weight: 5, opacity: 1, dashArray: sg.discontinuo ? '8 8' : undefined }).bindTooltip(sg.nombre).addTo(mapa));
+      }
+      // La traza se corta donde OpenStreetMap tiene un hueco (dos puntos seguidos con el mismo km).
+      const partes: [number, number][][] = [[]];
+      track.forEach((p, i) => {
+        if (i && p[2] === track[i - 1][2] && (p[0] !== track[i - 1][0] || p[1] !== track[i - 1][1])) partes.push([]);
+        partes[partes.length - 1].push([p[0], p[1]]);
+      });
+      if (hayTraza) {
+        L.polyline(partes, { color: '#fff', weight: 9, opacity: 0.95 }).addTo(mapa);
+        encuadre.push(L.polyline(partes, { color: '#b55332', weight: 5, opacity: 1 }).addTo(mapa));
+      }
+      // sin traza, el encuadre incluye también los pueblos de etapa
+      if (!hayTraza) encuadre.push(...pois.filter((p) => p.tipo === 'pueblo').map((p) => L.marker([p.lat, p.lon])));
+      mapa.fitBounds(L.featureGroup(encuadre).getBounds(), { padding: [24, 24] });
+      // Marcas de kilómetro, como en las apps de rutas: cada 10 km, o cada 20/50/100/200 km si con el zoom
       // actual quedarían montadas unas sobre otras.
       const marcas = new Map<number, any>();
-      for (let k = 10; k < track[track.length - 1][2]; k += 10) {
+      for (let k = 10; hayTraza && k < track[track.length - 1][2]; k += 10) {
         const p = track.reduce((a, b) => (Math.abs(b[2] - k) < Math.abs(a[2] - k) ? b : a));
         marcas.set(k, L.marker([p[0], p[1]], { icon: L.divIcon({ className: 'gr-km', html: String(k), iconSize: [24, 24] }), keyboard: false, interactive: false }));
       }
       const repartir = () => {
-        const pasos = [10, 20, 50].filter((paso) => {
+        const pasos = [10, 20, 50, 100, 200].filter((paso) => {
           const pts = [...marcas].filter(([k]) => k % paso === 0).map(([, m]) => mapa.latLngToContainerPoint(m.getLatLng()));
           return pts.every((pt, i) => i === 0 || pt.distanceTo(pts[i - 1]) >= 34);
         });
@@ -171,17 +199,21 @@ export default function GuiaRuta({ guia, titulo, portada, faqHtml, conclusionHtm
       };
       repartir();
       mapa.on('zoomend', repartir);
-      L.circleMarker([track[0][0], track[0][1]], { radius: 8, color: '#fff', weight: 3, fillColor: '#1f3328', fillOpacity: 1 }).bindTooltip('Salida').addTo(mapa);
-      L.circleMarker([track[track.length - 1][0], track[track.length - 1][1]], { radius: 8, color: '#fff', weight: 3, fillColor: '#b55332', fillOpacity: 1 }).bindTooltip('Llegada').addTo(mapa);
+      if (hayTraza) {
+        L.circleMarker([track[0][0], track[0][1]], { radius: 8, color: '#fff', weight: 3, fillColor: '#1f3328', fillOpacity: 1 }).bindTooltip('Salida').addTo(mapa);
+        L.circleMarker([track[track.length - 1][0], track[track.length - 1][1]], { radius: 8, color: '#fff', weight: 3, fillColor: '#b55332', fillOpacity: 1 }).bindTooltip('Llegada').addTo(mapa);
+      }
       for (const t of Object.keys(TIPO)) {
         const g = L.layerGroup();
         for (const p of pois.filter((x) => x.tipo === t)) {
-          L.circleMarker([p.lat, p.lon], { radius: t === 'pueblo' ? 6 : 5, color: '#fff', weight: 2, fillColor: TIPO[t].color, fillOpacity: 1 })
-            .bindTooltip(`${p.nombre || TIPO[t].nombre.replace(/s$/, '')} · km ${p.km}`).addTo(g);
+          // Sin traza, los pueblos de etapa son la referencia del mapa: más grandes y con el nombre siempre visible.
+          const etapa = !hayTraza && t === 'pueblo';
+          L.circleMarker([p.lat, p.lon], { radius: etapa ? 8 : t === 'pueblo' ? 6 : 5, color: '#fff', weight: etapa ? 3 : 2, fillColor: etapa ? '#b55332' : TIPO[t].color, fillOpacity: 1 })
+            .bindTooltip(`${p.nombre || TIPO[t].nombre.replace(/s$/, '')}${p.km != null ? ` · km ${p.km}` : ''}`, etapa ? { permanent: true, direction: 'right', className: 'gr-etiqueta' } : undefined).addTo(g);
         }
         capas.current[t] = g;
       }
-      marcador.current = L.circleMarker([track[0][0], track[0][1]], { radius: 7, color: '#fff', weight: 3, fillColor: '#1f3328', fillOpacity: 0, opacity: 0 }).addTo(mapa);
+      if (hayTraza) marcador.current = L.circleMarker([track[0][0], track[0][1]], { radius: 7, color: '#fff', weight: 3, fillColor: '#1f3328', fillOpacity: 0, opacity: 0 }).addTo(mapa);
       (mapaRef.current as any).__mapa = mapa;
       setVisibles((v) => [...v]);
     })();
@@ -216,20 +248,22 @@ export default function GuiaRuta({ guia, titulo, portada, faqHtml, conclusionHtm
       <section className="gr-franja" aria-label="Datos de la ruta">
         <div className="gr-franja-in">
           <ul className="gr-stats">
-            {ficha.stats.map(([ic, et, v, nota]) => <li key={et}><span className="gr-st-et">{et}</span><div className="gr-st-v"><Icono n={ic} /><strong>{v}</strong></div>{nota && <small>{nota}</small>}</li>)}
+            {ficha.stats.map(([ic, et, v, nota]) => <li key={et}><span className="gr-st-et">{et}</span><div className="gr-st-v"><Icono n={ic} /><strong className={v.length > 14 ? 'largo' : undefined}>{v}</strong></div>{nota && <small>{nota}</small>}</li>)}
           </ul>
-          <aside className="gr-tarjeta" aria-label="Dificultad">
-            <p className="gr-tarjeta-k">Dificultad</p>
-            <p className="gr-tarjeta-n"><strong>{ficha.dificultad.total}</strong>/10</p>
-            <ul>{ficha.dificultad.partes.map(([n, v, et]) => <li key={n}><span>{n}</span><b>{v}</b><em>{et}</em></li>)}</ul>
-            <p className="gr-tarjeta-nota">Valoración de Bikesunrise</p>
-          </aside>
+          {ficha.dificultad && (
+            <aside className="gr-tarjeta" aria-label="Dificultad">
+              <p className="gr-tarjeta-k">Dificultad</p>
+              <p className="gr-tarjeta-n"><strong>{ficha.dificultad!.total}</strong>/10</p>
+              <ul>{ficha.dificultad!.partes.map(([n, v, et]) => <li key={n}><span>{n}</span><b>{v}</b><em>{et}</em></li>)}</ul>
+              <p className="gr-tarjeta-nota">{ficha.dificultad!.nota || 'Valoración de Bikesunrise'}</p>
+            </aside>
+          )}
         </div>
       </section>
 
       <div className="gr-columna">
         <Html className="gr-entradilla" html={ficha.entradilla} />
-        <Html className="gr-texto" html={ficha.cuerpo_1} />
+        {ficha.cuerpo_1 && <Html className="gr-texto" html={ficha.cuerpo_1} />}
       </div>
       {mosaico.length >= 3 && (
         <div className="gr-mosaico">
@@ -237,9 +271,9 @@ export default function GuiaRuta({ guia, titulo, portada, faqHtml, conclusionHtm
         </div>
       )}
       <div className="gr-columna">
-        <Html className="gr-texto" html={ficha.cuerpo_2} />
-        <section className="gr-cajadif" aria-labelledby="gr-dif"><h2 id="gr-dif">Dificultad de la ruta</h2><Html className="gr-texto" html={ficha.dificultad_html} /></section>
-        <section className="gr-desarrollo" aria-labelledby="gr-des"><h2 id="gr-des">Cómo la hice</h2><Html className="gr-texto" html={ficha.desarrollo_html} /></section>
+        {ficha.cuerpo_2 && <Html className="gr-texto" html={ficha.cuerpo_2} />}
+        {ficha.dificultad_html && <section className="gr-cajadif" aria-labelledby="gr-dif"><h2 id="gr-dif">Dificultad de la ruta</h2><Html className="gr-texto" html={ficha.dificultad_html} /></section>}
+        {ficha.desarrollo_html && <section className="gr-desarrollo" aria-labelledby="gr-des"><h2 id="gr-des">Cómo la hice</h2><Html className="gr-texto" html={ficha.desarrollo_html} /></section>}
       </div>
 
       <Galeria fotos={ficha.fotos} />
@@ -255,12 +289,14 @@ export default function GuiaRuta({ guia, titulo, portada, faqHtml, conclusionHtm
             ))}
           </div>
           <div ref={mapaRef} className="gr-mapa" aria-label="Mapa interactivo de la ruta" />
-          <Perfil track={track} pueblos={pois.filter((p) => p.tipo === 'pueblo')} km={km} onKm={setKm} />
+          {segmentos.length > 0 && <ul className="gr-leyenda">{segmentos.filter((sg, i) => segmentos.findIndex((o) => o.nombre === sg.nombre) === i).map((sg) => <li key={sg.nombre}><i style={{ background: sg.color, opacity: sg.discontinuo ? 0.6 : 1 }} />{sg.nombre}</li>)}</ul>}
+          {hayTraza && <Perfil track={track} pueblos={pois.filter((p) => p.tipo === 'pueblo')} km={km} onKm={setKm} />}
           <div className="gr-acciones">
-            <a className="gr-boton" href={ficha.gpx} download><Icono n="distancia" />Descargar GPX</a>
+            {ficha.gpx && <a className="gr-boton" href={ficha.gpx} download><Icono n="distancia" />Descargar GPX</a>}
+            {ficha.track_oficial && <a className="gr-boton" href={ficha.track_oficial.url} target="_blank" rel="noopener"><Icono n="distancia" />{ficha.track_oficial.texto}</a>}
             <Link className="gr-boton gr-boton--claro" href="/contacto/"><Icono n="aviso" />Avisar de un cambio en la ruta</Link>
           </div>
-          <p className="gr-fuente">Pasa el dedo o el ratón por el perfil para ver el punto en el mapa. Traza: © colaboradores de OpenStreetMap (ODbL). Altitudes: EU-DEM.</p>
+          <p className="gr-fuente">{hayTraza ? 'Pasa el dedo o el ratón por el perfil para ver el punto en el mapa. Traza: © colaboradores de OpenStreetMap (ODbL). Altitudes: EU-DEM.' : 'Lugares y tramos: © colaboradores de OpenStreetMap (ODbL).'}</p>
         </div>
       </section>
 
@@ -271,13 +307,13 @@ export default function GuiaRuta({ guia, titulo, portada, faqHtml, conclusionHtm
           ))}
         </div>
         <div className="gr-paneles">
-          {ficha.pestanas.map((p) => <div key={p.id} role="tabpanel" id={`panel-${p.id}`} aria-labelledby={`tab-${p.id}`} hidden={tab !== p.id} className={'gr-panel ' + (p.id === 'lo-mejor' ? 'gr-panel--dos' : '')} dangerouslySetInnerHTML={{ __html: p.html }} />)}
+          {ficha.pestanas.map((p) => <div key={p.id} role="tabpanel" id={`panel-${p.id}`} aria-labelledby={`tab-${p.id}`} hidden={tab !== p.id} className={'gr-panel rich-block ' + (p.id === 'lo-mejor' ? 'gr-panel--dos' : '')} dangerouslySetInnerHTML={{ __html: conIconos(p.html) }} />)}
           <div role="tabpanel" id="panel-lugares" aria-labelledby="tab-lugares" hidden={tab !== 'lugares'} className="gr-panel">
             <div className="gr-filtros" role="group" aria-label="Tipo de lugar">
               {tipos.map((t) => <button key={t} type="button" aria-pressed={filtro === t} onClick={() => setFiltro(t)}><Icono n={TIPO[t].icono} />{TIPO[t].nombre}</button>)}
             </div>
             <ol className="gr-lista">
-              {lista.map((p, i) => <li key={i} onMouseEnter={() => setKm(p.km)} onMouseLeave={() => setKm(null)}><span className="gr-km">km {p.km}</span><strong>{p.nombre || 'Fuente'}</strong></li>)}
+              {lista.map((p, i) => <li key={i} onMouseEnter={() => setKm(p.km)} onMouseLeave={() => setKm(null)}>{p.km != null && <span className="gr-km">km {p.km}</span>}<strong>{p.nombre || 'Fuente'}</strong></li>)}
             </ol>
           </div>
         </div>

@@ -470,3 +470,15 @@ h2,.atlas-heading h2,.section-opening h2,.mission h2,.story-copy h2,.gear-item h
 .gr-km{display:flex;align-items:center;justify-content:center;border-radius:50%;background:#fff;border:2px solid #b55332;color:#1f3328;font:700 10px/1 var(--font-sans,system-ui,sans-serif);box-shadow:0 1px 3px rgba(0,0,0,.25)}
 /* El fondo vectorial va en un canvas: que las reglas de imágenes de los artículos no lo toquen */
 .leaflet-container .leaflet-gl-layer,.leaflet-container canvas{max-width:none!important;filter:none!important}
+
+/* Leyenda de tramos en guías sin traza continua (p. ej. tramos abiertos de una vía verde) */
+.gr-leyenda{display:flex;flex-wrap:wrap;gap:8px 20px;list-style:none;margin:12px 0 0;padding:0;font-size:.85rem;color:var(--bs-tinta,#1f3328)}
+.gr-leyenda li{display:flex;align-items:center;gap:8px}
+.gr-leyenda i{display:inline-block;width:26px;height:5px;border-radius:3px}
+/* Nombre fijo de los pueblos de etapa en guías sin traza */
+.leaflet-tooltip.gr-etiqueta{background:#fff;border:0;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.25);color:#1f3328;font-weight:700;font-size:12px;padding:2px 6px}
+.leaflet-tooltip.gr-etiqueta::before{display:none}
+/* Valores largos de la franja (fichas tomadas del artículo): que no se salgan de su columna */
+.gr-st-v{min-width:0}
+.gr-st-v strong{min-width:0;overflow-wrap:break-word;hyphens:auto}
+.gr-st-v strong.largo{font-size:20px;line-height:1.1}

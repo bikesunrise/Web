@@ -9,7 +9,8 @@ import { fondoMapa } from '@/lib/mapaBase';
 import { Perfil, type Punto, type Poi } from '@/components/GuiaRuta';
 
 export type DatosMapa = {
-  segmentos: { nombre: string; color: string; discontinuo?: boolean; puntos: [number, number][] }[];
+  // puntos: una línea, o varias piezas (rutas largas como las EuroVelo, con cortes y variantes)
+  segmentos: { nombre: string; color: string; discontinuo?: boolean; puntos: [number, number][] | [number, number][][] }[];
   pois: { nombre: string; km?: string | number | null; lat: number; lon: number; tipo?: string }[];
   perfil?: Punto[];
   nota?: string;
@@ -27,15 +28,17 @@ export default function MapaRuta({ datos }: { datos: DatosMapa }) {
       if (!ref.current || (ref.current as any)._leaflet_id) return;
       mapa = L.map(ref.current, { scrollWheelZoom: false, zoomSnap: 0.25 });
       await fondoMapa(L, mapa);
-      for (const s of datos.segmentos) L.polyline(s.puntos, { color: '#fff', weight: 9, opacity: 0.9 }).addTo(mapa);
-      const capas = datos.segmentos.map((s) => L.polyline(s.puntos, { color: s.color, weight: 5, opacity: 0.95, dashArray: s.discontinuo ? '8 8' : undefined }).bindTooltip(s.nombre).addTo(mapa));
+      // Rutas de escala europea: línea más fina para que no tape el mapa
+      const fina = datos.segmentos.some((s) => Array.isArray(s.puntos[0]?.[0]));
+      for (const s of datos.segmentos) L.polyline(s.puntos as any, { color: '#fff', weight: fina ? 6 : 9, opacity: 0.9 }).addTo(mapa);
+      const capas = datos.segmentos.map((s) => L.polyline(s.puntos as any, { color: s.color, weight: fina ? 3 : 5, opacity: 0.95, dashArray: s.discontinuo ? '8 8' : undefined }).bindTooltip(s.nombre).addTo(mapa));
       mapa.fitBounds(L.featureGroup(capas).getBounds(), { padding: [20, 20] });
       for (const p of datos.pois) {
         const menor = p.tipo === 'tunel' || p.tipo === 'viaducto';
         L.circleMarker([p.lat, p.lon], { radius: menor ? 4 : 6.5, color: '#fff', weight: menor ? 1.5 : 2.5, fillColor: COLOR[p.tipo || ''] || '#1f3328', fillOpacity: 1 })
           .bindTooltip(p.km != null && p.km !== '' ? `${p.nombre} · km ${p.km}` : p.nombre).addTo(mapa);
       }
-      marcador.current = L.circleMarker(datos.segmentos[0].puntos[0], { radius: 7, color: '#fff', weight: 3, fillColor: '#1f3328', fillOpacity: 0, opacity: 0 }).addTo(mapa);
+      if (datos.perfil) marcador.current = L.circleMarker([datos.perfil[0][0], datos.perfil[0][1]], { radius: 7, color: '#fff', weight: 3, fillColor: '#1f3328', fillOpacity: 0, opacity: 0 }).addTo(mapa);
     })();
     return () => { if (mapa) mapa.remove(); };
   }, [datos]);

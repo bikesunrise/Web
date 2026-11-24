@@ -2986,6 +2986,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-mapa-ruta\" data-mapa=\"eurovelo-1\"></div>"
+      },
+      {
+        "type": "html",
         "value": "<h2>¿Qué es la Eurovelo 1?</h2>"
       },
       {
@@ -3148,6 +3152,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-mapa-ruta\" data-mapa=\"eurovelo-11\"></div>"
+      },
+      {
+        "type": "html",
         "value": "<h2>¿Qué es la Eurovelo 11?</h2>"
       },
       {
@@ -3306,6 +3314,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-mapa-ruta\" data-mapa=\"eurovelo-12\"></div>"
+      },
+      {
+        "type": "html",
         "value": "<h2>¿Qué es la Eurovelo 12?\n</h2>"
       },
       {
@@ -3409,6 +3421,10 @@
       {
         "type": "html",
         "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>Más de 10.400 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Recorrido</span><strong>La línea del antiguo Telón de Acero</strong></div><div><i class=\"bs-i\" data-i=\"bici\"></i><span>Países</span><strong>20</strong></div></div>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-mapa-ruta\" data-mapa=\"eurovelo-13\"></div>"
       },
       {
         "type": "html",
@@ -3586,6 +3602,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-mapa-ruta\" data-mapa=\"eurovelo-2\"></div>"
+      },
+      {
+        "type": "html",
         "value": "<h2>¿Qué es la Eurovelo 2?</h2>"
       },
       {
@@ -3673,6 +3693,10 @@
       {
         "type": "html",
         "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>Unos 5.100 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Recorrido</span><strong>De Noruega a Santiago</strong></div><div><i class=\"bs-i\" data-i=\"dias\"></i><span>Duración</span><strong>De 2 a 3 meses</strong></div><div><i class=\"bs-i\" data-i=\"temporada\"></i><span>Época</span><strong>Primavera y verano</strong></div></div>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-mapa-ruta\" data-mapa=\"eurovelo-3\"></div>"
       },
       {
         "type": "html",
@@ -3799,6 +3823,10 @@
       {
         "type": "html",
         "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>Unos 4.000 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Recorrido</span><strong>De Roscoff (Francia) a Ucrania</strong></div><div><i class=\"bs-i\" data-i=\"bici\"></i><span>Países</span><strong>7</strong></div></div>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-mapa-ruta\" data-mapa=\"eurovelo-4\"></div>"
       },
       {
         "type": "html",
@@ -3941,6 +3969,10 @@
       {
         "type": "html",
         "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>Unos 3.900 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Recorrido</span><strong>De Londres a Italia</strong></div><div><i class=\"bs-i\" data-i=\"temporada\"></i><span>Época</span><strong>De abril a octubre</strong></div></div>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-mapa-ruta\" data-mapa=\"eurovelo-5\"></div>"
       },
       {
         "type": "html",
@@ -4146,6 +4178,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-mapa-ruta\" data-mapa=\"eurovelo-6\"></div>"
+      },
+      {
+        "type": "html",
         "value": "<h2>¿Qué es la Eurovelo 6?</h2>"
       },
       {
@@ -4288,6 +4324,10 @@
       },
       {
         "type": "html",
+        "value": "<div class=\"bs-mapa-ruta\" data-mapa=\"eurovelo-7\"></div>"
+      },
+      {
+        "type": "html",
         "value": "<p>En este artículo, <strong>te proporcionaremos toda la información que necesitas para recorrer la Eurovelo 7:</strong> desde un mapa detallado y los mejores tramos, hasta consejos prácticos sobre alojamiento, equipo y seguridad en el camino.</p>"
       },
       {
@@ -4427,6 +4467,10 @@
       {
         "type": "html",
         "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Distancia</span><strong>Más de 7.500 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Recorrido</span><strong>De Cádiz a Chipre por el Mediterráneo</strong></div><div><i class=\"bs-i\" data-i=\"bici\"></i><span>Países</span><strong>11</strong></div><div><i class=\"bs-i\" data-i=\"temporada\"></i><span>Época</span><strong>Primavera y otoño</strong></div></div>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-mapa-ruta\" data-mapa=\"eurovelo-8\"></div>"
       },
       {
         "type": "html",
@@ -4581,6 +4625,10 @@
       {
         "type": "html",
         "value": "<div class=\"bs-ficha\"><div><i class=\"bs-i\" data-i=\"distancia\"></i><span>Red planificada</span><strong>Casi 90.000 km</strong></div><div><i class=\"bs-i\" data-i=\"mapa\"></i><span>Señalizados</span><strong>Cerca de 50.000 km</strong></div><div><i class=\"bs-i\" data-i=\"bici\"></i><span>Países</span><strong>Más de 40</strong></div></div>"
+      },
+      {
+        "type": "html",
+        "value": "<div class=\"bs-mapa-ruta\" data-mapa=\"eurovelo-todas\"></div>"
       },
       {
         "type": "html",
